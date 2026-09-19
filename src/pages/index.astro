@@ -22,6 +22,14 @@ const categories = [
   { title: 'Spirits', blurb: 'Whiskey, tequila, vodka, rum and more at state minimum pricing.', href: '/allocated-bourbon/#spirits', photo: 'tile-spirits.jpg', icon: 'spirits' },
   { title: 'Walk-In Cooler', blurb: 'Cold singles, 4-packs and cases, ready to go.', href: '/craft-beer/#cooler', photo: 'tile-cooler.jpg', icon: 'cooler' },
 ] as const;
+
+const eventOfferings = [
+  { icon: 'beer', label: 'Beer' },
+  { icon: 'wine', label: 'Wine' },
+  { icon: 'spirits', label: 'Spirits' },
+  { icon: 'ice', label: 'Ice' },
+  { icon: 'table', label: 'Tables' },
+] as const;
 ---
 <BaseLayout
   title="Palace Liquor | Liquor Store in Clawson, MI: Wine, Bourbon, Craft Beer & Cigars"
@@ -37,6 +45,42 @@ const categories = [
   >
     <ActionButtons />
   </Hero>
+
+  <!-- Events & catering: the headline feature -->
+  <section class="relative isolate overflow-hidden bg-burgundy py-20 text-cream sm:py-28" aria-labelledby="events-title">
+    <div class="pointer-events-none absolute -left-32 -top-32 -z-10 h-96 w-96 rounded-full border border-gold/25" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -bottom-40 -right-24 -z-10 h-[28rem] w-[28rem] rounded-full border border-gold/20" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -bottom-24 -right-8 -z-10 h-72 w-72 rounded-full border border-gold/15" aria-hidden="true"></div>
+    <div class="container-x reveal text-center">
+      <p class="eyebrow text-gold-light">Events &amp; catering</p>
+      <h2 id="events-title" class="mx-auto mt-4 max-w-4xl text-display uppercase">Let us handle<br />the drinks.</h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-cream/90 sm:text-xl">
+        Weddings, graduation parties, birthdays, office events and backyard BBQs. Tell us your guest count,
+        we'll recommend exactly what you need, and we'll deliver it.
+      </p>
+
+      <ul class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-8" aria-label="What we provide">
+        {eventOfferings.map((o) => (
+          <li class="flex w-24 flex-col items-center gap-2">
+            <span class="grid h-16 w-16 place-items-center rounded-full border-2 border-gold/70 text-gold-light sm:h-20 sm:w-20">
+              <Icon name={o.icon} class="h-8 w-8 sm:h-9 sm:w-9" />
+            </span>
+            <span class="text-sm font-semibold uppercase tracking-wider sm:text-base">{o.label}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p class="mx-auto mt-10 inline-flex items-center gap-2 rounded-full border border-gold/50 bg-black/20 px-5 py-2.5 font-semibold text-gold-light">
+        <Icon name="ice" class="h-5 w-5 flex-none" /> {site.cateringOffer.text}
+      </p>
+
+      <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="/events-catering/" class="btn btn-gold px-8 text-lg">Plan your event <Icon name="arrow" class="h-5 w-5" /></a>
+        <a href={telHref} class="btn btn-outline-light px-8 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
+      </div>
+      <p class="mt-6 text-cream/75">Kegs, tappers and tables too. <a href="/kegs-rentals/" class="font-semibold text-cream underline underline-offset-4">See rentals</a></p>
+    </div>
+  </section>
 
   <!-- Categories -->
   <section class="py-16 sm:py-24" aria-labelledby="shop-title">
@@ -65,7 +109,8 @@ const categories = [
     </div>
   </section>
 
-  <!-- Now on the shelf -->
+  <!-- Now on the shelf (turn on with showNowOnTheShelf in site.config.ts) -->
+  {site.showNowOnTheShelf && (
   <section class="py-16 sm:py-24" aria-labelledby="shelf-title">
     <div class="container-x">
       <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -91,30 +136,7 @@ const categories = [
       </div>
     </div>
   </section>
-
-  <!-- Events teaser -->
-  <section class="relative isolate overflow-hidden bg-burgundy text-cream" aria-labelledby="events-title">
-    <div class="container-x grid items-center gap-10 py-16 sm:py-20 lg:grid-cols-2">
-      <div class="reveal">
-        <p class="eyebrow text-gold-light">Events & catering</p>
-        <h2 id="events-title" class="mt-3 text-h1 uppercase">Let us handle the drinks.</h2>
-        <p class="mt-5 max-w-xl text-lg text-cream/90">
-          Weddings, grad parties, office events and backyard BBQs. Tell us your guest count and we'll recommend exactly
-          what you need, then deliver it: beer, wine, spirits, ice and tables.
-        </p>
-        <p class="mt-4 inline-flex items-center gap-2 rounded-lg bg-black/20 px-4 py-2 font-semibold text-gold-light">
-          <Icon name="ice" class="h-5 w-5" /> {site.cateringOffer.text}
-        </p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/events-catering/" class="btn btn-gold">Plan your event <Icon name="arrow" class="h-5 w-5" /></a>
-          <a href="/kegs-rentals/" class="btn btn-outline-light">Kegs & table rentals</a>
-        </div>
-      </div>
-      <div class="reveal overflow-hidden rounded-2xl">
-        <ImageSlot photo="events.jpg" alt="Drinks set up for a party catered by Palace Liquor" aspect="aspect-[4/3]" />
-      </div>
-    </div>
-  </section>
+  )}
 
   <!-- Visit -->
   <section class="py-16 sm:py-24" aria-labelledby="visit-title">

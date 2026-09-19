@@ -20,7 +20,7 @@ Most updates only need a text edit in your browser:
 | What you want to change | File |
 | --- | --- |
 | Phone, address, **hours**, email, DoorDash link, Instagram/Facebook, Google review link, form addresses, free-ice offer | `src/site.config.ts` |
-| Home page **"Now on the Shelf"** (new arrivals & staff picks) | `src/data/now-on-the-shelf.json` |
+| Home page **"Now on the Shelf"** (currently hidden; set `showNowOnTheShelf: true` in `src/site.config.ts` to show it) | `src/data/now-on-the-shelf.json` |
 | Allocated bourbon **"On the shelf right now"** | `src/data/bourbon-shelf.json` |
 | Craft beer **"What's new"** | `src/data/beer.json` |
 | Wine styles, regions & staff picks | `src/data/wine.json` |

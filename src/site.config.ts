@@ -59,6 +59,9 @@ export const site = {
     rentalRequest: 'https://formspree.io/f/[PLACEHOLDER-RENTAL-FORM-ID]',
   },
 
+  /** Show the "Now on the Shelf" section on the home page (items live in src/data/now-on-the-shelf.json). */
+  showNowOnTheShelf: false,
+
   /** Free-ice offer on catering orders. */
   cateringOffer: {
     minimum: 250,
