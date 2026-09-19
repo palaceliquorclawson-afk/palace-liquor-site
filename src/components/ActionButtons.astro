@@ -1,0 +1,21 @@
+---
+/** The three main actions: Order on DoorDash, Call Us, Get Directions. */
+import { site, telHref, directionsUrl, isPlaceholder } from '../site.config';
+import Icon from './Icon.astro';
+interface Props { tone?: 'dark' | 'light'; class?: string; doordash?: boolean }
+const { tone = 'dark', class: className, doordash = true } = Astro.props;
+const outline = tone === 'dark' ? 'btn-outline-light' : 'btn-outline-dark';
+---
+<div class:list={['flex flex-col gap-3 sm:flex-row sm:flex-wrap', className]}>
+  {doordash && !isPlaceholder(site.doordashUrl) && (
+    <a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" class:list={['btn', tone === 'dark' ? 'btn-gold' : 'btn-primary']}>
+      <Icon name="bag" class="h-5 w-5" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span>
+    </a>
+  )}
+  <a href={telHref} class:list={['btn', outline]}>
+    <Icon name="phone" class="h-5 w-5" /> Call Us
+  </a>
+  <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class:list={['btn', outline]}>
+    <Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span>
+  </a>
+</div>

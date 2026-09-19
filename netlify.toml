@@ -1,0 +1,4 @@
+# Only used if you deploy to Netlify instead of GitHub Pages.
+[build]
+  command = "npm run build"
+  publish = "dist"

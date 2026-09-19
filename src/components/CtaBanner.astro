@@ -1,0 +1,15 @@
+---
+/** Big call-to-action band. Put buttons in the default slot. */
+interface Props { eyebrow?: string; title: string; text?: string; tone?: 'burgundy' | 'ink' }
+const { eyebrow, title, text, tone = 'burgundy' } = Astro.props;
+---
+<section class:list={['relative overflow-hidden py-16 text-cream sm:py-20', tone === 'burgundy' ? 'bg-burgundy' : 'bg-ink']}>
+  <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-gold/25"></div>
+  <div class="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full border border-gold/20"></div>
+  <div class="container-x reveal relative">
+    {eyebrow && <p class="eyebrow text-gold-light">{eyebrow}</p>}
+    <h2 class="mt-3 max-w-3xl text-h2 uppercase" set:html={title} />
+    {text && <p class="mt-4 max-w-2xl text-lg text-cream/90">{text}</p>}
+    <div class="mt-8"><slot /></div>
+  </div>
+</section>

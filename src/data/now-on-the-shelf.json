@@ -1,0 +1,9 @@
+{
+  "_howTo": "Home page 'Now on the Shelf'. Add, remove or reorder items. tag can be \"New Arrival\" or \"Staff Pick\" (or leave it \"\"). category is a short label like Wine, Beer, Bourbon, Spirits or Cigars. photo is optional: put a file in src/assets/photos/ and write its file name here.",
+  "items": [
+    { "name": "[PLACEHOLDER] New arrival name", "category": "Bourbon", "note": "[PLACEHOLDER] One line about why it's worth trying.", "tag": "New Arrival", "photo": "" },
+    { "name": "[PLACEHOLDER] Staff pick name", "category": "Wine", "note": "[PLACEHOLDER] One line about why it's worth trying.", "tag": "Staff Pick", "photo": "" },
+    { "name": "[PLACEHOLDER] Michigan craft beer", "category": "Beer", "note": "[PLACEHOLDER] One line about why it's worth trying.", "tag": "New Arrival", "photo": "" },
+    { "name": "[PLACEHOLDER] Cigar name", "category": "Cigars", "note": "[PLACEHOLDER] One line about why it's worth trying.", "tag": "Staff Pick", "photo": "" }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "_howTo": "Wine page. 'styles' and 'regions' are the areas you want to highlight; edit them to match what you carry. 'staffPicks' are specific bottles: name, style and a short note. No prices.",
+  "styles": [
+    { "name": "Bold Reds", "note": "Cabernet, Malbec, Syrah and big blends for steak night." },
+    { "name": "Elegant Reds", "note": "Pinot Noir, Sangiovese and lighter, food-friendly bottles." },
+    { "name": "Crisp Whites", "note": "Sauvignon Blanc, Pinot Grigio, Riesling and more." },
+    { "name": "Rich Whites", "note": "Chardonnay and fuller-bodied whites." },
+    { "name": "Rosé", "note": "Dry, bright and made for patio season." },
+    { "name": "Sparkling & Champagne", "note": "From weeknight bubbles to celebration bottles." }
+  ],
+  "regions": ["France", "Italy", "Spain", "California", "Oregon & Washington", "Michigan", "South America", "Australia & New Zealand"],
+  "staffPicks": [
+    { "name": "[PLACEHOLDER] Wine name", "style": "Red", "note": "[PLACEHOLDER] Why we love it, in one line." },
+    { "name": "[PLACEHOLDER] Wine name", "style": "White", "note": "[PLACEHOLDER] Why we love it, in one line." },
+    { "name": "[PLACEHOLDER] Wine name", "style": "Sparkling", "note": "[PLACEHOLDER] Why we love it, in one line." }
+  ]
+}

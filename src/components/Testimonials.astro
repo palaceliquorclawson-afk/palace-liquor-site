@@ -1,0 +1,17 @@
+---
+/** "What customers say" — only real quotes pasted into src/data/testimonials.json. Hidden when empty. */
+import data from '../data/testimonials.json';
+import Icon from './Icon.astro';
+const quotes = (data.quotes as { quote: string; name: string }[]).filter((q) => q.quote?.trim());
+---
+{quotes.length > 0 && (
+  <div class="mt-12 grid gap-4 md:grid-cols-3">
+    {quotes.slice(0, 5).map((q) => (
+      <figure class="card reveal p-6">
+        <Icon name="star" class="h-5 w-5 text-burgundy" />
+        <blockquote class="mt-3 text-lg leading-relaxed">“{q.quote}”</blockquote>
+        <figcaption class="mt-4 font-semibold text-muted">— {q.name}</figcaption>
+      </figure>
+    ))}
+  </div>
+)}

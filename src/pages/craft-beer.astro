@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ShelfList from '../components/ShelfList.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import ActionButtons from '../components/ActionButtons.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref } from '../site.config';
+import beer from '../data/beer.json';
+
+const updated = new Date(`${beer.lastUpdated}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+<BaseLayout
+  title="Craft Beer in Clawson, MI | Michigan Beer & Walk-In Cooler | Palace Liquor"
+  description="Craft beer in Clawson, MI: Michigan breweries, new releases and a walk-in cooler stocked with cold singles, 4-packs and cases at Palace Liquor on 14 Mile Rd."
+>
+  <Hero
+    eyebrow="Craft beer"
+    title="Cold, local<br />&amp; always rotating."
+    subtitle="Michigan breweries, new releases and old favorites, plus a walk-in cooler so it's cold when you grab it."
+    photo="hero-beer.jpg"
+    photoAlt="Craft beer cans in the Palace Liquor cooler"
+  >
+    <ActionButtons />
+  </Hero>
+
+  <section class="py-16 sm:py-24" aria-labelledby="mi-title">
+    <div class="container-x grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <SectionHeading id="mi-title" eyebrow="Pure Michigan" title="Proudly pouring Michigan." intro="Michigan is one of the best craft beer states in the country, and we keep our shelves stocked with it: hazy IPAs, crisp lagers, big stouts, sours and seasonal releases." />
+        <p class="reveal mt-4 text-lg text-muted">Looking for something specific? Ask us and we'll see if we can get it in.</p>
+      </div>
+      <div class="reveal overflow-hidden rounded-2xl">
+        <ImageSlot photo="beer-shelf.jpg" alt="Michigan craft beer on the shelf" />
+      </div>
+    </div>
+  </section>
+
+  <section id="cooler" class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="cooler-title">
+    <div class="container-x">
+      <SectionHeading id="cooler-title" tone="dark" eyebrow="Walk-in cooler" title="Walk in. Grab it cold." intro="Step into our walk-in cooler and grab exactly what you need, already cold." />
+      <ul class="mt-10 grid gap-4 sm:grid-cols-3">
+        {[
+          { t: 'Singles', d: 'Try something new without committing to a whole pack.' },
+          { t: '4-packs & 6-packs', d: 'Craft cans and bottles, ready for tonight.' },
+          { t: 'Cases', d: 'Stocking up for the game, the cottage or the party.' },
+        ].map((c) => (
+          <li class="reveal rounded-2xl border border-white/10 bg-ink-2 p-6">
+            <Icon name="cooler" class="h-7 w-7 text-gold" />
+            <h3 class="mt-3 text-xl">{c.t}</h3>
+            <p class="mt-1 text-cream/75">{c.d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24" aria-labelledby="new-title">
+    <div class="container-x">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <SectionHeading id="new-title" eyebrow="Fresh in" title="What's new." />
+        <p class="text-sm text-muted">Updated {updated}. Stock changes fast.</p>
+      </div>
+      <div class="mt-8">
+        <ShelfList columns={3} label="New beers" items={beer.whatsNew.map((b) => ({ name: b.name, meta: `${b.brewery} · ${b.style}`, note: b.note, tag: 'New' }))} />
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner eyebrow="Throwing a party?" title="Kegs, tappers &amp; cases for your crowd." text="We rent kegs and tappers and can help you figure out how much beer you need.">
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href="/kegs-rentals/" class="btn btn-gold">Keg rentals <Icon name="arrow" class="h-5 w-5" /></a>
+      <a href={telHref} class="btn btn-outline-light"><Icon name="phone" class="h-5 w-5" /> {site.phone}</a>
+    </div>
+  </CtaBanner>
+</BaseLayout>

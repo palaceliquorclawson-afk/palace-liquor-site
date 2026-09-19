@@ -1,0 +1,31 @@
+---
+/**
+ * Page hero. `photo` is a file name in src/assets/photos/ (e.g. "hero-home.jpg").
+ * Large on the home page, shorter on inner pages.
+ */
+import ImageSlot from './ImageSlot.astro';
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  photo?: string;
+  photoAlt?: string;
+  size?: 'home' | 'page';
+}
+const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page' } = Astro.props;
+---
+<section class:list={['relative isolate overflow-hidden bg-ink text-cream', size === 'home' ? 'min-h-[78svh] py-20 sm:py-28' : 'py-16 sm:py-24']}>
+  <div class="absolute inset-0 -z-10">
+    <ImageSlot photo={photo} alt={photoAlt} aspect="" class="h-full" eager sizes="100vw" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent"></div>
+  </div>
+  <div class:list={['container-x', size === 'home' && 'flex min-h-[inherit] flex-col justify-center']}>
+    <div class="max-w-3xl">
+      {eyebrow && <p class="eyebrow text-gold">{eyebrow}</p>}
+      <h1 class:list={['mt-4 uppercase', size === 'home' ? 'text-display' : 'text-h1']} set:html={title} />
+      {subtitle && <p class="mt-5 max-w-xl text-lg text-cream/85 sm:text-xl">{subtitle}</p>}
+      <div class="mt-8"><slot /></div>
+    </div>
+  </div>
+</section>

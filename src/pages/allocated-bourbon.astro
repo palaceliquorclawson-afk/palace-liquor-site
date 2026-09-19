@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ShelfList from '../components/ShelfList.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref, directionsUrl, socialLinks } from '../site.config';
+import shelf from '../data/bourbon-shelf.json';
+
+const updated = new Date(`${shelf.lastUpdated}T12:00:00`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+---
+<BaseLayout
+  title="Allocated Bourbon in Clawson, MI | No Lists, No Lotteries | Palace Liquor"
+  description="Allocated and hard-to-find bourbon in Clawson, MI. No lists, no lotteries, no waitlists: when bottles come in, they go on the shelf, first come, first served. Michigan state minimum pricing."
+>
+  <Hero
+    eyebrow="Allocated bourbon"
+    title="No lists.<br />No games."
+    subtitle="If it's on the shelf, it's yours. Whatever allocated and hard-to-find bottles come in go straight out for customers, first come, first served."
+    photo="hero-bourbon.jpg"
+    photoAlt="Bourbon bottles on the shelf at Palace Liquor"
+  >
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href={telHref} class="btn btn-gold"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </Hero>
+
+  <section class="py-16 sm:py-24" aria-labelledby="how-title">
+    <div class="container-x">
+      <SectionHeading id="how-title" eyebrow="How we do allocated" title="Fair and simple." />
+      <ul class="mt-10 grid gap-4 md:grid-cols-3">
+        {[
+          { icon: 'close', t: 'No allocation list', d: "There's no list to get on and no one ahead of you." },
+          { icon: 'close', t: 'No lottery or raffle', d: 'No drawings, no points and no purchase requirements.' },
+          { icon: 'check', t: 'First come, first served', d: 'When bottles arrive, they go on the shelf. If you see it, it’s yours.' },
+        ].map((c) => (
+          <li class="card reveal p-6">
+            <span class="grid h-11 w-11 place-items-center rounded-full bg-burgundy text-cream"><Icon name={c.icon as 'check'} class="h-6 w-6" /></span>
+            <h3 class="mt-4 text-xl">{c.t}</h3>
+            <p class="mt-1 text-muted">{c.d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="shelf-title">
+    <div class="container-x">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <SectionHeading id="shelf-title" tone="dark" eyebrow="Updated regularly" title="What's on the shelf right now." />
+        <p class="text-sm text-cream/70">Last updated {updated}</p>
+      </div>
+      <div class="reveal mt-6 flex items-start gap-3 rounded-xl border border-gold/40 bg-ink-2 p-4 text-cream/90">
+        <Icon name="clock" class="mt-0.5 h-5 w-5 flex-none text-gold" />
+        <p><strong class="text-cream">Stock moves fast and changes daily.</strong> This list is a snapshot and may not reflect what's on the shelf right now. Please call before you drive over.</p>
+      </div>
+      <div class="mt-6">
+        <ShelfList tone="dark" label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.justArrived ? 'Just arrived' : '' }))} />
+      </div>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={telHref} class="btn btn-gold px-6 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+  </section>
+
+  {socialLinks.length > 0 && (
+    <section class="py-16 sm:py-20" aria-labelledby="follow-title">
+      <div class="container-x">
+        <div class="card reveal grid items-center gap-6 p-6 sm:p-10 md:grid-cols-[1fr_auto]">
+          <div>
+            <p class="eyebrow text-burgundy">New arrivals</p>
+            <h2 id="follow-title" class="mt-2 text-h2">Follow us for new arrivals.</h2>
+            <p class="mt-3 max-w-xl text-lg text-muted">We post when new bottles land. Follow along so you know when to stop by.</p>
+          </div>
+          <div class="flex flex-col gap-3">
+            {socialLinks.map((s) => (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <Icon name={s.icon as 'instagram'} class="h-5 w-5" /> Follow on {s.name}<span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section id="spirits" class="border-t border-line bg-paper py-16 sm:py-24" aria-labelledby="spirits-title">
+    <div class="container-x grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <SectionHeading id="spirits-title" eyebrow="Whiskey, tequila, vodka, rum & more" title="Michigan State Minimum Pricing on Spirits." intro="In Michigan, the state sets the minimum shelf price for every bottle of spirits, and that's exactly what we charge. So you can shop knowing you're paying the lowest legal shelf price, whether it's a rare bourbon or your everyday bottle." />
+      </div>
+      <div class="reveal overflow-hidden rounded-2xl">
+        <ImageSlot photo="spirits-wall.jpg" alt="The spirits wall at Palace Liquor" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

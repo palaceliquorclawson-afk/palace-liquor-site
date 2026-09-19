@@ -1,0 +1,8 @@
+---
+/** Renders editable text; "[PLACEHOLDER ...]" text gets a dashed underline so it's easy to spot. */
+import { isPlaceholder } from '../site.config';
+interface Props { value?: string | null; as?: string; class?: string }
+const { value = '', as: Tag = 'span', class: className } = Astro.props;
+const ph = value ? isPlaceholder(value) : false;
+---
+<Tag class:list={[className, ph && 'placeholder-text']}>{value}</Tag>

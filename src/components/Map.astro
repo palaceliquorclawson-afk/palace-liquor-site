@@ -1,0 +1,15 @@
+---
+import { site, mapEmbedUrl } from '../site.config';
+interface Props { class?: string }
+const { class: className } = Astro.props;
+---
+<div class:list={['overflow-hidden rounded-2xl border border-line bg-cream-2', className]}>
+  <iframe
+    src={mapEmbedUrl}
+    title={`Map showing ${site.legalName} in ${site.address.city}, ${site.address.state}`}
+    class="block h-[340px] w-full sm:h-[420px]"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    style="border:0"
+  ></iframe>
+</div>

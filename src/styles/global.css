@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ─── Design tokens ─────────────────────────────────────────────
+   Contrast (WCAG): cream on ink 16:1 · burgundy on cream 10:1 ·
+   gold on ink 8:1 · muted on cream 6.6:1 · cream on burgundy 10:1
+   Gold is decorative / for text on dark backgrounds only.        */
+@theme {
+  --color-ink: #141110;
+  --color-ink-2: #211b19;
+  --color-ink-3: #2e2623;
+  --color-cream: #f6efe3;
+  --color-cream-2: #ece2d0;
+  --color-paper: #fffcf6;
+  --color-burgundy: #7a1f2b;
+  --color-burgundy-dark: #5a1520;
+  --color-gold: #c9a45c;
+  --color-gold-light: #e2c992;
+  --color-muted: #5b5048;
+  --color-line: #ddd0bb;
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-display: clamp(2.6rem, 8vw, 5.25rem);
+  --text-display--line-height: 1.02;
+  --text-h1: clamp(2.2rem, 6vw, 3.75rem);
+  --text-h1--line-height: 1.05;
+  --text-h2: clamp(1.8rem, 4.2vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .on-light :focus-visible, .bg-cream :focus-visible, .bg-paper :focus-visible {
+    outline-color: var(--color-burgundy);
+  }
+  [id] { scroll-margin-top: 7.5rem; }
+  ::selection { background: var(--color-burgundy); color: var(--color-cream); }
+}
+
+@layer components {
+  .container-x { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .container-x { padding-inline: 1.5rem; } }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    min-height: 3rem; padding: 0.75rem 1.4rem;
+    border-radius: 0.5rem; font-weight: 600; line-height: 1.2; text-decoration: none;
+    transition: background-color .2s, color .2s, border-color .2s, transform .2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--color-burgundy); color: var(--color-cream); }
+  .btn-primary:hover { background: var(--color-burgundy-dark); }
+  .btn-gold { background: var(--color-gold); color: var(--color-ink); }
+  .btn-gold:hover { background: var(--color-gold-light); }
+  .btn-outline-light { border: 1.5px solid rgb(246 239 227 / .55); color: var(--color-cream); }
+  .btn-outline-light:hover { border-color: var(--color-cream); background: rgb(246 239 227 / .08); }
+  .btn-outline-dark { border: 1.5px solid var(--color-ink); color: var(--color-ink); }
+  .btn-outline-dark:hover { background: var(--color-ink); color: var(--color-cream); }
+
+  .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1rem; }
+
+  /* Unfilled "[PLACEHOLDER ...]" text: easy to spot, still readable. */
+  .placeholder-text {
+    text-decoration: underline dashed;
+    text-decoration-color: currentColor;
+    text-underline-offset: 3px;
+    opacity: .85;
+  }
+
+  /* Form fields */
+  .field-label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .35rem; }
+  .field {
+    width: 100%; min-height: 3rem; padding: .7rem .9rem; font-size: 1rem;
+    background: #fff; color: var(--color-ink);
+    border: 1.5px solid #b9a98f; border-radius: .5rem;
+  }
+  .field:focus { outline: 3px solid var(--color-burgundy); outline-offset: 1px; border-color: var(--color-burgundy); }
+  .field[aria-invalid="true"] { border-color: #b3261e; }
+  .field-error { color: #b3261e; font-size: .88rem; margin-top: .3rem; font-weight: 500; }
+  .hp-field { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
+}
+
+/* ─── Age gate: nothing is visible until age is confirmed ─── */
+html.age-pending .site-content { visibility: hidden; }
+html:not(.age-pending) #age-gate { display: none; }
+
+/* ─── Subtle motion: only sections below the fold fade in (JS marks them), so
+   nothing on the first screen waits and no-JS visitors see everything. ─── */
+.reveal-pending { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-pending.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-pending { opacity: 1; transform: none; transition: none; }
+  .btn, .btn:hover { transition: none; transform: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

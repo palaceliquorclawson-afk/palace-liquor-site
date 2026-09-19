@@ -1,0 +1,34 @@
+---
+/**
+ * "Leave Us a Google Review" button or a small "Review us on Google" link.
+ * The URL comes from googleReviewUrl in site.config.ts.
+ * Uses a plain star icon, not Google's logo.
+ */
+import { site } from '../site.config';
+import Icon from './Icon.astro';
+interface Props { variant?: 'button' | 'link'; tone?: 'light' | 'dark'; class?: string }
+const { variant = 'button', tone = 'light', class: className } = Astro.props;
+---
+{variant === 'button' ? (
+  <a
+    href={site.googleReviewUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class:list={['btn', tone === 'light' ? 'btn-primary' : 'btn-gold', 'px-6 text-lg', className]}
+  >
+    <Icon name="star" class="h-5 w-5" />
+    Leave Us a Google Review
+    <span class="sr-only">(opens in a new tab)</span>
+  </a>
+) : (
+  <a
+    href={site.googleReviewUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class:list={['inline-flex items-center gap-1.5 font-medium underline-offset-4 hover:underline', className]}
+  >
+    <Icon name="star" class="h-4 w-4" />
+    Review us on Google
+    <span class="sr-only">(opens in a new tab)</span>
+  </a>
+)}

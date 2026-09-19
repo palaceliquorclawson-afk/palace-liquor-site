@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref, isPlaceholder } from '../site.config';
+const hasDoorDash = !isPlaceholder(site.doordashUrl);
+---
+<BaseLayout
+  title="Liquor Delivery in Clawson, MI | DoorDash & Event Delivery | Palace Liquor"
+  description="Get beer, wine, spirits and more delivered from Palace Liquor in Clawson, MI through DoorDash. Planning an event? We offer local delivery on catering orders."
+>
+  <Hero
+    eyebrow="Delivery"
+    title="Delivered to<br />your door."
+    subtitle="Order beer, wine, spirits and more from Palace Liquor on DoorDash. Planning a party? We deliver event orders too."
+    photo="hero-delivery.jpg"
+    photoAlt="A Palace Liquor order ready for delivery"
+  >
+    {hasDoorDash && (
+      <a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" class="btn btn-gold px-8 text-lg">
+        <Icon name="bag" class="h-5 w-5" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    )}
+  </Hero>
+
+  <section class="py-16 sm:py-24">
+    <div class="container-x grid gap-6 md:grid-cols-2">
+      <div class="card reveal flex flex-col p-6 sm:p-10">
+        <span class="grid h-14 w-14 place-items-center rounded-2xl bg-burgundy text-cream"><Icon name="bag" class="h-7 w-7" /></span>
+        <h2 class="mt-5 text-h2">Everyday orders on DoorDash</h2>
+        <p class="mt-3 text-lg text-muted">Find Palace Liquor &amp; Deli Shop on DoorDash for on-demand delivery. Browse, order and track it right in the app.</p>
+        <p class="mt-3 text-muted">The driver will check your ID at the door. You must be 21+ with a valid photo ID to receive alcohol.</p>
+        {hasDoorDash && (
+          <a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-8 self-start px-8 text-lg">
+            Order on DoorDash <Icon name="external" class="h-5 w-5" /><span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        )}
+      </div>
+      <div class="reveal flex flex-col rounded-2xl bg-ink p-6 text-cream sm:p-10">
+        <span class="grid h-14 w-14 place-items-center rounded-2xl bg-gold text-ink"><Icon name="truck" class="h-7 w-7" /></span>
+        <h2 class="mt-5 text-h2">Event &amp; catering delivery</h2>
+        <p class="mt-3 text-lg text-cream/85">Having a party? We'll recommend exactly what you need and deliver it locally: beer, wine, spirits, Palace Ice, kegs and tables.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="/events-catering/" class="btn btn-gold">Plan your event <Icon name="arrow" class="h-5 w-5" /></a>
+          <a href={telHref} class="btn btn-outline-light"><Icon name="phone" class="h-5 w-5" /> {site.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ShelfList from '../components/ShelfList.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import ActionButtons from '../components/ActionButtons.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref } from '../site.config';
+import wine from '../data/wine.json';
+---
+<BaseLayout
+  title="Wine Shop in Clawson, MI | Fine Wine at Palace Liquor"
+  description="Looking for a wine shop in Clawson, MI? Palace Liquor carries hand-picked reds, whites, rosé and sparkling from around the world, plus staff picks and special orders."
+>
+  <Hero
+    eyebrow="Fine wine"
+    title="Pour something<br />worth talking about."
+    subtitle="Hand-picked bottles from the world's great regions, for a Tuesday dinner or a once-a-year celebration."
+    photo="hero-wine.jpg"
+    photoAlt="Wine bottles on the shelf at Palace Liquor"
+  >
+    <ActionButtons />
+  </Hero>
+
+  <section class="py-16 sm:py-24" aria-labelledby="styles-title">
+    <div class="container-x">
+      <SectionHeading id="styles-title" eyebrow="Shop by style" title="Find your style." intro="Not sure where to start? Tell us what you're cooking or what you usually like, and we'll point you to a bottle." />
+      <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {wine.styles.map((s) => (
+          <li class="card reveal p-6">
+            <Icon name="wine" class="h-7 w-7 text-burgundy" />
+            <h3 class="mt-3 text-xl">{s.name}</h3>
+            <p class="mt-1 text-muted">{s.note}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="regions-title">
+    <div class="container-x grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <SectionHeading id="regions-title" tone="dark" eyebrow="Around the world" title="Regions we love." intro="From Old World classics to Michigan's own vineyards." />
+        <ul class="reveal mt-8 flex flex-wrap gap-2">
+          {wine.regions.map((r) => <li class="rounded-full border border-gold/40 px-4 py-2 text-cream/90">{r}</li>)}
+        </ul>
+      </div>
+      <div class="reveal overflow-hidden rounded-2xl">
+        <ImageSlot photo="wine-wall.jpg" alt="The wine wall at Palace Liquor" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24" aria-labelledby="picks-title">
+    <div class="container-x">
+      <SectionHeading id="picks-title" eyebrow="From our team" title="Staff picks." intro="Bottles we're pouring at home right now." />
+      <div class="mt-10">
+        <ShelfList columns={3} label="Wine staff picks" items={wine.staffPicks.map((p) => ({ name: p.name, meta: p.style, note: p.note, tag: 'Staff Pick' }))} />
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    eyebrow="Special orders"
+    title="Looking for a specific bottle?"
+    text="Ask us about special orders. If our distributors can get it, we'll do our best to bring it in for you."
+  >
+    <a href={telHref} class="btn btn-gold"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
+  </CtaBanner>
+</BaseLayout>

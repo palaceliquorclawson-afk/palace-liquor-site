@@ -1,0 +1,4 @@
+{
+  "_howTo": "Optional 'What customers say' strip on the home page. Paste 3 to 5 REAL quotes from your Google reviews, with the reviewer's first name only. Never write made-up quotes. The section stays hidden while this list is empty. Example entry: { \"quote\": \"Great selection and friendly staff.\", \"name\": \"Sarah\" }",
+  "quotes": []
+}

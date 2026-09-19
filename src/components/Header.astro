@@ -1,0 +1,128 @@
+---
+import { site, telHref, isPlaceholder } from '../site.config';
+import { nav } from '../lib/nav';
+import Icon from './Icon.astro';
+
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+const hasDoorDash = !isPlaceholder(site.doordashUrl);
+---
+<header class="sticky top-0 z-50">
+  <!-- Status bar: open/closed, phone, DoorDash -->
+  <div class="bg-burgundy text-cream">
+    <div class="container-x flex h-11 items-center justify-between gap-3 text-sm">
+      <p class="flex min-w-0 items-center gap-2" data-open-status aria-live="polite">
+        <span class="status-dot h-2.5 w-2.5 flex-none rounded-full bg-cream/50" aria-hidden="true"></span>
+        <span class="truncate font-medium" data-open-text>Open 7 days a week</span>
+      </p>
+      <div class="flex flex-none items-center gap-2 sm:gap-4">
+        <a href={telHref} class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 font-semibold hover:underline">
+          <Icon name="phone" class="h-5 w-5 sm:h-4 sm:w-4" />
+          <span class="hidden sm:inline">{site.phone}</span>
+          <span class="sr-only sm:hidden">Call {site.phone}</span>
+        </a>
+        {hasDoorDash && (
+          <a
+            href={site.doordashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-8 items-center gap-1.5 rounded-full bg-cream px-3 py-1 font-semibold text-burgundy hover:bg-white"
+          >
+            <Icon name="bag" class="h-4 w-4" />
+            <span>DoorDash</span>
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <!-- Main navigation -->
+  <div class="border-b border-white/10 bg-ink/95 text-cream backdrop-blur supports-[backdrop-filter]:bg-ink/85">
+    <div class="container-x flex h-16 items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2.5 font-display text-xl font-bold tracking-wide" aria-label={`${site.name}, home`}>
+        <Icon name="crown" class="h-7 w-7 text-gold" />
+        <span>Palace <span class="text-gold">Liquor</span></span>
+      </a>
+
+      <nav aria-label="Main" class="hidden xl:block">
+        <ul class="flex items-center gap-5 text-[0.92rem]">
+          {nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  'py-2 transition-colors hover:text-gold',
+                  path === item.href ? 'text-gold' : 'text-cream/85',
+                ]}
+                aria-current={path === item.href ? 'page' : undefined}
+              >{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 xl:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-toggle
+      >
+        <span class="sr-only" data-menu-label>Open menu</span>
+        <Icon name="menu" class="menu-open-icon h-6 w-6" />
+        <Icon name="close" class="menu-close-icon hidden h-6 w-6" />
+      </button>
+    </div>
+
+    <nav id="mobile-menu" aria-label="Main" class="hidden max-h-[calc(100dvh-6.75rem)] overflow-y-auto border-t border-white/10 xl:hidden" data-menu>
+      <ul class="container-x grid gap-1 py-3">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'flex min-h-12 items-center justify-between rounded-lg px-3 text-lg hover:bg-white/5',
+                path === item.href ? 'text-gold' : 'text-cream',
+              ]}
+              aria-current={path === item.href ? 'page' : undefined}
+            >
+              {item.label}
+              <Icon name="arrow" class="h-5 w-5 opacity-50" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  [data-open-status][data-open='true'] .status-dot {
+    background: #7ee2a0;
+    box-shadow: 0 0 0 3px rgb(126 226 160 / 0.25);
+  }
+  [data-menu-toggle][aria-expanded='true'] :global(.menu-open-icon) { display: none; }
+  [data-menu-toggle][aria-expanded='true'] :global(.menu-close-icon) { display: block; }
+</style>
+
+<script>
+  import { renderOpenStatus } from '../scripts/open-status';
+  renderOpenStatus();
+  setInterval(renderOpenStatus, 60_000);
+
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+  const label = document.querySelector('[data-menu-label]');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    menu?.classList.toggle('hidden', !open);
+    if (label) label.textContent = open ? 'Close menu' : 'Open menu';
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      toggle.click();
+      toggle.focus();
+    }
+  });
+</script>

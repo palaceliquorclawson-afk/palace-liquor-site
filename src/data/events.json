@@ -1,0 +1,4 @@
+{
+  "_howTo": "Optional 'Upcoming at the store' list on the Events page (tastings, cigar nights, holiday events). The section stays hidden while this list is empty. Example entry: { \"date\": \"2026-10-24\", \"title\": \"Bourbon Tasting\", \"time\": \"5 - 7 PM\", \"details\": \"Free, 21+.\" }",
+  "upcoming": []
+}

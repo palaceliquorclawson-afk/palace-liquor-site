@@ -1,0 +1,64 @@
+---
+import { site, telHref, directionsUrl, fullAddress, isPlaceholder, socialLinks } from '../site.config';
+import { nav } from '../lib/nav';
+import Icon from './Icon.astro';
+import GoogleReviewButton from './GoogleReviewButton.astro';
+import HoursTable from './HoursTable.astro';
+const year = new Date().getFullYear();
+---
+<footer class="bg-ink text-cream">
+  <div class="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <a href="/" class="flex items-center gap-2.5 font-display text-2xl font-bold">
+        <Icon name="crown" class="h-8 w-8 text-gold" /> Palace <span class="text-gold">Liquor</span>
+      </a>
+      <p class="mt-4 text-cream/75">{site.tagline}</p>
+      <address class="mt-5 space-y-2 not-italic">
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="flex gap-2 hover:text-gold">
+          <Icon name="pin" class="mt-0.5 h-5 w-5 flex-none text-gold" />
+          <span>{site.address.street}<br />{site.address.city}, {site.address.state} {site.address.zip}<span class="sr-only"> (directions open in a new tab)</span></span>
+        </a>
+        <a href={telHref} class="flex gap-2 hover:text-gold">
+          <Icon name="phone" class="mt-0.5 h-5 w-5 flex-none text-gold" /> {site.phone}
+        </a>
+        {!isPlaceholder(site.email) && (
+          <a href={`mailto:${site.email}`} class="flex gap-2 hover:text-gold">
+            <Icon name="mail" class="mt-0.5 h-5 w-5 flex-none text-gold" /> {site.email}
+          </a>
+        )}
+      </address>
+    </div>
+
+    <div>
+      <h2 class="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-gold">Hours</h2>
+      <div class="mt-4 text-[0.95rem]"><HoursTable tone="dark" /></div>
+    </div>
+
+    <nav aria-label="Footer">
+      <h2 class="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-gold">Explore</h2>
+      <ul class="mt-4 grid gap-2">
+        {nav.map((item) => <li><a href={item.href} class="text-cream/85 hover:text-gold">{item.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-gold">Stay in touch</h2>
+      <ul class="mt-4 grid gap-3">
+        {!isPlaceholder(site.doordashUrl) && (
+          <li><a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-gold"><Icon name="bag" class="h-5 w-5 text-gold" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span></a></li>
+        )}
+        {socialLinks.map((s) => (
+          <li><a href={s.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-gold"><Icon name={s.icon as 'instagram'} class="h-5 w-5 text-gold" /> {s.name}<span class="sr-only"> (opens in a new tab)</span></a></li>
+        ))}
+        <li><GoogleReviewButton variant="link" class="hover:text-gold [&_svg]:text-gold" /></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-x flex flex-col gap-3 py-6 text-sm text-cream/70 md:flex-row md:items-center md:justify-between">
+      <p><strong class="text-cream">Must be 21+ to purchase alcohol or tobacco.</strong> Valid photo ID required. Please drink responsibly and never drink and drive.</p>
+      <p>© {year} {site.legalName} · {fullAddress}</p>
+    </div>
+  </div>
+</footer>

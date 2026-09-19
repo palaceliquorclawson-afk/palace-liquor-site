@@ -1,0 +1,170 @@
+---
+/**
+ * Event & catering inquiry form + drink estimate calculator.
+ * Sends to the Formspree address in site.config.ts → forms.eventInquiry.
+ */
+import { site, telHref } from '../site.config';
+import Icon from './Icon.astro';
+
+const eventTypes = ['Wedding', 'Graduation party', 'Birthday', 'Baby shower', 'Corporate event', 'Backyard BBQ', 'Holiday party', 'Other'];
+const today = new Date().toISOString().slice(0, 10);
+---
+<div class="grid gap-8 lg:grid-cols-5">
+  <!-- Calculator -->
+  <section class="card p-6 sm:p-8 lg:col-span-2" aria-labelledby="calc-title">
+    <div class="flex items-center gap-3">
+      <span class="grid h-11 w-11 place-items-center rounded-xl bg-burgundy text-cream"><Icon name="sparkle" class="h-6 w-6" /></span>
+      <h3 id="calc-title" class="text-2xl">Drink estimator</h3>
+    </div>
+    <p class="mt-3 text-muted">A rough starting point for your order. We'll confirm the final recommendation with you.</p>
+
+    <div class="mt-6 grid gap-4" data-calc>
+      <div>
+        <label for="calc-guests" class="field-label">Guests (21+)</label>
+        <input id="calc-guests" type="number" inputmode="numeric" min="1" max="2000" value="50" class="field" />
+      </div>
+      <div>
+        <label for="calc-hours" class="field-label">Event length (hours)</label>
+        <input id="calc-hours" type="number" inputmode="numeric" min="1" max="12" value="4" class="field" />
+      </div>
+      <div>
+        <label for="calc-mix" class="field-label">Crowd</label>
+        <select id="calc-mix" class="field">
+          <option value="60,25,15">Mostly beer</option>
+          <option value="40,35,25" selected>A bit of everything</option>
+          <option value="25,55,20">Mostly wine</option>
+          <option value="20,30,50">Cocktail crowd</option>
+        </select>
+      </div>
+
+      <div class="mt-2 rounded-xl bg-ink p-5 text-cream" aria-live="polite">
+        <p class="text-sm text-cream/70">Estimated for <span data-out="drinks">0</span> drinks:</p>
+        <dl class="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
+          <div><dt class="text-xs uppercase tracking-wider text-gold">Beer</dt><dd class="text-lg font-semibold"><span data-out="beer">0</span> cases</dd><dd class="text-xs text-cream/60">or <span data-out="kegs">0</span> × ½ barrel keg</dd></div>
+          <div><dt class="text-xs uppercase tracking-wider text-gold">Wine</dt><dd class="text-lg font-semibold"><span data-out="wine">0</span> bottles</dd></div>
+          <div><dt class="text-xs uppercase tracking-wider text-gold">Spirits</dt><dd class="text-lg font-semibold"><span data-out="spirits">0</span> × 750ml</dd></div>
+          <div><dt class="text-xs uppercase tracking-wider text-gold">Palace Ice</dt><dd class="text-lg font-semibold"><span data-out="ice">0</span> × 16 lb bags</dd></div>
+        </dl>
+      </div>
+      <p class="text-xs leading-relaxed text-muted">
+        Based on common party guidelines: about 2 drinks per guest in the first hour and 1 per hour after;
+        24 beers per case, 5 glasses per bottle of wine, about 16 shots per 750ml, and 1.5 lb of ice per guest.
+        This is only an estimate. We'll confirm the final recommendation with you. Please serve responsibly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Inquiry form -->
+  <form
+    class="card relative p-6 sm:p-8 lg:col-span-3"
+    action={site.forms.eventInquiry}
+    method="POST"
+    data-formspree
+    data-phone={site.phone}
+    data-phone-href={telHref}
+    aria-labelledby="event-form-title"
+  >
+    <h3 id="event-form-title" class="text-2xl">Tell us about your event</h3>
+    <p class="mt-2 text-muted">Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+    <input type="hidden" name="_subject" value="New event & catering inquiry (website)" />
+    <input type="hidden" name="drink_estimate" value="" data-estimate-field />
+    <div class="hp-field" aria-hidden="true">
+      <label for="ev-gotcha">Leave this field empty</label>
+      <input id="ev-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="mt-6 grid gap-5 sm:grid-cols-2">
+      <div class="sm:col-span-2">
+        <label for="ev-name" class="field-label">Name *</label>
+        <input id="ev-name" name="name" type="text" required autocomplete="name" class="field" />
+      </div>
+      <div>
+        <label for="ev-phone" class="field-label">Phone *</label>
+        <input id="ev-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9()+\-.\s]{7,}" data-message="Please enter a phone number we can reach you at." class="field" />
+      </div>
+      <div>
+        <label for="ev-email" class="field-label">Email *</label>
+        <input id="ev-email" name="email" type="email" required autocomplete="email" class="field" />
+      </div>
+      <div>
+        <label for="ev-date" class="field-label">Event date *</label>
+        <input id="ev-date" name="event_date" type="date" required min={today} class="field" data-min-today />
+      </div>
+      <div>
+        <label for="ev-type" class="field-label">Event type *</label>
+        <select id="ev-type" name="event_type" required class="field" data-message="Please choose an event type.">
+          <option value="">Choose one…</option>
+          {eventTypes.map((t) => <option>{t}</option>)}
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="ev-guests" class="field-label">Guest count *</label>
+        <input id="ev-guests" name="guest_count" type="number" inputmode="numeric" min="1" max="5000" required class="field" />
+      </div>
+      <div class="sm:col-span-2">
+        <label for="ev-notes" class="field-label">Notes</label>
+        <textarea id="ev-notes" name="notes" rows="4" class="field" aria-describedby="ev-notes-hint" placeholder="Favorite brands, kegs or tables needed, delivery address, anything else…"></textarea>
+        <p id="ev-notes-hint" class="mt-1 text-sm text-muted">Tell us about brands you love, keg or table needs, and where the event is.</p>
+      </div>
+      <label class="flex items-start gap-3 sm:col-span-2">
+        <input type="checkbox" class="mt-1 h-5 w-5 accent-burgundy" checked data-include-estimate />
+        <span>Include my drink estimate with this request</span>
+      </label>
+    </div>
+
+    <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+      <button type="submit" class="btn btn-primary px-8 text-lg disabled:opacity-60">Send my request</button>
+      <p class="text-sm text-muted">Or call <a class="font-semibold text-burgundy underline" href={telHref}>{site.phone}</a></p>
+    </div>
+    <div class="form-status mt-5 rounded-lg p-4" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
+  </form>
+</div>
+
+<style>
+  .form-status[data-kind='success'] { background: #e6f2e8; color: #1d4d2a; border: 1px solid #9bc9a6; }
+  .form-status[data-kind='error'] { background: #f9e5e3; color: #7a1a12; border: 1px solid #e0a39c; }
+  .form-status[data-kind='sending'] { background: var(--color-cream-2); }
+</style>
+
+<script>
+  import { initForms } from '../scripts/forms';
+  initForms();
+
+  const $ = <T extends HTMLElement>(sel: string) => document.querySelector<T>(sel);
+  const guestsIn = $<HTMLInputElement>('#calc-guests');
+  const hoursIn = $<HTMLInputElement>('#calc-hours');
+  const mixIn = $<HTMLSelectElement>('#calc-mix');
+  const estimateField = $<HTMLInputElement>('[data-estimate-field]');
+  const include = $<HTMLInputElement>('[data-include-estimate]');
+  const formGuests = $<HTMLInputElement>('#ev-guests');
+  const out = (k: string, v: number | string) => { const el = document.querySelector(`[data-out="${k}"]`); if (el) el.textContent = String(v); };
+
+  function calc() {
+    const guests = Math.max(0, Math.min(5000, Number(guestsIn?.value) || 0));
+    const hours = Math.max(1, Math.min(12, Number(hoursIn?.value) || 1));
+    const [b, w, s] = (mixIn?.value ?? '40,35,25').split(',').map((n) => Number(n) / 100);
+    const drinks = guests * (hours + 1);
+    const beer = Math.ceil((drinks * b) / 24);
+    const kegs = Math.round(((drinks * b) / 165) * 10) / 10;
+    const wine = Math.ceil((drinks * w) / 5);
+    const spirits = Math.ceil((drinks * s) / 16);
+    const ice = Math.ceil((guests * 1.5) / 16);
+    out('drinks', drinks.toLocaleString());
+    out('beer', beer); out('kegs', kegs); out('wine', wine); out('spirits', spirits); out('ice', ice);
+    if (estimateField) {
+      estimateField.value = include?.checked && guests
+        ? `${guests} guests, ${hours} hrs, "${mixIn?.selectedOptions[0]?.text}": ~${beer} cases beer (or ${kegs} half-barrel kegs), ~${wine} bottles wine, ~${spirits} x 750ml spirits, ~${ice} x 16 lb ice`
+        : '';
+    }
+  }
+  [guestsIn, hoursIn, mixIn, include].forEach((el) => el?.addEventListener('input', calc));
+  include?.addEventListener('change', calc);
+  guestsIn?.addEventListener('change', () => { if (formGuests && !formGuests.value && guestsIn.value) formGuests.value = guestsIn.value; });
+  calc();
+
+  // Keep the "no past dates" rule correct even on an old cached page.
+  const date = $<HTMLInputElement>('[data-min-today]');
+  if (date) date.min = new Date().toLocaleDateString('en-CA');
+  document.querySelector('form[data-formspree]')?.addEventListener('reset-extra', () => setTimeout(calc));
+</script>

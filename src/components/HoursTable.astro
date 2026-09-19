@@ -1,0 +1,28 @@
+---
+import { site } from '../site.config';
+import { formatRange } from '../lib/hours';
+interface Props { tone?: 'light' | 'dark' }
+const { tone = 'light' } = Astro.props;
+---
+<table class:list={['w-full text-left', tone === 'dark' && 'text-cream']}>
+  <caption class="sr-only">Store hours</caption>
+  <tbody>
+    {site.hours.map((h) => (
+      <tr data-today-row={h.day} class:list={['hours-row border-b', tone === 'light' ? 'border-line' : 'border-white/10']}>
+        <th scope="row" class="py-2.5 pr-4 font-medium">{h.day}</th>
+        <td class="py-2.5 text-right tabular-nums">{formatRange(h)}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+{site.hoursNote && <p class:list={['mt-3 text-sm', tone === 'light' ? 'text-muted' : 'text-cream/70']}>{site.hoursNote}</p>}
+
+<style>
+  .hours-row[data-today] th, .hours-row[data-today] td { font-weight: 700; }
+  .hours-row[data-today] th::after {
+    content: 'Today';
+    margin-left: .5rem; padding: .1rem .5rem; border-radius: 999px;
+    font-family: var(--font-sans); font-size: .7rem; font-weight: 600; vertical-align: middle;
+    background: var(--color-gold); color: var(--color-ink);
+  }
+</style>

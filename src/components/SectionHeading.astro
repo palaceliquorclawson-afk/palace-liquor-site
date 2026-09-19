@@ -1,0 +1,9 @@
+---
+interface Props { eyebrow?: string; title: string; intro?: string; align?: 'left' | 'center'; tone?: 'light' | 'dark'; id?: string }
+const { eyebrow, title, intro, align = 'left', tone = 'light', id } = Astro.props;
+---
+<div class:list={['reveal max-w-2xl', align === 'center' && 'mx-auto text-center']}>
+  {eyebrow && <p class:list={['eyebrow', tone === 'light' ? 'text-burgundy' : 'text-gold']}>{eyebrow}</p>}
+  <h2 id={id} class="mt-3 text-h2" set:html={title} />
+  {intro && <p class:list={['mt-4 text-lg', tone === 'light' ? 'text-muted' : 'text-cream/80']}>{intro}</p>}
+</div>

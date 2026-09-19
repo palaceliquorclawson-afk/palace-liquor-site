@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ActionButtons from '../components/ActionButtons.astro';
+import CategoryTile from '../components/CategoryTile.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import HoursTable from '../components/HoursTable.astro';
+import Map from '../components/Map.astro';
+import GoogleReviewButton from '../components/GoogleReviewButton.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref, directionsUrl } from '../site.config';
+import shelf from '../data/now-on-the-shelf.json';
+
+const categories = [
+  { title: 'Fine Wine', blurb: 'Hand-picked bottles for every table and budget.', href: '/wine/', photo: 'tile-wine.jpg', icon: 'wine' },
+  { title: 'Craft Beer', blurb: 'Michigan favorites and new releases, ice cold.', href: '/craft-beer/', photo: 'tile-beer.jpg', icon: 'beer' },
+  { title: 'Allocated Bourbon', blurb: 'No lists. No games. First come, first served.', href: '/allocated-bourbon/', photo: 'tile-bourbon.jpg', icon: 'bourbon' },
+  { title: 'Cigars', blurb: 'A humidor stocked with smokes worth savoring.', href: '/cigars/', photo: 'tile-cigars.jpg', icon: 'cigar' },
+  { title: 'Spirits', blurb: 'Whiskey, tequila, vodka, rum and more at state minimum pricing.', href: '/allocated-bourbon/#spirits', photo: 'tile-spirits.jpg', icon: 'spirits' },
+  { title: 'Walk-In Cooler', blurb: 'Cold singles, 4-packs and cases, ready to go.', href: '/craft-beer/#cooler', photo: 'tile-cooler.jpg', icon: 'cooler' },
+] as const;
+---
+<BaseLayout
+  title="Palace Liquor | Liquor Store in Clawson, MI: Wine, Bourbon, Craft Beer & Cigars"
+  description="Palace Liquor is Clawson, Michigan's neighborhood liquor store for fine wine, craft beer, allocated bourbon and cigars, with Michigan state minimum pricing on spirits. Order on DoorDash or visit us on 14 Mile Rd."
+>
+  <Hero
+    size="home"
+    eyebrow="Clawson, Michigan"
+    title="The good stuff<br />lives here."
+    subtitle="Fine wine, craft beer, allocated bourbon and cigars. Your neighborhood liquor store on 14 Mile Road."
+    photo="hero-home.jpg"
+    photoAlt="Inside Palace Liquor: shelves of wine and whiskey"
+  >
+    <ActionButtons />
+  </Hero>
+
+  <!-- Categories -->
+  <section class="py-16 sm:py-24" aria-labelledby="shop-title">
+    <div class="container-x">
+      <SectionHeading id="shop-title" eyebrow="Shop the store" title="Something for every pour." intro="From a special-occasion bottle to a cold six-pack on the way home, we've got you covered." />
+      <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+        {categories.map((c) => <CategoryTile {...c} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- State minimum pricing -->
+  <section class="bg-ink py-16 text-cream sm:py-20" aria-labelledby="pricing-title">
+    <div class="container-x reveal grid items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14">
+      <div class="grid h-24 w-24 place-items-center rounded-full border-2 border-gold text-gold">
+        <Icon name="tag" class="h-11 w-11" />
+      </div>
+      <div>
+        <p class="eyebrow text-gold">Spirits pricing</p>
+        <h2 id="pricing-title" class="mt-3 text-h2 uppercase">Michigan State Minimum Pricing on Spirits</h2>
+        <p class="mt-4 max-w-3xl text-lg text-cream/85">
+          In Michigan, the state sets the minimum shelf price for every bottle of spirits, and that's exactly what we charge.
+          So you can shop knowing you're paying the lowest legal shelf price.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Now on the shelf -->
+  <section class="py-16 sm:py-24" aria-labelledby="shelf-title">
+    <div class="container-x">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHeading id="shelf-title" eyebrow="New arrivals & staff picks" title="Now on the Shelf" intro="What's new and what we're excited about this week. Stock changes fast, so call to check." />
+        <a href={telHref} class="btn btn-outline-dark self-start md:self-auto"><Icon name="phone" class="h-5 w-5" /> Call to check stock</a>
+      </div>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {shelf.items.map((item) => (
+          <article class="card reveal overflow-hidden">
+            <ImageSlot photo={item.photo || ''} alt={item.photo ? item.name : ''} tone="light" aspect="aspect-[4/3]" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-burgundy">{item.category}</span>
+                {item.tag && <span class="rounded-full bg-ink px-2.5 py-0.5 text-xs font-semibold text-cream">{item.tag}</span>}
+              </div>
+              <h3 class:list={['mt-2 text-xl', item.name.includes('[PLACEHOLDER') && 'placeholder-text']}>{item.name}</h3>
+              <p class:list={['mt-2 text-[0.95rem] text-muted', item.note.includes('[PLACEHOLDER') && 'placeholder-text']}>{item.note}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Events teaser -->
+  <section class="relative isolate overflow-hidden bg-burgundy text-cream" aria-labelledby="events-title">
+    <div class="container-x grid items-center gap-10 py-16 sm:py-20 lg:grid-cols-2">
+      <div class="reveal">
+        <p class="eyebrow text-gold-light">Events & catering</p>
+        <h2 id="events-title" class="mt-3 text-h1 uppercase">Let us handle the drinks.</h2>
+        <p class="mt-5 max-w-xl text-lg text-cream/90">
+          Weddings, grad parties, office events and backyard BBQs. Tell us your guest count and we'll recommend exactly
+          what you need, then deliver it: beer, wine, spirits, ice and tables.
+        </p>
+        <p class="mt-4 inline-flex items-center gap-2 rounded-lg bg-black/20 px-4 py-2 font-semibold text-gold-light">
+          <Icon name="ice" class="h-5 w-5" /> {site.cateringOffer.text}
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="/events-catering/" class="btn btn-gold">Plan your event <Icon name="arrow" class="h-5 w-5" /></a>
+          <a href="/kegs-rentals/" class="btn btn-outline-light">Kegs & table rentals</a>
+        </div>
+      </div>
+      <div class="reveal overflow-hidden rounded-2xl">
+        <ImageSlot photo="events.jpg" alt="Drinks set up for a party catered by Palace Liquor" aspect="aspect-[4/3]" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit -->
+  <section class="py-16 sm:py-24" aria-labelledby="visit-title">
+    <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.3fr]">
+      <div class="reveal">
+        <SectionHeading id="visit-title" eyebrow="Visit us" title="Find us on 14 Mile." />
+        <address class="mt-6 not-italic">
+          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="flex gap-3 text-lg font-medium hover:text-burgundy">
+            <Icon name="pin" class="mt-1 h-5 w-5 flex-none text-burgundy" />
+            <span>{site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}<span class="sr-only"> (directions open in a new tab)</span></span>
+          </a>
+          <a href={telHref} class="mt-3 flex gap-3 text-lg font-medium hover:text-burgundy">
+            <Icon name="phone" class="mt-1 h-5 w-5 flex-none text-burgundy" /> {site.phone}
+          </a>
+        </address>
+        <div class="mt-8"><HoursTable /></div>
+        <ActionButtons tone="light" class="mt-8" doordash={false} />
+      </div>
+      <Map class="reveal self-start" />
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="border-t border-line bg-paper py-16 sm:py-20" aria-labelledby="reviews-title">
+    <div class="container-x text-center">
+      <div class="reveal mx-auto max-w-2xl">
+        <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-burgundy text-cream"><Icon name="star" class="h-7 w-7" /></span>
+        <h2 id="reviews-title" class="mt-4 text-h2">Enjoyed your visit?</h2>
+        <p class="mt-4 text-lg text-muted">
+          Reviews help neighbors find us and help a local shop keep doing what it loves. It only takes a minute.
+        </p>
+        <GoogleReviewButton class="mt-8" />
+      </div>
+      <Testimonials />
+    </div>
+  </section>
+</BaseLayout>

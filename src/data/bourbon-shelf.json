@@ -1,0 +1,9 @@
+{
+  "_howTo": "Allocated Bourbon page 'On the shelf right now'. Update lastUpdated whenever you change the list (format YYYY-MM-DD). Each bottle has a name, a size (like 750ml) and justArrived (true or false). No prices. Delete the placeholder rows and add your real bottles.",
+  "lastUpdated": "2026-09-18",
+  "items": [
+    { "name": "[PLACEHOLDER] Bottle name", "size": "750ml", "justArrived": true },
+    { "name": "[PLACEHOLDER] Bottle name", "size": "750ml", "justArrived": false },
+    { "name": "[PLACEHOLDER] Bottle name", "size": "1.75L", "justArrived": false }
+  ]
+}

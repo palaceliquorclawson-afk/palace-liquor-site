@@ -1,0 +1,112 @@
+---
+/**
+ * Keg & table rental request form.
+ * Sends to the Formspree address in site.config.ts → forms.rentalRequest.
+ */
+import { site, telHref } from '../site.config';
+import rentals from '../data/rentals.json';
+const today = new Date().toISOString().slice(0, 10);
+---
+<form
+  class="card p-6 sm:p-8"
+  action={site.forms.rentalRequest}
+  method="POST"
+  data-formspree
+  data-phone={site.phone}
+  data-phone-href={telHref}
+  aria-labelledby="rental-form-title"
+>
+  <h3 id="rental-form-title" class="text-2xl">Request a rental</h3>
+  <p class="mt-2 text-muted">Tell us what you need and we'll call to confirm availability. Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+  <input type="hidden" name="_subject" value="New keg / table rental request (website)" />
+  <div class="hp-field" aria-hidden="true">
+    <label for="rt-gotcha">Leave this field empty</label>
+    <input id="rt-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="mt-6 grid gap-5 sm:grid-cols-2">
+    <div class="sm:col-span-2">
+      <label for="rt-name" class="field-label">Name *</label>
+      <input id="rt-name" name="name" type="text" required autocomplete="name" class="field" />
+    </div>
+    <div>
+      <label for="rt-phone" class="field-label">Phone *</label>
+      <input id="rt-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9()+\-.\s]{7,}" data-message="Please enter a phone number we can reach you at." class="field" />
+    </div>
+    <div>
+      <label for="rt-email" class="field-label">Email</label>
+      <input id="rt-email" name="email" type="email" autocomplete="email" class="field" />
+    </div>
+
+    <fieldset class="sm:col-span-2" aria-describedby="rt-items-error-slot">
+      <legend class="field-label">What do you need? *</legend>
+      <div class="mt-1 grid gap-2 sm:grid-cols-3" data-items>
+        <label class="flex min-h-12 items-center gap-3 rounded-lg border border-line bg-white px-3"><input type="checkbox" name="items" value="Keg" class="h-5 w-5 accent-burgundy" /> Keg</label>
+        <label class="flex min-h-12 items-center gap-3 rounded-lg border border-line bg-white px-3"><input type="checkbox" name="items" value="Tapper" class="h-5 w-5 accent-burgundy" /> Tapper</label>
+        <label class="flex min-h-12 items-center gap-3 rounded-lg border border-line bg-white px-3"><input type="checkbox" name="items" value="Tables" class="h-5 w-5 accent-burgundy" /> Tables</label>
+      </div>
+      <p id="rt-items-error-slot" class="field-error" hidden data-items-error>Please pick at least one item.</p>
+    </fieldset>
+
+    <div>
+      <label for="rt-keg" class="field-label">Keg size</label>
+      <select id="rt-keg" name="keg_size" class="field">
+        <option value="">Not sure / not needed</option>
+        {rentals.kegs.map((k) => <option>{k.size}</option>)}
+      </select>
+    </div>
+    <div>
+      <label for="rt-tables" class="field-label">Number of tables</label>
+      <input id="rt-tables" name="table_count" type="number" inputmode="numeric" min="0" max="100" class="field" />
+    </div>
+    <div class="sm:col-span-2">
+      <label for="rt-beer" class="field-label">Beer you'd like</label>
+      <input id="rt-beer" name="beer_preference" type="text" class="field" placeholder="e.g. a Michigan lager, or tell us to recommend one" />
+    </div>
+    <div>
+      <label for="rt-pickup" class="field-label">Pickup date *</label>
+      <input id="rt-pickup" name="pickup_date" type="date" required min={today} class="field" data-min-today />
+    </div>
+    <div>
+      <label for="rt-return" class="field-label">Return date</label>
+      <input id="rt-return" name="return_date" type="date" min={today} class="field" data-min-today />
+    </div>
+    <div class="sm:col-span-2">
+      <label for="rt-notes" class="field-label">Notes</label>
+      <textarea id="rt-notes" name="notes" rows="3" class="field"></textarea>
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+    <button type="submit" class="btn btn-primary px-8 text-lg disabled:opacity-60">Send request</button>
+    <p class="text-sm text-muted">Or call <a class="font-semibold text-burgundy underline" href={telHref}>{site.phone}</a></p>
+  </div>
+  <div class="form-status mt-5 rounded-lg p-4" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
+</form>
+
+<style>
+  .form-status[data-kind='success'] { background: #e6f2e8; color: #1d4d2a; border: 1px solid #9bc9a6; }
+  .form-status[data-kind='error'] { background: #f9e5e3; color: #7a1a12; border: 1px solid #e0a39c; }
+  .form-status[data-kind='sending'] { background: var(--color-cream-2); }
+</style>
+
+<script>
+  import { initForms } from '../scripts/forms';
+
+  // "Pick at least one item": runs before the shared validation.
+  const form = document.querySelector<HTMLFormElement>('form[aria-labelledby="rental-form-title"]');
+  const boxes = () => [...(form?.querySelectorAll<HTMLInputElement>('input[name="items"]') ?? [])];
+  const err = form?.querySelector<HTMLElement>('[data-items-error]');
+  const check = () => {
+    const ok = boxes().some((b) => b.checked);
+    if (err) err.hidden = ok;
+    boxes()[0]?.setCustomValidity(ok ? '' : 'Please pick at least one item.');
+    return ok;
+  };
+  form?.addEventListener('validate', check);
+  boxes().forEach((b) => b.addEventListener('change', () => { if (err && !err.hidden) check(); }));
+  form?.querySelectorAll<HTMLInputElement>('[data-min-today]').forEach((d) => { d.min = new Date().toLocaleDateString('en-CA'); });
+
+  initForms();
+</script>

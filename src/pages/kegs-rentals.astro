@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import RentalForm from '../components/RentalForm.astro';
+import Text from '../components/Text.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref } from '../site.config';
+import rentals from '../data/rentals.json';
+---
+<BaseLayout
+  title="Keg Rental in Clawson, MI | Kegs, Tappers & Tables | Palace Liquor"
+  description="Keg rental in Clawson, MI. Half barrels, pony kegs and sixtels, tapper rentals and party table rentals from Palace Liquor on 14 Mile Rd. Request a rental online or call."
+>
+  <Hero
+    eyebrow="Kegs & rentals"
+    title="Tap it.<br />Table it. Done."
+    subtitle="Kegs, tappers and tables for parties of any size. Request online or give us a call."
+    photo="hero-kegs.jpg"
+    photoAlt="Beer kegs ready for pickup at Palace Liquor"
+  >
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href="#request" class="btn btn-gold">Request a rental <Icon name="arrow" class="h-5 w-5" /></a>
+      <a href={telHref} class="btn btn-outline-light"><Icon name="phone" class="h-5 w-5" /> {site.phone}</a>
+    </div>
+  </Hero>
+
+  <section class="py-16 sm:py-24" aria-labelledby="kegs-title">
+    <div class="container-x">
+      <SectionHeading id="kegs-title" eyebrow="Keg sizes" title="Pick your keg." intro="Not sure which size you need? Tell us your guest count and we'll help." />
+      <ul class="mt-10 grid gap-4 sm:grid-cols-3">
+        {rentals.kegs.map((k) => (
+          <li class="card reveal p-6">
+            <Icon name="keg" class="h-9 w-9 text-burgundy" />
+            <h3 class="mt-3 text-xl">{k.size}</h3>
+            <p class="mt-1 text-2xl font-semibold">{k.gallons}</p>
+            <p class="text-muted">{k.servings}</p>
+          </li>
+        ))}
+      </ul>
+      <Text as="p" value={rentals.kegNote} class="reveal mt-6 text-lg text-muted" />
+    </div>
+  </section>
+
+  <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="gear-title">
+    <div class="container-x">
+      <SectionHeading id="gear-title" tone="dark" eyebrow="Rentals" title="Tappers & tables." />
+      <div class="mt-10 grid gap-4 md:grid-cols-2">
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-2 p-6">
+          <Icon name="beer" class="h-8 w-8 text-gold" />
+          <h3 class="mt-3 text-2xl">Tapper rental</h3>
+          <Text as="p" value={rentals.tapper} class="mt-2 text-cream/80" />
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-2 p-6">
+          <Icon name="table" class="h-8 w-8 text-gold" />
+          <h3 class="mt-3 text-2xl">Table rental</h3>
+          <Text as="p" value={rentals.tables} class="mt-2 text-cream/80" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24" aria-labelledby="policy-title">
+    <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+      <div>
+        <SectionHeading id="policy-title" eyebrow="Before you rent" title="Deposits & policies." />
+        <ul class="reveal mt-8 grid gap-3">
+          {rentals.policies.map((p) => (
+            <li class="flex gap-3">
+              <Icon name="check" class="mt-1 h-5 w-5 flex-none text-burgundy" />
+              <Text value={p} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div id="request"><RentalForm /></div>
+    </div>
+  </section>
+</BaseLayout>
