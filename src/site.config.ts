@@ -18,7 +18,7 @@ export const site = {
   phone: '(248) 435-4888',
   /** Phone number in international format, used for tap-to-call links. */
   phoneE164: '+12484354888',
-  email: '[PLACEHOLDER: store email]',
+  email: 'palaceliquorclawson@gmail.com',
 
   address: {
     street: '650 W 14 Mile Rd',
@@ -45,7 +45,7 @@ export const site = {
 
   doordashUrl: 'https://www.doordash.com/store/palace-liquor-&-deli-shop-2302588/',
   instagramUrl: 'https://www.instagram.com/palaceliquor_clawson/',
-  facebookUrl: '',
+  facebookUrl: 'https://www.facebook.com/profile.php?id=61576395013693',
 
   /** Opens straight to the "write a review" box on Google. */
   googleReviewUrl: 'https://g.page/r/CRHmJOZOCFw3EBM/review',
