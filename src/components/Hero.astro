@@ -11,18 +11,28 @@ interface Props {
   photo?: string;
   photoAlt?: string;
   size?: 'home' | 'page';
+  /** 'burgundy' is a bold, photo-free version for feature pages. */
+  tone?: 'ink' | 'burgundy';
 }
-const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page' } = Astro.props;
+const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page', tone = 'ink' } = Astro.props;
 ---
-<section class:list={['relative isolate overflow-hidden bg-ink text-cream', size === 'home' ? 'min-h-[78svh] py-20 sm:py-28' : 'py-16 sm:py-24']}>
-  <div class="absolute inset-0 -z-10">
-    <ImageSlot photo={photo} alt={photoAlt} aspect="" class="h-full" eager sizes="100vw" motif={false} />
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
-    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent"></div>
-  </div>
+<section class:list={['relative isolate overflow-hidden text-cream', tone === 'burgundy' ? 'bg-burgundy' : 'bg-ink', size === 'home' ? 'min-h-[78svh] py-20 sm:py-28' : 'py-16 sm:py-24']}>
+  {tone === 'burgundy' ? (
+    <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+      <div class="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-gold/25"></div>
+      <div class="absolute -right-4 -top-12 h-64 w-64 rounded-full border border-gold/20"></div>
+      <div class="absolute -bottom-40 -left-32 h-96 w-96 rounded-full border border-gold/15"></div>
+    </div>
+  ) : (
+    <div class="absolute inset-0 -z-10">
+      <ImageSlot photo={photo} alt={photoAlt} aspect="" class="h-full" eager sizes="100vw" motif={false} />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
+      <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent"></div>
+    </div>
+  )}
   <div class:list={['container-x', size === 'home' && 'flex min-h-[inherit] flex-col justify-center']}>
     <div class="max-w-3xl">
-      {eyebrow && <p class="eyebrow text-gold">{eyebrow}</p>}
+      {eyebrow && <p class:list={['eyebrow', tone === 'burgundy' ? 'text-gold-light' : 'text-gold']}>{eyebrow}</p>}
       <h1 class:list={['mt-4 uppercase', size === 'home' ? 'text-display' : 'text-h1']} set:html={title} />
       {subtitle && <p class="mt-5 max-w-xl text-lg text-cream/85 sm:text-xl">{subtitle}</p>}
       <div class="mt-8"><slot /></div>
