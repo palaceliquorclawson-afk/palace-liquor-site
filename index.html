@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palace Liquor & Deli Shop | Clawson, MI</title>
+<meta name="description" content="Palace Liquor & Deli Shop at 650 W 14 Mile Rd in Clawson, Michigan. Beer, wine, spirits, deli and everyday essentials. Open 7 days a week.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23101a2e'/><path d='M14 44V26l9 7 9-13 9 13 9-7v18z' fill='%23d4a94a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #101a2e;
+    --navy-2: #182540;
+    --gold: #d4a94a;
+    --gold-soft: #f3e4c0;
+    --cream: #faf7f1;
+    --ink: #1c2230;
+    --muted: #5b6475;
+    --line: #e6e0d4;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.2; margin: 0 0 .5em; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(16, 26, 46, .96);
+    backdrop-filter: blur(6px);
+    color: #fff;
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Playfair Display", serif; font-size: 1.25rem; font-weight: 700; }
+  .brand svg { width: 30px; height: 30px; flex: none; }
+  nav { display: flex; gap: 22px; font-size: .95rem; }
+  nav a { text-decoration: none; opacity: .85; }
+  nav a:hover { opacity: 1; color: var(--gold); }
+  .call-btn { background: var(--gold); color: var(--navy); padding: 8px 14px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .9rem; white-space: nowrap; }
+  @media (max-width: 720px) { nav { display: none; } }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(212,169,74,.25), transparent 55%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff;
+    padding: 96px 0 88px;
+  }
+  .hero .eyebrow { color: var(--gold); letter-spacing: .18em; text-transform: uppercase; font-size: .8rem; font-weight: 600; }
+  .hero h1 { font-size: clamp(2.3rem, 6vw, 4rem); margin: 12px 0 16px; }
+  .hero p { font-size: 1.15rem; max-width: 560px; opacity: .9; margin: 0 0 28px; }
+  .status { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); padding: 6px 14px; border-radius: 999px; font-size: .9rem; margin-bottom: 28px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #9aa3b5; }
+  .dot.open { background: #4ade80; box-shadow: 0 0 0 4px rgba(74,222,128,.2); }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 13px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.4); color: #fff; }
+  .btn:hover { filter: brightness(1.08); }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
+  .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+  .section-head p { color: var(--muted); margin: 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
+  .card .icon { width: 46px; height: 46px; border-radius: 12px; background: var(--gold-soft); display: grid; place-items: center; margin-bottom: 16px; }
+  .card .icon svg { width: 24px; height: 24px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .card h3 { font-size: 1.25rem; }
+  .card p { color: var(--muted); margin: 0; font-size: .97rem; }
+
+  /* Visit */
+  .visit { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
+  @media (max-width: 820px) { .visit-grid { grid-template-columns: 1fr; } }
+  .hours { width: 100%; border-collapse: collapse; margin: 8px 0 28px; }
+  .hours td { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .hours tr.today td { font-weight: 600; color: var(--navy); }
+  .hours tr.today td:first-child::after { content: "Today"; margin-left: 8px; font-size: .7rem; background: var(--gold); color: var(--navy); padding: 2px 8px; border-radius: 999px; vertical-align: middle; }
+  .info-line { display: flex; gap: 12px; margin-bottom: 14px; }
+  .info-line svg { width: 20px; height: 20px; flex: none; margin-top: 3px; stroke: var(--gold); fill: none; stroke-width: 2; }
+  .info-line a { text-decoration: none; font-weight: 500; }
+  .map { width: 100%; height: 420px; border: 0; border-radius: 14px; background: var(--line); }
+
+  /* Footer */
+  footer { background: var(--navy); color: rgba(255,255,255,.75); padding: 40px 0; font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+  footer strong { color: #fff; }
+
+  /* Age gate */
+  .gate { position: fixed; inset: 0; z-index: 100; background: rgba(16,26,46,.97); display: grid; place-items: center; padding: 20px; }
+  .gate[hidden] { display: none; }
+  .gate-box { background: var(--cream); border-radius: 18px; padding: 40px 32px; max-width: 420px; width: 100%; text-align: center; }
+  .gate-box svg { width: 52px; height: 52px; margin-bottom: 12px; }
+  .gate-box h2 { font-size: 1.8rem; }
+  .gate-box p { color: var(--muted); margin: 0 0 24px; }
+  .gate-btns { display: flex; gap: 12px; }
+  .gate-btns button { flex: 1; padding: 13px; border-radius: 8px; font: inherit; font-weight: 600; cursor: pointer; border: 1px solid var(--navy); }
+  .gate-yes { background: var(--navy); color: #fff; }
+  .gate-no { background: transparent; color: var(--navy); }
+  .gate-denied { display: none; color: #b42318; font-weight: 500; margin-top: 18px; }
+  .gate small { display: block; margin-top: 20px; color: var(--muted); font-size: .8rem; }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate" hidden>
+  <div class="gate-box" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#101a2e"/><path d="M14 44V26l9 7 9-13 9 13 9-7v18z" fill="#d4a94a"/></svg>
+    <h2 id="gate-title">Welcome to Palace Liquor</h2>
+    <p>You must be 21 or older to visit this site. Are you 21 or older?</p>
+    <div class="gate-btns">
+      <button class="gate-yes" id="gate-yes">Yes, I'm 21+</button>
+      <button class="gate-no" id="gate-no">No</button>
+    </div>
+    <p class="gate-denied" id="gate-denied">Sorry, you must be 21 or older to visit this site.</p>
+    <small>Please drink responsibly.</small>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 64 64"><path d="M14 44V26l9 7 9-13 9 13 9-7v18z" fill="#d4a94a"/></svg>
+      Palace Liquor
+    </a>
+    <nav>
+      <a href="#shop">What We Carry</a>
+      <a href="#visit">Hours &amp; Location</a>
+    </nav>
+    <a class="call-btn" href="tel:+12484354888">(248) 435-4888</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Clawson, Michigan</div>
+      <h1>Palace Liquor<br>&amp; Deli Shop</h1>
+      <p>Your neighborhood stop for beer, wine, spirits and deli favorites on 14 Mile Road. Open 7 days a week.</p>
+      <div class="status"><span class="dot" id="status-dot"></span><span id="status-text">Open 7 days a week</span></div>
+      <div class="btns">
+        <a class="btn btn-gold" href="https://www.google.com/maps/dir/?api=1&destination=650+W+14+Mile+Rd,+Clawson,+MI+48017" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn-ghost" href="tel:+12484354888">Call the Store</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What We Carry</h2>
+        <p>A wide selection at fair prices, with friendly service. Can't find something? Just ask. We're happy to help.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h8v3a4 4 0 0 1-1 2.6V20a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V8.6A4 4 0 0 1 7 6z"/><path d="M15 9h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/></svg></div>
+          <h3>Beer</h3>
+          <p>Cold domestic and import favorites, craft brews, seltzers and more.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M8 2h8l-1 7a3 3 0 0 1-6 0z"/><path d="M12 12v8"/><path d="M8 21h8"/></svg></div>
+          <h3>Wine</h3>
+          <p>Reds, whites, rosé and bubbly for everyday sipping, dinner parties and special occasions.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M10 2h4v4l2 3v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3z"/><path d="M8 13h8"/></svg></div>
+          <h3>Spirits</h3>
+          <p>Whiskey, bourbon, vodka, tequila, rum and more, from everyday staples to top-shelf bottles.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 11h18"/><path d="M4 11c0-4 3.6-7 8-7s8 3 8 7"/><path d="M4 15h16l-1 3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></svg></div>
+          <h3>Deli &amp; Essentials</h3>
+          <p>Deli favorites, snacks, cold drinks and everyday essentials, all in one quick stop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Hours &amp; Location</h2>
+        <p>Find us on 14 Mile Road in Clawson.</p>
+      </div>
+      <div class="visit-grid">
+        <div>
+          <table class="hours" id="hours">
+            <tr data-days="1"><td>Monday</td><td>9:30 AM – 10:00 PM</td></tr>
+            <tr data-days="2"><td>Tuesday</td><td>9:30 AM – 10:00 PM</td></tr>
+            <tr data-days="3"><td>Wednesday</td><td>9:30 AM – 10:00 PM</td></tr>
+            <tr data-days="4"><td>Thursday</td><td>9:30 AM – 10:00 PM</td></tr>
+            <tr data-days="5"><td>Friday</td><td>9:30 AM – 11:00 PM</td></tr>
+            <tr data-days="6"><td>Saturday</td><td>9:30 AM – 11:00 PM</td></tr>
+            <tr data-days="0"><td>Sunday</td><td>11:00 AM – 9:00 PM</td></tr>
+          </table>
+          <div class="info-line">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=650+W+14+Mile+Rd,+Clawson,+MI+48017" target="_blank" rel="noopener">650 W 14 Mile Rd<br>Clawson, MI 48017</a>
+          </div>
+          <div class="info-line">
+            <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            <a href="tel:+12484354888">(248) 435-4888</a>
+          </div>
+        </div>
+        <iframe class="map" title="Map to Palace Liquor & Deli Shop" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=650+W+14+Mile+Rd,+Clawson,+MI+48017&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Palace Liquor &amp; Deli Shop</strong><br>650 W 14 Mile Rd, Clawson, MI 48017 · (248) 435-4888</div>
+    <div>Must be 21+ to purchase alcohol. Valid ID required. Please drink responsibly.<br>© <span id="year"></span> Palace Liquor &amp; Deli Shop</div>
+  </div>
+</footer>
+
+<script>
+  // Age gate: remembered for 30 days on this device
+  (function () {
+    var gate = document.getElementById('gate');
+    var KEY = 'palace-age-ok';
+    var ok = false;
+    try { ok = Number(localStorage.getItem(KEY)) > Date.now(); } catch (e) {}
+    if (!ok) gate.hidden = false;
+    document.getElementById('gate-yes').onclick = function () {
+      try { localStorage.setItem(KEY, Date.now() + 30 * 864e5); } catch (e) {}
+      gate.hidden = true;
+    };
+    document.getElementById('gate-no').onclick = function () {
+      document.getElementById('gate-denied').style.display = 'block';
+    };
+  })();
+
+  // Open-now status and today's hours (store time is Eastern)
+  (function () {
+    var hours = { 0: [11, 21], 1: [9.5, 22], 2: [9.5, 22], 3: [9.5, 22], 4: [9.5, 22], 5: [9.5, 23], 6: [9.5, 23] };
+    var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Detroit', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+    var get = function (t) { return parts.find(function (p) { return p.type === t; }).value; };
+    var day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+    var now = Number(get('hour')) + Number(get('minute')) / 60;
+    var fmt = function (h) { var hr = Math.floor(h), m = Math.round((h - hr) * 60); return ((hr + 11) % 12 + 1) + (m ? ':' + String(m).padStart(2, '0') : '') + (hr < 12 ? ' AM' : ' PM'); };
+    var today = hours[day];
+    var row = document.querySelector('#hours tr[data-days="' + day + '"]');
+    if (row) row.classList.add('today');
+    var dot = document.getElementById('status-dot'), text = document.getElementById('status-text');
+    if (now >= today[0] && now < today[1]) {
+      dot.classList.add('open');
+      text.textContent = 'Open now · until ' + fmt(today[1]);
+    } else if (now < today[0]) {
+      text.textContent = 'Closed now · opens today at ' + fmt(today[0]);
+    } else {
+      var next = hours[(day + 1) % 7];
+      text.textContent = 'Closed now · opens tomorrow at ' + fmt(next[0]);
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
