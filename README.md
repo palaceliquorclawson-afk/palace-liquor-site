@@ -23,7 +23,7 @@ Most updates only need a text edit in your browser:
 | Home page **"Now on the Shelf"** (currently hidden; set `showNowOnTheShelf: true` in `src/site.config.ts` to show it) | `src/data/now-on-the-shelf.json` |
 | Allocated bourbon **"On the shelf right now"** | `src/data/bourbon-shelf.json` |
 | Craft beer **"What's new"** | `src/data/beer.json` |
-| Wine styles, regions & staff picks | `src/data/wine.json` |
+| Wine styles, regions & **rotating staff picks** (one wine per group, new set every 3 days) | `src/data/wine.json` |
 | Cigar brands | `src/data/cigar-brands.json` |
 | Keg sizes, tapper & table info, **deposits & policies** | `src/data/rentals.json` |
 | In-store events (tastings, etc.) | `src/data/events.json` |
@@ -134,6 +134,7 @@ npm run build      # build the final site into dist/
 npm run preview    # preview the built site
 npm run check      # type-check
 node scripts/make-og-image.mjs   # regenerate the link-preview image (public/og-image.jpg)
+node scripts/make-icons.mjs      # regenerate the crown icons (tab, bookmark, phone home screen)
 ```
 
 ---

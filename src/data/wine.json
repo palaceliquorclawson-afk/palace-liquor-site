@@ -1,5 +1,5 @@
 {
-  "_howTo": "Wine page. 'styles' and 'regions' are the areas you want to highlight; edit them to match what you carry. 'staffPicks' are specific bottles: name, style, a short note and an optional photo (a file name in src/assets/photos/). No prices.",
+  "_howTo": "Wine page. 'styles' and 'regions' are the areas you want to highlight. 'staffPicks' rotates automatically: every rotateEveryDays days the page shows the next wine from each group. Each wine has a name, style, short note and a photo (a file name in src/assets/photos/). Add wines to any group, or add a new group. startDate (YYYY-MM-DD) is the day the first wine in each group is shown. No prices.",
   "styles": [
     {
       "name": "Bold Reds",
@@ -36,24 +36,85 @@
     "South America",
     "Australia & New Zealand"
   ],
-  "staffPicks": [
-    {
-      "name": "Veuve Clicquot Yellow Label",
-      "style": "Champagne · France",
-      "note": "Toasty, lively and always worth it. The celebration bottle.",
-      "photo": "bottle-veuve-clicquot.jpg"
-    },
-    {
-      "name": "Moët & Chandon Impérial",
-      "style": "Champagne · France",
-      "note": "Crisp apple, citrus and brioche. A classic for toasts.",
-      "photo": "bottle-moet-chandon.jpg"
-    },
-    {
-      "name": "Dom Pérignon",
-      "style": "Vintage Champagne · France",
-      "note": "The special-occasion splurge. Elegant, layered and unforgettable.",
-      "photo": "bottle-dom-perignon.jpg"
-    }
-  ]
+  "staffPicks": {
+    "rotateEveryDays": 3,
+    "startDate": "2026-09-19",
+    "groups": [
+      {
+        "label": "Michigan",
+        "wines": [
+          {
+            "name": "Chateau Grand Traverse Semi-Dry Riesling",
+            "style": "Riesling · Old Mission Peninsula, MI",
+            "note": "Juicy peach and apricot with a touch of sweetness. A Michigan classic.",
+            "photo": "wine-cgt-semidry-riesling.jpg"
+          },
+          {
+            "name": "Tabor Hill Cabernet Franc",
+            "style": "Cabernet Franc · Lake Michigan Shore, MI",
+            "note": "Bright red fruit and a hint of pepper from Southwest Michigan.",
+            "photo": "wine-tabor-hill-cabernet-franc.jpg"
+          },
+          {
+            "name": "Leelanau Cellars Whaleback White",
+            "style": "White Blend · Leelanau Peninsula, MI",
+            "note": "An easy-drinking, crowd-pleasing white from up north.",
+            "photo": "wine-leelanau-whaleback-white.jpg"
+          },
+          {
+            "name": "Chateau Grand Traverse Dry Riesling",
+            "style": "Riesling · Old Mission Peninsula, MI",
+            "note": "Crisp and mineral with green apple and citrus. Great with whitefish.",
+            "photo": "wine-cgt-dry-riesling.jpg"
+          },
+          {
+            "name": "Chateau Grand Traverse Sweet Traverse Red",
+            "style": "Red Blend · Traverse City, MI",
+            "note": "A smooth, sweet red blend that's easy to share.",
+            "photo": "wine-cgt-sweet-traverse-red.jpg"
+          },
+          {
+            "name": "Chateau Grand Traverse Late Harvest Riesling",
+            "style": "Riesling · Old Mission Peninsula, MI",
+            "note": "Honeyed and rich with ripe stone fruit. Dessert in a glass.",
+            "photo": "wine-cgt-late-harvest-riesling.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Cabernet Sauvignon",
+        "wines": [
+          {
+            "name": "Josh Cellars Reserve Cabernet Sauvignon",
+            "style": "Cabernet Sauvignon · California",
+            "note": "Rich blackberry and toasty oak. A reliable favorite that overdelivers.",
+            "photo": "wine-josh-cellars-cabernet.jpg"
+          },
+          {
+            "name": "Silver Oak Napa Valley Cabernet Sauvignon",
+            "style": "Cabernet Sauvignon · Napa Valley",
+            "note": "A Napa icon aged in American oak: dark fruit, vanilla and a silky finish.",
+            "photo": "wine-silver-oak-cabernet.jpg"
+          },
+          {
+            "name": "Stag's Leap Wine Cellars Cask 23",
+            "style": "Cabernet Sauvignon · Napa Valley",
+            "note": "The special-occasion Cabernet. Layered, elegant and built to impress.",
+            "photo": "wine-stags-leap-cask-23.jpg"
+          }
+        ]
+      },
+      {
+        "label": "Pinot Grigio",
+        "wines": [
+          {
+            "name": "Rosemount Pinot Grigio",
+            "style": "Pinot Grigio · Australia",
+            "note": "Crisp pear and citrus. Light, refreshing and perfect for patio sipping.",
+            "photo": "wine-rosemount-pinot-grigio.jpg"
+          }
+        ]
+      }
+    ]
+  }
 }

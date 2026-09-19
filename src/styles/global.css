@@ -57,6 +57,7 @@
     outline-color: var(--color-burgundy);
   }
   [id] { scroll-margin-top: 7.5rem; }
+  [hidden]:where(:not([hidden='until-found'])) { display: none !important; }
   ::selection { background: var(--color-burgundy); color: var(--color-cream); }
 }
 

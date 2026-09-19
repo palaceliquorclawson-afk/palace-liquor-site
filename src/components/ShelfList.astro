@@ -7,7 +7,7 @@
 import { Picture } from 'astro:assets';
 import Text from './Text.astro';
 import { findPhoto, photoCredit } from '../lib/photos';
-interface Item { name: string; meta?: string; note?: string; tag?: string; photo?: string }
+interface Item { name: string; meta?: string; note?: string; tag?: string; photo?: string; hidden?: boolean; attrs?: Record<string, string> }
 interface Props { items: Item[]; tone?: 'light' | 'dark'; columns?: 1 | 2 | 3; label?: string }
 const { items, tone = 'light', columns = 2, label } = Astro.props;
 const cols = { 1: '', 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-2 lg:grid-cols-3' }[columns];
@@ -16,7 +16,7 @@ const cols = { 1: '', 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-2 lg:grid-cols-3' }[
   {items.map((item) => {
     const image = findPhoto(item.photo);
     return (
-      <li class:list={[
+      <li {...item.attrs} hidden={item.hidden} class:list={[
         'reveal flex items-center gap-4 rounded-xl border p-3 sm:p-4',
         tone === 'light' ? 'border-line bg-paper' : 'border-white/10 bg-ink-2 text-cream',
       ]}>

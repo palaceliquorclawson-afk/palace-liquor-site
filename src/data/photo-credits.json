@@ -121,22 +121,6 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "source": "https://commons.wikimedia.org/wiki/File:Veuve_Clicquot_-_bottle.jpg"
     },
-    "bottle-dom-perignon.jpg": {
-      "alt": "A bottle of Dom Pérignon Champagne with its gift box",
-      "title": "Dom Perignon 1999",
-      "author": "PlatinumSunlight at English Wikipedia",
-      "license": "Public domain",
-      "licenseUrl": "",
-      "source": "https://commons.wikimedia.org/wiki/File:Dom_Perignon_1999.jpg"
-    },
-    "bottle-moet-chandon.jpg": {
-      "alt": "A bottle of Moët & Chandon Champagne",
-      "title": "Moët & Chandon bottle, gift from BMW to a car buyer",
-      "author": "Cjp24",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Mo%C3%ABt_%26_Chandon_bottle,_gift_from_BMW_to_a_car_buyer.jpg"
-    },
     "beer-bells-two-hearted.jpg": {
       "alt": "A bottle and glass of Bell's Two Hearted Ale",
       "title": "Bell's Two Hearted Ale",
@@ -320,6 +304,86 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "source": "https://commons.wikimedia.org/wiki/File:Kegs_in_the_cellar_of_the_New_Inn,_Wetherby_(4th_December_2022).jpg"
+    },
+    "wine-cgt-semidry-riesling.jpg": {
+      "alt": "Bottles of Chateau Grand Traverse Select Semi-Dry Riesling",
+      "title": "CGTRiesling",
+      "author": "Dana boomer",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CGTRiesling.jpg"
+    },
+    "wine-cgt-dry-riesling.jpg": {
+      "alt": "Bottles of Chateau Grand Traverse Dry Riesling",
+      "title": "CGTDry",
+      "author": "Dana boomer",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CGTDry.jpg"
+    },
+    "wine-cgt-late-harvest-riesling.jpg": {
+      "alt": "Bottles of Chateau Grand Traverse Late Harvest Riesling",
+      "title": "CGTLateHarvest",
+      "author": "Dana boomer",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CGTLateHarvest.jpg"
+    },
+    "wine-cgt-sweet-traverse-red.jpg": {
+      "alt": "A bottle of Chateau Grand Traverse Sweet Traverse Red",
+      "title": "CGTRed",
+      "author": "Dana boomer",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CGTRed.jpg"
+    },
+    "wine-josh-cellars-cabernet.jpg": {
+      "alt": "Bottles of Josh Cellars Reserve Cabernet Sauvignon",
+      "title": "Josh Cellars Reserve",
+      "author": "BanjoZebra",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Josh_Cellars_Reserve.jpg"
+    },
+    "wine-silver-oak-cabernet.jpg": {
+      "alt": "A bottle of Silver Oak Napa Valley Cabernet Sauvignon",
+      "title": "Silver Oak Napa Valley 1994",
+      "author": "Steve Ryan",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Silver_Oak_Napa_Valley_1994.jpg"
+    },
+    "wine-stags-leap-cask-23.jpg": {
+      "alt": "Bottles of Stag's Leap Wine Cellars Cask 23 Cabernet Sauvignon",
+      "title": "Stag's Leap Wine Cellars Cabernet Sauvignon CASK 23 1997",
+      "author": "Nagarazoku",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stag%27s_Leap_Wine_Cellars_Cabernet_Sauvignon_CASK_23_1997.jpg"
+    },
+    "wine-rosemount-pinot-grigio.jpg": {
+      "alt": "A bottle and glass of Rosemount Pinot Grigio",
+      "title": "Rosemount Pinot Grigio",
+      "author": "brett jordan",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rosemount_Pinot_Grigio.jpg"
+    },
+    "wine-leelanau-whaleback-white.jpg": {
+      "alt": "A bottle of Leelanau Cellars Whaleback White",
+      "title": "Leelanau Whaleback White",
+      "author": "Bernt Rostad",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://www.flickr.com/photos/67975030@N00/8338218346"
+    },
+    "wine-tabor-hill-cabernet-franc.jpg": {
+      "alt": "A bottle and glass of Tabor Hill Cabernet Franc",
+      "title": "Tabor Hill Cabarnet Franc",
+      "author": "@joefoodie",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://www.flickr.com/photos/98178986@N00/4249219837"
     }
   }
 }
