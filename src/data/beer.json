@@ -1,9 +1,11 @@
 {
-  "_howTo": "Craft Beer page 'What's new'. Add new beers at the top. brewery, name, style, and an optional note. Update lastUpdated (YYYY-MM-DD) when you change the list.",
-  "lastUpdated": "2026-09-18",
+  "_howTo": "Craft Beer page 'Michigan favorites' list. brewery, name, style, and an optional note. Add new releases at the top.",
   "whatsNew": [
-    { "brewery": "[PLACEHOLDER] Brewery", "name": "[PLACEHOLDER] Beer name", "style": "IPA", "note": "" },
-    { "brewery": "[PLACEHOLDER] Brewery", "name": "[PLACEHOLDER] Beer name", "style": "Stout", "note": "" },
-    { "brewery": "[PLACEHOLDER] Brewery", "name": "[PLACEHOLDER] Beer name", "style": "Lager", "note": "" }
+    { "brewery": "Bell's Brewery", "name": "Two Hearted Ale", "style": "American IPA", "note": "" },
+    { "brewery": "Founders Brewing Co.", "name": "All Day IPA", "style": "Session IPA", "note": "" },
+    { "brewery": "Bell's Brewery", "name": "Oberon", "style": "Wheat Ale · Seasonal", "note": "" },
+    { "brewery": "Short's Brewing Co.", "name": "Soft Parade", "style": "Fruit Ale", "note": "" },
+    { "brewery": "Founders Brewing Co.", "name": "Breakfast Stout", "style": "Imperial Stout", "note": "" },
+    { "brewery": "Atwater Brewery", "name": "Dirty Blonde", "style": "Wheat Ale", "note": "" }
   ]
 }

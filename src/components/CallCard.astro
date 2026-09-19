@@ -1,0 +1,23 @@
+---
+/** Shown in place of a form until its Formspree address is connected in site.config.ts. */
+import { site, telHref } from '../site.config';
+import Icon from './Icon.astro';
+interface Props { title: string; text: string; checklist?: string[]; class?: string }
+const { title, text, checklist = [], class: className } = Astro.props;
+---
+<div class:list={['flex flex-col rounded-2xl bg-ink p-6 text-cream sm:p-10', className]}>
+  <span class="grid h-14 w-14 place-items-center rounded-2xl bg-gold text-ink"><Icon name="phone" class="h-7 w-7" /></span>
+  <h3 class="mt-5 text-2xl sm:text-3xl">{title}</h3>
+  <p class="mt-3 text-lg text-cream/85">{text}</p>
+  {checklist.length > 0 && (
+    <>
+      <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-gold">Have these handy</p>
+      <ul class="mt-3 grid gap-2">
+        {checklist.map((item) => (
+          <li class="flex items-center gap-3"><Icon name="check" class="h-5 w-5 flex-none text-gold" /> {item}</li>
+        ))}
+      </ul>
+    </>
+  )}
+  <a href={telHref} class="btn btn-gold mt-8 self-start px-8 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
+</div>

@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import RentalForm from '../components/RentalForm.astro';
+import CallCard from '../components/CallCard.astro';
 import Text from '../components/Text.astro';
 import Icon from '../components/Icon.astro';
-import { site, telHref } from '../site.config';
+import { site, telHref, isPlaceholder } from '../site.config';
 import rentals from '../data/rentals.json';
 ---
 <BaseLayout
@@ -15,12 +16,12 @@ import rentals from '../data/rentals.json';
   <Hero
     eyebrow="Kegs & rentals"
     title="Tap it.<br />Table it. Done."
-    subtitle="Kegs, tappers and tables for parties of any size. Request online or give us a call."
+    subtitle="Kegs, tappers and tables for parties of any size. Give us a call to reserve."
     photo="hero-kegs.jpg"
     photoAlt="Beer kegs ready for pickup at Palace Liquor"
   >
     <div class="flex flex-col gap-3 sm:flex-row">
-      <a href="#request" class="btn btn-gold">Request a rental <Icon name="arrow" class="h-5 w-5" /></a>
+      <a href="#request" class="btn btn-gold">{isPlaceholder(site.forms.rentalRequest) ? 'Reserve a rental' : 'Request a rental'} <Icon name="arrow" class="h-5 w-5" /></a>
       <a href={telHref} class="btn btn-outline-light"><Icon name="phone" class="h-5 w-5" /> {site.phone}</a>
     </div>
   </Hero>
@@ -73,7 +74,15 @@ import rentals from '../data/rentals.json';
           ))}
         </ul>
       </div>
-      <div id="request"><RentalForm /></div>
+      <div id="request">
+        {isPlaceholder(site.forms.rentalRequest) ? (
+          <CallCard
+            title="Call to reserve"
+            text="Kegs, tappers and tables go fast on busy weekends. Give us a call to check availability and reserve yours."
+            checklist={['Pickup and return dates', 'Keg size and beer you want', 'Number of tables']}
+          />
+        ) : <RentalForm />}
+      </div>
     </div>
   </section>
 </BaseLayout>

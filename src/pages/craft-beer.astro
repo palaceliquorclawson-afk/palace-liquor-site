@@ -10,7 +10,6 @@ import Icon from '../components/Icon.astro';
 import { site, telHref } from '../site.config';
 import beer from '../data/beer.json';
 
-const updated = new Date(`${beer.lastUpdated}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 ---
 <BaseLayout
   title="Craft Beer in Clawson, MI | Michigan Beer & Walk-In Cooler | Palace Liquor"
@@ -60,11 +59,10 @@ const updated = new Date(`${beer.lastUpdated}T12:00:00`).toLocaleDateString('en-
   <section class="py-16 sm:py-24" aria-labelledby="new-title">
     <div class="container-x">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <SectionHeading id="new-title" eyebrow="Fresh in" title="What's new." />
-        <p class="text-sm text-muted">Updated {updated}. Stock changes fast.</p>
+        <SectionHeading id="new-title" eyebrow="From Michigan breweries" title="Michigan favorites." intro="A few of the local beers our regulars reach for. Seasonal releases rotate in all year." />
       </div>
       <div class="mt-8">
-        <ShelfList columns={3} label="New beers" items={beer.whatsNew.map((b) => ({ name: b.name, meta: `${b.brewery} · ${b.style}`, note: b.note, tag: 'New' }))} />
+        <ShelfList columns={3} label="Michigan beers" items={beer.whatsNew.map((b) => ({ name: b.name, meta: `${b.brewery} · ${b.style}`, note: b.note }))} />
       </div>
     </div>
   </section>

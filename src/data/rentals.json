@@ -1,18 +1,17 @@
 {
-  "_howTo": "Kegs & Rentals page. Keep only the keg sizes you offer. The servings are standard industry counts for 12 oz pours. Replace every [PLACEHOLDER] with your real policy.",
+  "_howTo": "Kegs & Rentals page. Keep only the keg sizes you offer. The servings are standard industry counts for 12 oz pours. Edit the text to match your exact policies and rates.",
   "kegs": [
     { "size": "1/2 Barrel (full keg)", "gallons": "15.5 gal", "servings": "about 165 12-oz beers" },
     { "size": "1/4 Barrel (pony keg)", "gallons": "7.75 gal", "servings": "about 82 12-oz beers" },
     { "size": "1/6 Barrel (sixtel)", "gallons": "5.16 gal", "servings": "about 55 12-oz beers" }
   ],
-  "kegNote": "[PLACEHOLDER: How far ahead to order, and whether you can special-order a specific brand.]",
-  "tapper": "[PLACEHOLDER: Tapper types available (party pump or jockey box) and the rental fee.]",
-  "tables": "[PLACEHOLDER: Table size, how many are available, rental fee, and pickup or delivery.]",
+  "kegNote": "Order a few days ahead, especially for weekends, graduations and holidays. Looking for a specific brand? Ask and we'll do our best to get it in.",
+  "tapper": "Party tappers are available to rent with your keg. Call for current rates and availability.",
+  "tables": "Tables are available for parties and events. Call for current rates and availability.",
   "policies": [
     "Must be 21 or older with a valid photo ID to rent a keg.",
-    "[PLACEHOLDER: Keg deposit amount and how it is refunded.]",
-    "[PLACEHOLDER: Tapper deposit amount.]",
-    "[PLACEHOLDER: Return deadline and late fees.]",
-    "[PLACEHOLDER: Table deposit, cleaning or damage policy.]"
+    "A refundable deposit is required on kegs and tappers. Call for current amounts.",
+    "Return kegs and equipment by your agreed return date to get your deposit back.",
+    "Reserve early for busy weekends, graduation season and holidays."
   ]
 }

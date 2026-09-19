@@ -1,9 +1,21 @@
 {
-  "_howTo": "Allocated Bourbon page 'On the shelf right now'. Update lastUpdated whenever you change the list (format YYYY-MM-DD). Each bottle has a name, a size (like 750ml) and justArrived (true or false). No prices. Delete the placeholder rows and add your real bottles.",
-  "lastUpdated": "2026-09-18",
+  "_howTo": "Allocated Bourbon page bottle list. Each bottle has a name, a size (like 750ml) and an optional tag (\"Allocated\", \"Just arrived\", or \"\" for none). No prices. Add, remove or reorder bottles any time.",
   "items": [
-    { "name": "[PLACEHOLDER] Bottle name", "size": "750ml", "justArrived": true },
-    { "name": "[PLACEHOLDER] Bottle name", "size": "750ml", "justArrived": false },
-    { "name": "[PLACEHOLDER] Bottle name", "size": "1.75L", "justArrived": false }
+    { "name": "Blanton's Original Single Barrel", "size": "750ml", "tag": "Allocated" },
+    { "name": "Eagle Rare 10 Year", "size": "750ml", "tag": "Allocated" },
+    { "name": "Weller Special Reserve", "size": "750ml", "tag": "Allocated" },
+    { "name": "E.H. Taylor Jr. Small Batch", "size": "750ml", "tag": "Allocated" },
+    { "name": "Buffalo Trace", "size": "750ml", "tag": "" },
+    { "name": "Maker's Mark", "size": "750ml", "tag": "" },
+    { "name": "Maker's Mark 46", "size": "750ml", "tag": "" },
+    { "name": "Bulleit Bourbon", "size": "750ml", "tag": "" },
+    { "name": "Woodford Reserve", "size": "750ml", "tag": "" },
+    { "name": "Knob Creek 9 Year", "size": "750ml", "tag": "" },
+    { "name": "Wild Turkey 101", "size": "750ml", "tag": "" },
+    { "name": "Four Roses Small Batch", "size": "750ml", "tag": "" },
+    { "name": "Elijah Craig Small Batch", "size": "750ml", "tag": "" },
+    { "name": "Basil Hayden", "size": "750ml", "tag": "" },
+    { "name": "Angel's Envy", "size": "750ml", "tag": "" },
+    { "name": "Old Forester 1920 Prohibition Style", "size": "750ml", "tag": "" }
   ]
 }

@@ -8,7 +8,6 @@ import Icon from '../components/Icon.astro';
 import { site, telHref, directionsUrl, socialLinks } from '../site.config';
 import shelf from '../data/bourbon-shelf.json';
 
-const updated = new Date(`${shelf.lastUpdated}T12:00:00`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 ---
 <BaseLayout
   title="Allocated Bourbon in Clawson, MI | No Lists, No Lotteries | Palace Liquor"
@@ -49,15 +48,14 @@ const updated = new Date(`${shelf.lastUpdated}T12:00:00`).toLocaleDateString('en
   <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="shelf-title">
     <div class="container-x">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <SectionHeading id="shelf-title" tone="dark" eyebrow="Updated regularly" title="What's on the shelf right now." />
-        <p class="text-sm text-cream/70">Last updated {updated}</p>
+        <SectionHeading id="shelf-title" tone="dark" eyebrow="Bourbon at Palace" title="On our shelves." intro="A sample of the bourbon you'll find here, from everyday favorites to allocated bottles." />
       </div>
       <div class="reveal mt-6 flex items-start gap-3 rounded-xl border border-gold/40 bg-ink-2 p-4 text-cream/90">
         <Icon name="clock" class="mt-0.5 h-5 w-5 flex-none text-gold" />
-        <p><strong class="text-cream">Stock moves fast and changes daily.</strong> This list is a snapshot and may not reflect what's on the shelf right now. Please call before you drive over.</p>
+        <p><strong class="text-cream">Stock moves fast and changes daily.</strong> Allocated bottles come and go quickly, so this list may not match what's on the shelf today. Please call before you drive over.</p>
       </div>
       <div class="mt-6">
-        <ShelfList tone="dark" label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.justArrived ? 'Just arrived' : '' }))} />
+        <ShelfList tone="dark" label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.tag }))} />
       </div>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a href={telHref} class="btn btn-gold px-6 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>

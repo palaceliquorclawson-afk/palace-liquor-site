@@ -1,9 +1,17 @@
 {
-  "_howTo": "Cigars page 'Brands we carry'. One brand per line. Delete the placeholders and type the brands you actually stock.",
+  "_howTo": "Cigars page 'Brands we carry'. One brand per line. Edit to match what's in your humidor.",
   "brands": [
-    "[PLACEHOLDER] Brand name",
-    "[PLACEHOLDER] Brand name",
-    "[PLACEHOLDER] Brand name",
-    "[PLACEHOLDER] Brand name"
+    "Arturo Fuente",
+    "Padrón",
+    "Oliva",
+    "Rocky Patel",
+    "My Father",
+    "Romeo y Julieta",
+    "Montecristo",
+    "Macanudo",
+    "Perdomo",
+    "CAO",
+    "Drew Estate",
+    "Ashton"
   ]
 }

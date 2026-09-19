@@ -32,7 +32,7 @@ const today = new Date().toISOString().slice(0, 10);
     </div>
     <div>
       <label for="rt-phone" class="field-label">Phone *</label>
-      <input id="rt-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9()+\-.\s]{7,}" data-message="Please enter a phone number we can reach you at." class="field" />
+      <input id="rt-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9\s\(\)\+\.\-]{7,}" data-message="Please enter a phone number we can reach you at." class="field" />
     </div>
     <div>
       <label for="rt-email" class="field-label">Email</label>

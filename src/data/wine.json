@@ -10,8 +10,8 @@
   ],
   "regions": ["France", "Italy", "Spain", "California", "Oregon & Washington", "Michigan", "South America", "Australia & New Zealand"],
   "staffPicks": [
-    { "name": "[PLACEHOLDER] Wine name", "style": "Red", "note": "[PLACEHOLDER] Why we love it, in one line." },
-    { "name": "[PLACEHOLDER] Wine name", "style": "White", "note": "[PLACEHOLDER] Why we love it, in one line." },
-    { "name": "[PLACEHOLDER] Wine name", "style": "Sparkling", "note": "[PLACEHOLDER] Why we love it, in one line." }
+    { "name": "Caymus Cabernet Sauvignon", "style": "Red · Napa Valley", "note": "Lush dark fruit and cocoa. A crowd-pleaser for any special dinner." },
+    { "name": "Kim Crawford Sauvignon Blanc", "style": "White · New Zealand", "note": "Zesty citrus and tropical fruit. Crisp, bright and easy to love." },
+    { "name": "Veuve Clicquot Yellow Label", "style": "Champagne · France", "note": "The celebration bottle. Toasty, lively and always worth it." }
   ]
 }

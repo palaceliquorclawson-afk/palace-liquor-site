@@ -3,8 +3,11 @@
  * Event & catering inquiry form + drink estimate calculator.
  * Sends to the Formspree address in site.config.ts → forms.eventInquiry.
  */
-import { site, telHref } from '../site.config';
+import { site, telHref, isPlaceholder } from '../site.config';
 import Icon from './Icon.astro';
+import CallCard from './CallCard.astro';
+
+const connected = !isPlaceholder(site.forms.eventInquiry);
 
 const eventTypes = ['Wedding', 'Graduation party', 'Birthday', 'Baby shower', 'Corporate event', 'Backyard BBQ', 'Holiday party', 'Other'];
 const today = new Date().toISOString().slice(0, 10);
@@ -54,7 +57,15 @@ const today = new Date().toISOString().slice(0, 10);
     </div>
   </section>
 
-  <!-- Inquiry form -->
+  <!-- Inquiry form (a call card until Formspree is connected) -->
+  {!connected ? (
+    <CallCard
+      class="lg:col-span-3"
+      title="Call us to plan your event"
+      text="Tell us about your party and we'll recommend exactly what you need, then deliver it."
+      checklist={['Your event date', 'Type of event', 'Guest count', 'Brands you love', 'Where to deliver']}
+    />
+  ) : (
   <form
     class="card relative p-6 sm:p-8 lg:col-span-3"
     action={site.forms.eventInquiry}
@@ -81,7 +92,7 @@ const today = new Date().toISOString().slice(0, 10);
       </div>
       <div>
         <label for="ev-phone" class="field-label">Phone *</label>
-        <input id="ev-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9()+\-.\s]{7,}" data-message="Please enter a phone number we can reach you at." class="field" />
+        <input id="ev-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9\s\(\)\+\.\-]{7,}" data-message="Please enter a phone number we can reach you at." class="field" />
       </div>
       <div>
         <label for="ev-email" class="field-label">Email *</label>
@@ -119,6 +130,7 @@ const today = new Date().toISOString().slice(0, 10);
     </div>
     <div class="form-status mt-5 rounded-lg p-4" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
   </form>
+  )}
 </div>
 
 <style>

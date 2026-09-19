@@ -16,7 +16,7 @@ const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page' } = Astro.
 ---
 <section class:list={['relative isolate overflow-hidden bg-ink text-cream', size === 'home' ? 'min-h-[78svh] py-20 sm:py-28' : 'py-16 sm:py-24']}>
   <div class="absolute inset-0 -z-10">
-    <ImageSlot photo={photo} alt={photoAlt} aspect="" class="h-full" eager sizes="100vw" />
+    <ImageSlot photo={photo} alt={photoAlt} aspect="" class="h-full" eager sizes="100vw" motif={false} />
     <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
     <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent"></div>
   </div>
