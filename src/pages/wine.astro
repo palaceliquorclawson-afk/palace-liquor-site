@@ -57,7 +57,7 @@ import wine from '../data/wine.json';
     <div class="container-x">
       <SectionHeading id="picks-title" eyebrow="From our team" title="Staff picks." intro="Bottles we're pouring at home right now." />
       <div class="mt-10">
-        <ShelfList columns={3} label="Wine staff picks" items={wine.staffPicks.map((p) => ({ name: p.name, meta: p.style, note: p.note, tag: 'Staff Pick' }))} />
+        <ShelfList columns={3} label="Wine staff picks" items={wine.staffPicks.map((p) => ({ name: p.name, meta: p.style, note: p.note, tag: 'Staff Pick', photo: p.photo }))} />
       </div>
     </div>
   </section>

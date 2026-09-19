@@ -62,7 +62,7 @@ import beer from '../data/beer.json';
         <SectionHeading id="new-title" eyebrow="From Michigan breweries" title="Michigan favorites." intro="A few of the local beers our regulars reach for. Seasonal releases rotate in all year." />
       </div>
       <div class="mt-8">
-        <ShelfList columns={3} label="Michigan beers" items={beer.whatsNew.map((b) => ({ name: b.name, meta: `${b.brewery} · ${b.style}`, note: b.note }))} />
+        <ShelfList columns={2} label="Michigan beers" items={beer.whatsNew.map((b) => ({ name: b.name, meta: `${b.brewery} · ${b.style}`, note: b.note, photo: b.photo }))} />
       </div>
     </div>
   </section>

@@ -1,0 +1,341 @@
+{
+  "_howTo": "Credits for photos from Wikimedia Commons. Shown on the About & Contact page as required by their licenses. If you replace one of these files with your own photo, delete its entry here.",
+  "photos": {
+    "bottle-blantons.jpg": {
+      "alt": "A bottle of Blanton's Original Single Barrel bourbon with a glass",
+      "title": "Blanton's Bourbon",
+      "author": "Fortkeeper",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Blanton%27s_Bourbon.jpg"
+    },
+    "bottle-weller-special-reserve.jpg": {
+      "alt": "A bottle of W.L. Weller Special Reserve bourbon",
+      "title": "W L Weller",
+      "author": "Craiglduncan",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:W_L_Weller.JPG"
+    },
+    "bottle-makers-mark.jpg": {
+      "alt": "A bottle of Maker's Mark bourbon",
+      "title": "Maker's Mark",
+      "author": "Céréales Killer",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Maker%27s_Mark.jpg"
+    },
+    "bottle-bulleit.jpg": {
+      "alt": "A bottle of Bulleit Bourbon",
+      "title": "Bulleit",
+      "author": "Jmcstrav at English Wikipedia",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Bulleit.JPG"
+    },
+    "bottle-knob-creek.jpg": {
+      "alt": "A bottle of Knob Creek 9 Year bourbon",
+      "title": "Knob Creek",
+      "author": "Craiglduncan",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Knob_Creek.JPG"
+    },
+    "bottle-wild-turkey-101.jpg": {
+      "alt": "A bottle of Wild Turkey 101 bourbon",
+      "title": "Wild Turkey 101",
+      "author": "Craiglduncan",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wild_Turkey_101.JPG"
+    },
+    "bottle-four-roses-small-batch.jpg": {
+      "alt": "Bottles of Four Roses Small Batch bourbon on a shelf",
+      "title": "Four Roses Small Batch Bourbon",
+      "author": "King4120",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Four_Roses_Small_Batch_Bourbon.jpg"
+    },
+    "bottle-elijah-craig.jpg": {
+      "alt": "A bottle of Elijah Craig Small Batch bourbon",
+      "title": "Elijah Craig Small Batch",
+      "author": "Jclark754",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Elijah_Craig_Small_Batch.jpg"
+    },
+    "bottle-bookers.jpg": {
+      "alt": "A bottle of Booker's bourbon with a glass",
+      "title": "Bookers",
+      "author": "Craiglduncan",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bookers.JPG"
+    },
+    "bottle-1792-small-batch.jpg": {
+      "alt": "A bottle of 1792 Small Batch bourbon",
+      "title": "1792 Small Batch",
+      "author": "Sazerac",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1792_Small_Batch.jpg"
+    },
+    "bottle-jim-beam.jpg": {
+      "alt": "A bottle of Jim Beam bourbon",
+      "title": "Jim Beam Bourbon PL",
+      "author": "Beemwej",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jim_Beam_Bourbon_PL.JPG"
+    },
+    "bottle-evan-williams.jpg": {
+      "alt": "A bottle of Evan Williams bourbon with a glass",
+      "title": "Evan Williams",
+      "author": "Craiglduncan",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Evan_Williams.JPG"
+    },
+    "bottle-heaven-hill.jpg": {
+      "alt": "A bottle of Heaven Hill bourbon",
+      "title": "Heaven Hill Bourbon",
+      "author": "The original uploader was Analogue Kid at English Wikipedia.",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Heaven_Hill_Bourbon.JPG"
+    },
+    "bottle-jeffersons.jpg": {
+      "alt": "A bottle of Jefferson's Small Batch bourbon",
+      "title": "Jefferson's Small Batch Bourbon",
+      "author": "Castle Brands Inc",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jefferson%27s_Small_Batch_Bourbon.jpg"
+    },
+    "bottle-veuve-clicquot.jpg": {
+      "alt": "A bottle of Veuve Clicquot Champagne",
+      "title": "Veuve Clicquot - bottle",
+      "author": "Renzo Grosso",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Veuve_Clicquot_-_bottle.jpg"
+    },
+    "bottle-dom-perignon.jpg": {
+      "alt": "A bottle of Dom Pérignon Champagne with its gift box",
+      "title": "Dom Perignon 1999",
+      "author": "PlatinumSunlight at English Wikipedia",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Dom_Perignon_1999.jpg"
+    },
+    "bottle-moet-chandon.jpg": {
+      "alt": "A bottle of Moët & Chandon Champagne",
+      "title": "Moët & Chandon bottle, gift from BMW to a car buyer",
+      "author": "Cjp24",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mo%C3%ABt_%26_Chandon_bottle,_gift_from_BMW_to_a_car_buyer.jpg"
+    },
+    "beer-bells-two-hearted.jpg": {
+      "alt": "A bottle and glass of Bell's Two Hearted Ale",
+      "title": "Bell's Two Hearted Ale",
+      "author": "edwin",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bell%27s_Two_Hearted_Ale.jpg"
+    },
+    "beer-founders-all-day-ipa.jpg": {
+      "alt": "A bottle and glass of Founders All Day IPA",
+      "title": "Founders All Day IPA Session Ale",
+      "author": "Antti T. Nissinen from Finland",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Founders_All_Day_IPA_Session_Ale.jpg"
+    },
+    "beer-founders-centennial-ipa.jpg": {
+      "alt": "A glass of Founders Centennial IPA",
+      "title": "Founders Centennial IPA",
+      "author": "Bernt Rostad from Oslo, Norway",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Founders_Centennial_IPA.jpg"
+    },
+    "beer-founders-kbs.jpg": {
+      "alt": "A bottle and glass of Founders KBS stout",
+      "title": "Founders Kentucky Breakfast Stout",
+      "author": "Bernt Rostad from Oslo, Norway",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Founders_Kentucky_Breakfast_Stout.jpg"
+    },
+    "cigar-padron.jpg": {
+      "alt": "Three Padrón cigars",
+      "title": "Padroncigars",
+      "author": "Magnetic Rag",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Padroncigars.jpg"
+    },
+    "hero-home.jpg": {
+      "alt": "A whiskey old fashioned cocktail",
+      "title": "Whiskey Old Fashioned1",
+      "author": "Erich Wagner (www.eventografie.de)",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Whiskey_Old_Fashioned1.jpg"
+    },
+    "hero-bourbon.jpg": {
+      "alt": "Rows of aging barrels in a cellar",
+      "title": "Porto Calém Cellar Age-Old Casks and Tasting Experience (55243068528)",
+      "author": "Michael Gaylard from Horsham, UK",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Porto_Cal%C3%A9m_Cellar_Age-Old_Casks_and_Tasting_Experience_(55243068528).jpg"
+    },
+    "tile-bourbon.jpg": {
+      "alt": "A bourbon rickhouse at a Kentucky distillery",
+      "title": "Buffalo Trace Distillery, Frankfort, KY - 28222935928",
+      "author": "w_lemay",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Buffalo_Trace_Distillery,_Frankfort,_KY_-_28222935928.jpg"
+    },
+    "tile-spirits.jpg": {
+      "alt": "A whiskey cocktail on a bar",
+      "title": "Smoked Old Fashioned, Restaurant R'Evolution, the French Quarter, New Orleans, Louisiana",
+      "author": "Cory Doctorow",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Smoked_Old_Fashioned,_Restaurant_R%27Evolution,_the_French_Quarter,_New_Orleans,_Louisiana.jpg"
+    },
+    "spirits-wall.jpg": {
+      "alt": "A whiskey cocktail on a bar",
+      "title": "Smoked Old Fashioned, Restaurant R'Evolution, the French Quarter, New Orleans, Louisiana",
+      "author": "Cory Doctorow",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Smoked_Old_Fashioned,_Restaurant_R%27Evolution,_the_French_Quarter,_New_Orleans,_Louisiana.jpg"
+    },
+    "hero-wine.jpg": {
+      "alt": "Wine bottles aging in an underground cellar",
+      "title": "Underground wine cellar of Pontet-Canet",
+      "author": "seligmanwaite",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Underground_wine_cellar_of_Pontet-Canet.jpg"
+    },
+    "tile-wine.jpg": {
+      "alt": "Wine bottles aging in an underground cellar",
+      "title": "Underground wine cellar of Pontet-Canet",
+      "author": "seligmanwaite",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Underground_wine_cellar_of_Pontet-Canet.jpg"
+    },
+    "wine-wall.jpg": {
+      "alt": "Sparkling wine bottles stacked in a cellar",
+      "title": "Bottles at the Schramsberg wine cellar",
+      "author": "Frank Schulenburg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bottles_at_the_Schramsberg_wine_cellar.jpg"
+    },
+    "hero-beer.jpg": {
+      "alt": "Glass-door coolers filled with craft beer",
+      "title": "Special beers in K-Citymarket Järvenpää",
+      "author": "Arkke",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Special_beers_in_K-Citymarket_J%C3%A4rvenp%C3%A4%C3%A4.jpg"
+    },
+    "tile-cooler.jpg": {
+      "alt": "A walk-in beer cooler stocked with cases and kegs",
+      "title": "Beer (50574140528)",
+      "author": "Tom Mills",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beer_(50574140528).jpg"
+    },
+    "tile-beer.jpg": {
+      "alt": "Craft beer cans",
+      "title": "Three British craft brewery beer cans",
+      "author": "JIP",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Three_British_craft_brewery_beer_cans.jpg"
+    },
+    "beer-shelf.jpg": {
+      "alt": "Craft beer cans",
+      "title": "Three British craft brewery beer cans",
+      "author": "JIP",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Three_British_craft_brewery_beer_cans.jpg"
+    },
+    "hero-cigars.jpg": {
+      "alt": "Premium cigars inside a humidor",
+      "title": "Humidor innen",
+      "author": "Langinger",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Humidor_innen.jpg"
+    },
+    "tile-cigars.jpg": {
+      "alt": "An open humidor filled with cigars",
+      "title": "Humidor",
+      "author": "Friman",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Humidor.jpg"
+    },
+    "humidor-1.jpg": {
+      "alt": "Premium cigars inside a humidor",
+      "title": "Humidor innen",
+      "author": "Langinger",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Humidor_innen.jpg"
+    },
+    "humidor-2.jpg": {
+      "alt": "An open humidor filled with cigars",
+      "title": "Humidor",
+      "author": "Friman",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Humidor.jpg"
+    },
+    "humidor-3.jpg": {
+      "alt": "Three Padrón cigars",
+      "title": "Padroncigars",
+      "author": "Magnetic Rag",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Padroncigars.jpg"
+    },
+    "hero-events.jpg": {
+      "alt": "An outdoor party bar under string lights",
+      "title": "DZ6 0943 A brightly lit mobile bar at night serves drinks beneath string lights in an open-air market inviting guests to relax at nearby tables",
+      "author": "PattayaPatrol",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DZ6_0943_A_brightly_lit_mobile_bar_at_night_serves_drinks_beneath_string_lights_in_an_open-air_market_inviting_guests_to_relax_at_nearby_tables.jpg"
+    },
+    "events.jpg": {
+      "alt": "An outdoor party bar under string lights",
+      "title": "DZ6 0943 A brightly lit mobile bar at night serves drinks beneath string lights in an open-air market inviting guests to relax at nearby tables",
+      "author": "PattayaPatrol",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DZ6_0943_A_brightly_lit_mobile_bar_at_night_serves_drinks_beneath_string_lights_in_an_open-air_market_inviting_guests_to_relax_at_nearby_tables.jpg"
+    },
+    "hero-kegs.jpg": {
+      "alt": "Beer kegs lined up in a cellar",
+      "title": "Kegs in the cellar of the New Inn, Wetherby (4th December 2022)",
+      "author": "Mtaylor848",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kegs_in_the_cellar_of_the_New_Inn,_Wetherby_(4th_December_2022).jpg"
+    }
+  }
+}

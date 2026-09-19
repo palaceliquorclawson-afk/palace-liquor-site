@@ -1,17 +1,59 @@
 {
-  "_howTo": "Wine page. 'styles' and 'regions' are the areas you want to highlight; edit them to match what you carry. 'staffPicks' are specific bottles: name, style and a short note. No prices.",
+  "_howTo": "Wine page. 'styles' and 'regions' are the areas you want to highlight; edit them to match what you carry. 'staffPicks' are specific bottles: name, style, a short note and an optional photo (a file name in src/assets/photos/). No prices.",
   "styles": [
-    { "name": "Bold Reds", "note": "Cabernet, Malbec, Syrah and big blends for steak night." },
-    { "name": "Elegant Reds", "note": "Pinot Noir, Sangiovese and lighter, food-friendly bottles." },
-    { "name": "Crisp Whites", "note": "Sauvignon Blanc, Pinot Grigio, Riesling and more." },
-    { "name": "Rich Whites", "note": "Chardonnay and fuller-bodied whites." },
-    { "name": "Rosé", "note": "Dry, bright and made for patio season." },
-    { "name": "Sparkling & Champagne", "note": "From weeknight bubbles to celebration bottles." }
+    {
+      "name": "Bold Reds",
+      "note": "Cabernet, Malbec, Syrah and big blends for steak night."
+    },
+    {
+      "name": "Elegant Reds",
+      "note": "Pinot Noir, Sangiovese and lighter, food-friendly bottles."
+    },
+    {
+      "name": "Crisp Whites",
+      "note": "Sauvignon Blanc, Pinot Grigio, Riesling and more."
+    },
+    {
+      "name": "Rich Whites",
+      "note": "Chardonnay and fuller-bodied whites."
+    },
+    {
+      "name": "Rosé",
+      "note": "Dry, bright and made for patio season."
+    },
+    {
+      "name": "Sparkling & Champagne",
+      "note": "From weeknight bubbles to celebration bottles."
+    }
   ],
-  "regions": ["France", "Italy", "Spain", "California", "Oregon & Washington", "Michigan", "South America", "Australia & New Zealand"],
+  "regions": [
+    "France",
+    "Italy",
+    "Spain",
+    "California",
+    "Oregon & Washington",
+    "Michigan",
+    "South America",
+    "Australia & New Zealand"
+  ],
   "staffPicks": [
-    { "name": "Caymus Cabernet Sauvignon", "style": "Red · Napa Valley", "note": "Lush dark fruit and cocoa. A crowd-pleaser for any special dinner." },
-    { "name": "Kim Crawford Sauvignon Blanc", "style": "White · New Zealand", "note": "Zesty citrus and tropical fruit. Crisp, bright and easy to love." },
-    { "name": "Veuve Clicquot Yellow Label", "style": "Champagne · France", "note": "The celebration bottle. Toasty, lively and always worth it." }
+    {
+      "name": "Veuve Clicquot Yellow Label",
+      "style": "Champagne · France",
+      "note": "Toasty, lively and always worth it. The celebration bottle.",
+      "photo": "bottle-veuve-clicquot.jpg"
+    },
+    {
+      "name": "Moët & Chandon Impérial",
+      "style": "Champagne · France",
+      "note": "Crisp apple, citrus and brioche. A classic for toasts.",
+      "photo": "bottle-moet-chandon.jpg"
+    },
+    {
+      "name": "Dom Pérignon",
+      "style": "Vintage Champagne · France",
+      "note": "The special-occasion splurge. Elegant, layered and unforgettable.",
+      "photo": "bottle-dom-perignon.jpg"
+    }
   ]
 }

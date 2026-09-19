@@ -1,21 +1,19 @@
 {
-  "_howTo": "Allocated Bourbon page bottle list. Each bottle has a name, a size (like 750ml) and an optional tag (\"Allocated\", \"Just arrived\", or \"\" for none). No prices. Add, remove or reorder bottles any time.",
+  "_howTo": "Allocated Bourbon page bottle list. Each bottle has a name, a size (like 750ml), an optional tag (\"Allocated\", \"Just arrived\", or \"\" for none) and an optional photo (a file name in src/assets/photos/). No prices. Add, remove or reorder bottles any time.",
   "items": [
-    { "name": "Blanton's Original Single Barrel", "size": "750ml", "tag": "Allocated" },
-    { "name": "Eagle Rare 10 Year", "size": "750ml", "tag": "Allocated" },
-    { "name": "Weller Special Reserve", "size": "750ml", "tag": "Allocated" },
-    { "name": "E.H. Taylor Jr. Small Batch", "size": "750ml", "tag": "Allocated" },
-    { "name": "Buffalo Trace", "size": "750ml", "tag": "" },
-    { "name": "Maker's Mark", "size": "750ml", "tag": "" },
-    { "name": "Maker's Mark 46", "size": "750ml", "tag": "" },
-    { "name": "Bulleit Bourbon", "size": "750ml", "tag": "" },
-    { "name": "Woodford Reserve", "size": "750ml", "tag": "" },
-    { "name": "Knob Creek 9 Year", "size": "750ml", "tag": "" },
-    { "name": "Wild Turkey 101", "size": "750ml", "tag": "" },
-    { "name": "Four Roses Small Batch", "size": "750ml", "tag": "" },
-    { "name": "Elijah Craig Small Batch", "size": "750ml", "tag": "" },
-    { "name": "Basil Hayden", "size": "750ml", "tag": "" },
-    { "name": "Angel's Envy", "size": "750ml", "tag": "" },
-    { "name": "Old Forester 1920 Prohibition Style", "size": "750ml", "tag": "" }
+    { "name": "Blanton's Original Single Barrel", "size": "750ml", "tag": "Allocated", "photo": "bottle-blantons.jpg" },
+    { "name": "Weller Special Reserve", "size": "750ml", "tag": "Allocated", "photo": "bottle-weller-special-reserve.jpg" },
+    { "name": "Booker's", "size": "750ml", "tag": "", "photo": "bottle-bookers.jpg" },
+    { "name": "1792 Small Batch", "size": "750ml", "tag": "", "photo": "bottle-1792-small-batch.jpg" },
+    { "name": "Maker's Mark", "size": "750ml", "tag": "", "photo": "bottle-makers-mark.jpg" },
+    { "name": "Bulleit Bourbon", "size": "750ml", "tag": "", "photo": "bottle-bulleit.jpg" },
+    { "name": "Knob Creek 9 Year", "size": "750ml", "tag": "", "photo": "bottle-knob-creek.jpg" },
+    { "name": "Wild Turkey 101", "size": "750ml", "tag": "", "photo": "bottle-wild-turkey-101.jpg" },
+    { "name": "Four Roses Small Batch", "size": "750ml", "tag": "", "photo": "bottle-four-roses-small-batch.jpg" },
+    { "name": "Elijah Craig Small Batch", "size": "750ml", "tag": "", "photo": "bottle-elijah-craig.jpg" },
+    { "name": "Jefferson's Small Batch", "size": "750ml", "tag": "", "photo": "bottle-jeffersons.jpg" },
+    { "name": "Evan Williams Black Label", "size": "750ml", "tag": "", "photo": "bottle-evan-williams.jpg" },
+    { "name": "Heaven Hill", "size": "750ml", "tag": "", "photo": "bottle-heaven-hill.jpg" },
+    { "name": "Jim Beam", "size": "750ml", "tag": "", "photo": "bottle-jim-beam.jpg" }
   ]
 }

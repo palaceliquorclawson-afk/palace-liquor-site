@@ -1,31 +1,48 @@
 ---
 /**
  * A list of bottles/items from a content file.
- * Each item: name, optional meta (size, style, brewery...), optional note, optional tag ("Just arrived", "Staff Pick"...).
+ * Each item: name, optional meta (size, style, brewery...), optional note, optional tag,
+ * and optional photo (a file name in src/assets/photos/). A photo thumbnail shows only when the file exists.
  */
+import { Picture } from 'astro:assets';
 import Text from './Text.astro';
-interface Item { name: string; meta?: string; note?: string; tag?: string }
+import { findPhoto, photoCredit } from '../lib/photos';
+interface Item { name: string; meta?: string; note?: string; tag?: string; photo?: string }
 interface Props { items: Item[]; tone?: 'light' | 'dark'; columns?: 1 | 2 | 3; label?: string }
 const { items, tone = 'light', columns = 2, label } = Astro.props;
 const cols = { 1: '', 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-2 lg:grid-cols-3' }[columns];
 ---
 <ul class:list={['grid gap-3', cols]} aria-label={label}>
-  {items.map((item) => (
-    <li class:list={[
-      'reveal flex items-start justify-between gap-4 rounded-xl border p-4 sm:p-5',
-      tone === 'light' ? 'border-line bg-paper' : 'border-white/10 bg-ink-2 text-cream',
-    ]}>
-      <div class="min-w-0">
-        <Text as="p" value={item.name} class="font-display text-lg font-bold leading-snug" />
-        {item.meta && <Text as="p" value={item.meta} class:list={['mt-0.5 text-sm', tone === 'light' ? 'text-muted' : 'text-cream/70']} />}
-        {item.note && <Text as="p" value={item.note} class:list={['mt-2 text-[0.95rem]', tone === 'light' ? 'text-muted' : 'text-cream/80']} />}
-      </div>
-      {item.tag && (
-        <span class:list={[
-          'flex-none rounded-full px-2.5 py-1 text-xs font-semibold whitespace-nowrap',
-          tone === 'light' ? 'bg-burgundy text-cream' : 'bg-gold text-ink',
-        ]}>{item.tag}</span>
-      )}
-    </li>
-  ))}
+  {items.map((item) => {
+    const image = findPhoto(item.photo);
+    return (
+      <li class:list={[
+        'reveal flex items-center gap-4 rounded-xl border p-3 sm:p-4',
+        tone === 'light' ? 'border-line bg-paper' : 'border-white/10 bg-ink-2 text-cream',
+      ]}>
+        {image && (
+          <Picture
+            src={image}
+            alt={photoCredit(item.photo)?.alt ?? item.name}
+            formats={['avif', 'webp']}
+            widths={[160, 240]}
+            sizes="80px"
+            loading="lazy"
+            class="h-[104px] w-20 flex-none rounded-lg object-cover"
+          />
+        )}
+        <div class="min-w-0 flex-1 self-center">
+          <Text as="p" value={item.name} class="font-display text-lg font-bold leading-snug" />
+          {item.meta && <Text as="p" value={item.meta} class:list={['mt-0.5 text-sm', tone === 'light' ? 'text-muted' : 'text-cream/70']} />}
+          {item.note && <Text as="p" value={item.note} class:list={['mt-2 text-[0.95rem]', tone === 'light' ? 'text-muted' : 'text-cream/80']} />}
+        </div>
+        {item.tag && (
+          <span class:list={[
+            'flex-none self-start rounded-full px-2.5 py-1 text-xs font-semibold whitespace-nowrap',
+            tone === 'light' ? 'bg-burgundy text-cream' : 'bg-gold text-ink',
+          ]}>{item.tag}</span>
+        )}
+      </li>
+    );
+  })}
 </ul>

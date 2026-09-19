@@ -1,11 +1,33 @@
 {
-  "_howTo": "Craft Beer page 'Michigan favorites' list. brewery, name, style, and an optional note. Add new releases at the top.",
+  "_howTo": "Craft Beer page 'Michigan favorites' list. brewery, name, style, an optional note and an optional photo (a file name in src/assets/photos/). Add new releases at the top.",
   "whatsNew": [
-    { "brewery": "Bell's Brewery", "name": "Two Hearted Ale", "style": "American IPA", "note": "" },
-    { "brewery": "Founders Brewing Co.", "name": "All Day IPA", "style": "Session IPA", "note": "" },
-    { "brewery": "Bell's Brewery", "name": "Oberon", "style": "Wheat Ale · Seasonal", "note": "" },
-    { "brewery": "Short's Brewing Co.", "name": "Soft Parade", "style": "Fruit Ale", "note": "" },
-    { "brewery": "Founders Brewing Co.", "name": "Breakfast Stout", "style": "Imperial Stout", "note": "" },
-    { "brewery": "Atwater Brewery", "name": "Dirty Blonde", "style": "Wheat Ale", "note": "" }
+    {
+      "brewery": "Bell's Brewery · Kalamazoo",
+      "name": "Two Hearted Ale",
+      "style": "American IPA",
+      "note": "",
+      "photo": "beer-bells-two-hearted.jpg"
+    },
+    {
+      "brewery": "Founders Brewing Co. · Grand Rapids",
+      "name": "All Day IPA",
+      "style": "Session IPA",
+      "note": "",
+      "photo": "beer-founders-all-day-ipa.jpg"
+    },
+    {
+      "brewery": "Founders Brewing Co. · Grand Rapids",
+      "name": "Centennial IPA",
+      "style": "American IPA",
+      "note": "",
+      "photo": "beer-founders-centennial-ipa.jpg"
+    },
+    {
+      "brewery": "Founders Brewing Co. · Grand Rapids",
+      "name": "KBS",
+      "style": "Barrel-Aged Imperial Stout · Seasonal",
+      "note": "",
+      "photo": "beer-founders-kbs.jpg"
+    }
   ]
 }

@@ -11,6 +11,7 @@ import GoogleReviewButton from '../components/GoogleReviewButton.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Icon from '../components/Icon.astro';
 import { site, telHref, directionsUrl } from '../site.config';
+import { findPhoto } from '../lib/photos';
 import shelf from '../data/now-on-the-shelf.json';
 
 const categories = [
@@ -74,7 +75,9 @@ const categories = [
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {shelf.items.map((item) => (
           <article class="card reveal overflow-hidden">
-            <ImageSlot photo={item.photo || ''} alt={item.photo ? item.name : ''} tone="light" aspect="aspect-[4/3]" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
+            {findPhoto(item.photo) && (
+              <ImageSlot photo={item.photo} alt={item.name} tone="light" aspect="aspect-[4/3]" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
+            )}
             <div class="p-5">
               <div class="flex items-center justify-between gap-2">
                 <span class="text-xs font-semibold uppercase tracking-wider text-burgundy">{item.category}</span>

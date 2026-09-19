@@ -55,7 +55,7 @@ import shelf from '../data/bourbon-shelf.json';
         <p><strong class="text-cream">Stock moves fast and changes daily.</strong> Allocated bottles come and go quickly, so this list may not match what's on the shelf today. Please call before you drive over.</p>
       </div>
       <div class="mt-6">
-        <ShelfList tone="dark" label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.tag }))} />
+        <ShelfList tone="dark" label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.tag, photo: b.photo }))} />
       </div>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a href={telHref} class="btn btn-gold px-6 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>

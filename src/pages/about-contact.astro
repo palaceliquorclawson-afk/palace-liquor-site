@@ -9,6 +9,7 @@ import GoogleReviewButton from '../components/GoogleReviewButton.astro';
 import Text from '../components/Text.astro';
 import Icon from '../components/Icon.astro';
 import { site, telHref, directionsUrl, isPlaceholder, socialLinks } from '../site.config';
+import { findPhoto, allCredits } from '../lib/photos';
 
 // ✏️ Edit your store story here. Each line is one paragraph.
 const story = [
@@ -16,6 +17,14 @@ const story = [
   'We keep our shelves stocked with fine wine, Michigan craft beer, a deep bourbon and whiskey selection and a well-kept humidor. Spirits are always at Michigan state minimum pricing, and when allocated bottles come in, they go straight on the shelf for our customers. No lists, no games.',
   'Planning a party? We’ll help with that too, from kegs and tables to a full drink order delivered to your door. Stop in and say hi. We’d love to help you find something great.',
 ];
+
+// Your own store photos. Each shows once you add the file to src/assets/photos/.
+const storePhotos = [
+  { photo: 'storefront.jpg', alt: 'Palace Liquor storefront on 14 Mile Road', aspect: 'aspect-[16/10]', wide: true },
+  { photo: 'team.jpg', alt: 'The Palace Liquor team', aspect: 'aspect-square', wide: false },
+  { photo: 'inside.jpg', alt: 'Inside Palace Liquor', aspect: 'aspect-square', wide: false },
+].filter((p) => findPhoto(p.photo));
+const credits = allCredits();
 ---
 <BaseLayout
   title="About & Contact | Palace Liquor, Clawson, MI"
@@ -24,18 +33,22 @@ const story = [
   <Hero eyebrow="About & contact" title="Your neighborhood<br />bottle shop." photo="hero-about.jpg" photoAlt="The front of Palace Liquor in Clawson" />
 
   <section class="py-16 sm:py-24" aria-labelledby="story-title">
-    <div class="container-x grid items-center gap-10 lg:grid-cols-2">
-      <div>
+    <div class:list={['container-x grid items-center gap-10', storePhotos.length > 0 && 'lg:grid-cols-2']}>
+      <div class:list={[storePhotos.length === 0 && 'max-w-3xl']}>
         <SectionHeading id="story-title" eyebrow="Our story" title="Clawson's place for the good stuff." />
         <div class="reveal mt-6 grid gap-4 text-lg">
           {story.map((p) => <Text as="p" value={p} />)}
         </div>
       </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="reveal col-span-2 overflow-hidden rounded-2xl"><ImageSlot photo="storefront.jpg" alt="Palace Liquor storefront on 14 Mile Road" aspect="aspect-[16/10]" /></div>
-        <div class="reveal overflow-hidden rounded-2xl"><ImageSlot photo="team.jpg" alt="The Palace Liquor team" aspect="aspect-square" /></div>
-        <div class="reveal overflow-hidden rounded-2xl"><ImageSlot photo="inside.jpg" alt="Inside Palace Liquor" aspect="aspect-square" /></div>
-      </div>
+      {storePhotos.length > 0 && (
+        <div class="grid grid-cols-2 gap-4">
+          {storePhotos.map((p) => (
+            <div class:list={['reveal overflow-hidden rounded-2xl', (p.wide || storePhotos.length === 1) && 'col-span-2']}>
+              <ImageSlot photo={p.photo} alt={p.alt} aspect={p.aspect} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 
@@ -67,4 +80,23 @@ const story = [
       <Map class="reveal self-start" />
     </div>
   </section>
+  {credits.length > 0 && (
+    <section class="border-t border-line py-10" aria-labelledby="credits-title">
+      <div class="container-x">
+        <details class="text-sm text-muted">
+          <summary id="credits-title" class="cursor-pointer font-semibold text-ink">Photo credits</summary>
+          <p class="mt-3">Some product and scene photos on this site are from <a class="underline" href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, used under their free licenses. Photos show the products and styles we carry, not our store.</p>
+          <ul class="mt-3 grid gap-1 sm:grid-cols-2">
+            {credits.map((c) => (
+              <li>
+                <a class="underline" href={c.source} target="_blank" rel="noopener noreferrer">{c.title}</a>
+                {' '}by {c.author}
+                {c.licenseUrl ? <>, <a class="underline" href={c.licenseUrl} target="_blank" rel="noopener noreferrer">{c.license}</a></> : <>, {c.license}</>}
+              </li>
+            ))}
+          </ul>
+        </details>
+      </div>
+    </section>
+  )}
 </BaseLayout>

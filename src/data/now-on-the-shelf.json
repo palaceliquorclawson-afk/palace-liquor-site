@@ -1,9 +1,9 @@
 {
-  "_howTo": "Home page 'Now on the Shelf'. Add, remove or reorder items. tag is a short label like \"New Arrival\", \"Staff Pick\" or \"Michigan Favorite\" (or \"\"). category is a short label like Wine, Beer, Bourbon, Spirits or Cigars. photo is optional: put a file in src/assets/photos/ and write its file name here.",
+  "_howTo": "Home page 'Now on the Shelf'. Add, remove or reorder items. tag is a short label like \"New Arrival\", \"Staff Pick\" or \"Michigan Favorite\" (or \"\"). category is a short label like Wine, Beer, Bourbon, Spirits or Cigars. photo is a file name in src/assets/photos/ (items without a photo show as text-only cards).",
   "items": [
-    { "name": "Blanton's Original Single Barrel", "category": "Bourbon", "note": "The original single barrel bourbon. Soft caramel, orange and vanilla. Grab it when you see it.", "tag": "Staff Pick", "photo": "" },
-    { "name": "Caymus Cabernet Sauvignon", "category": "Wine", "note": "A rich, velvety Napa Valley Cab with dark fruit and cocoa. A steak-night classic.", "tag": "Staff Pick", "photo": "" },
-    { "name": "Bell's Two Hearted Ale", "category": "Beer", "note": "Michigan's iconic IPA from Kalamazoo. Bright, piney and always in the cooler.", "tag": "Michigan Favorite", "photo": "" },
-    { "name": "Arturo Fuente Hemingway", "category": "Cigars", "note": "A beloved perfecto-shaped smoke: smooth, rich and perfect with a pour of bourbon.", "tag": "Humidor Pick", "photo": "" }
+    { "name": "Blanton's Original Single Barrel", "category": "Bourbon", "note": "The original single barrel bourbon. Soft caramel, orange and vanilla. Grab it when you see it.", "tag": "Staff Pick", "photo": "bottle-blantons.jpg" },
+    { "name": "Veuve Clicquot Yellow Label", "category": "Champagne", "note": "The celebration bottle. Toasty, lively and always worth it.", "tag": "Staff Pick", "photo": "bottle-veuve-clicquot.jpg" },
+    { "name": "Bell's Two Hearted Ale", "category": "Beer", "note": "Michigan's iconic IPA from Kalamazoo. Bright, piney and always in the cooler.", "tag": "Michigan Favorite", "photo": "beer-bells-two-hearted.jpg" },
+    { "name": "Padrón Cigars", "category": "Cigars", "note": "Rich, smooth Nicaraguan cigars that pair perfectly with a pour of bourbon.", "tag": "Humidor Pick", "photo": "cigar-padron.jpg" }
   ]
 }

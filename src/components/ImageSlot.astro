@@ -4,8 +4,8 @@
  * (e.g. "storefront.jpg") and it appears here automatically, resized and converted to AVIF/WebP.
  * Until then, a styled crown panel shows (while previewing locally it also shows which file name to add).
  */
-import type { ImageMetadata } from 'astro';
 import { Picture } from 'astro:assets';
+import { findPhoto, photoCredit } from '../lib/photos';
 
 interface Props {
   photo?: string;
@@ -19,11 +19,12 @@ interface Props {
   motif?: boolean;
 }
 
-const { photo = '', alt, class: className, aspect = 'aspect-[4/3]', sizes = '(min-width: 1024px) 50vw, 100vw', eager = false, tone = 'dark', motif = true } = Astro.props;
+const { photo = '', alt: pageAlt, class: className, aspect = 'aspect-[4/3]', sizes = '(min-width: 1024px) 50vw, 100vw', eager = false, tone = 'dark', motif = true } = Astro.props;
 
-const files = import.meta.glob<{ default: ImageMetadata }>('../assets/photos/*.{jpg,jpeg,png,webp,avif}', { eager: true });
-const match = photo ? Object.entries(files).find(([p]) => p.split('/').pop()?.toLowerCase() === photo.toLowerCase()) : undefined;
-const image = match?.[1].default;
+const image = findPhoto(photo);
+// Stock photos describe what's actually pictured; your own photos use the page's description.
+// An empty alt means decorative (e.g. category tiles whose link text already says it).
+const alt = pageAlt ? (photoCredit(photo)?.alt ?? pageAlt) : '';
 ---
 {image ? (
   <Picture
