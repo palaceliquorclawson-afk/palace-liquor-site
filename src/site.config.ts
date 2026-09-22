@@ -55,7 +55,7 @@ export const site = {
    * Replace the placeholder with the URL Formspree gives you, e.g. https://formspree.io/f/abcdwxyz
    */
   forms: {
-    eventInquiry: 'https://formspree.io/f/[PLACEHOLDER-EVENT-FORM-ID]',
+    eventInquiry: 'https://formspree.io/f/xaenorav',
     rentalRequest: 'https://formspree.io/f/mbglonqa',
   },
 
