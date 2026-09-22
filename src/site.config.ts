@@ -56,7 +56,7 @@ export const site = {
    */
   forms: {
     eventInquiry: 'https://formspree.io/f/[PLACEHOLDER-EVENT-FORM-ID]',
-    rentalRequest: 'https://formspree.io/f/[PLACEHOLDER-RENTAL-FORM-ID]',
+    rentalRequest: 'https://formspree.io/f/mbglonqa',
   },
 
   /** Show the "Now on the Shelf" section on the home page (items live in src/data/now-on-the-shelf.json). */
