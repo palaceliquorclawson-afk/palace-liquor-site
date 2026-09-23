@@ -1,0 +1,32 @@
+{
+  "_howTo": "Cigars page 'Pair it with a pour'. Each pairing has a cigar profile, a short note, and 1-2 bottles to suggest. bottle.photo is a file name in src/assets/photos/ (leave \"\" for no photo). Edit freely to match what you carry.",
+  "pairings": [
+    {
+      "profile": "Mild & creamy",
+      "wrapper": "Connecticut shade",
+      "note": "Smooth, nutty and easy-going. Go with a softer, sweeter wheated bourbon that won't run it over.",
+      "bottles": [
+        { "name": "Maker's Mark", "photo": "bottle-makers-mark.jpg" },
+        { "name": "Weller Special Reserve", "photo": "bottle-weller-special-reserve.jpg" }
+      ]
+    },
+    {
+      "profile": "Medium & spicy",
+      "wrapper": "Nicaraguan habano",
+      "note": "Pepper, cedar and a little sweetness. A high-rye bourbon matches the spice note for note.",
+      "bottles": [
+        { "name": "Bulleit Bourbon", "photo": "bottle-bulleit.jpg" },
+        { "name": "Four Roses Small Batch", "photo": "bottle-four-roses-small-batch.jpg" }
+      ]
+    },
+    {
+      "profile": "Full & rich",
+      "wrapper": "Maduro",
+      "note": "Dark chocolate, espresso and earth. It takes a big, high-proof pour to stand up to it.",
+      "bottles": [
+        { "name": "Booker's", "photo": "bottle-bookers.jpg" },
+        { "name": "Knob Creek 9 Year", "photo": "bottle-knob-creek.jpg" }
+      ]
+    }
+  ]
+}
