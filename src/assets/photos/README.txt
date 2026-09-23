@@ -7,7 +7,7 @@ HOME          hero-home.jpg, tile-wine.jpg, tile-beer.jpg, tile-bourbon.jpg, til
 WINE          hero-wine.jpg, wine-wall.jpg
 CRAFT BEER    hero-beer.jpg, beer-shelf.jpg
 BOURBON       hero-bourbon.jpg, spirits-wall.jpg
-CIGARS        hero-cigars.jpg, humidor-1.jpg, humidor-2.jpg, humidor-3.jpg
+CIGARS        hero-cigars.jpg
 KEGS          hero-kegs.jpg
 DELIVERY      hero-delivery.jpg
 ABOUT         hero-about.jpg, storefront.jpg, team.jpg, inside.jpg

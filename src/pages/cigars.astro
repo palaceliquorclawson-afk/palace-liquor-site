@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import ImageSlot from '../components/ImageSlot.astro';
 import Text from '../components/Text.astro';
 import Icon from '../components/Icon.astro';
 import { site, telHref, directionsUrl } from '../site.config';
@@ -31,14 +30,7 @@ import { Picture } from 'astro:assets';
 
   <section class="py-16 sm:py-24" aria-labelledby="humidor-title">
     <div class="container-x">
-      <SectionHeading id="humidor-title" eyebrow="The humidor" title="Step inside." intro="Browse the humidor, ask what's new, or tell us what you usually smoke and we'll suggest something to try next." />
-      <div class="mt-10 grid gap-4 sm:grid-cols-3">
-        <div class="reveal overflow-hidden rounded-2xl sm:col-span-2"><ImageSlot photo="humidor-1.jpg" alt="Inside the humidor at Palace Liquor" aspect="aspect-[16/10]" /></div>
-        <div class="grid gap-4">
-          <div class="reveal overflow-hidden rounded-2xl"><ImageSlot photo="humidor-2.jpg" alt="Boxes of premium cigars" aspect="aspect-[16/10]" /></div>
-          <div class="reveal overflow-hidden rounded-2xl"><ImageSlot photo="humidor-3.jpg" alt="A cigar and lighter" aspect="aspect-[16/10]" /></div>
-        </div>
-      </div>
+      <SectionHeading id="humidor-title" eyebrow="The humidor" title="Step inside." intro="Browse the humidor, ask what's new, or tell us what you usually smoke and we'll suggest something to try next. Everything is kept at proper humidity, so it draws the way it should." />
     </div>
   </section>
 
