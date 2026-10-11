@@ -15,14 +15,14 @@ import shelf from '../data/bourbon-shelf.json';
 >
   <Hero
     eyebrow="Allocated bourbon"
-    title="No lists.<br />No games."
+    title="No lists.<em>No games.</em>"
     subtitle="If it's on the shelf, it's yours. Whatever allocated and hard-to-find bottles come in go straight out for customers, first come, first served."
     photo="hero-bourbon.jpg"
     photoAlt="Bourbon bottles on the shelf at Palace Liquor"
   >
     <div class="flex flex-col gap-3 sm:flex-row">
-      <a href={telHref} class="btn btn-gold"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>
-      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
+      <a href={telHref} class="btn btn-primary"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </Hero>
 
@@ -45,21 +45,21 @@ import shelf from '../data/bourbon-shelf.json';
     </div>
   </section>
 
-  <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="shelf-title">
+  <section class="border-y border-line bg-cream-2 py-16 sm:py-24" aria-labelledby="shelf-title">
     <div class="container-x">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <SectionHeading id="shelf-title" tone="dark" eyebrow="Bourbon at Palace" title="On our shelves." intro="A sample of the bourbon you'll find here, from everyday favorites to allocated bottles." />
+        <SectionHeading id="shelf-title"  eyebrow="Bourbon at Palace" title="On our shelves." intro="A sample of the bourbon you'll find here, from everyday favorites to allocated bottles." />
       </div>
-      <div class="reveal mt-6 flex items-start gap-3 rounded-xl border border-gold/40 bg-ink-2 p-4 text-cream/90">
-        <Icon name="clock" class="mt-0.5 h-5 w-5 flex-none text-gold" />
-        <p><strong class="text-cream">Stock moves fast and changes daily.</strong> Allocated bottles come and go quickly, so this list may not match what's on the shelf today. Please call before you drive over.</p>
+      <div class="reveal mt-6 flex items-start gap-3 rounded-xl border border-burgundy/35 bg-paper p-4 text-muted">
+        <Icon name="clock" class="mt-0.5 h-5 w-5 flex-none text-burgundy" />
+        <p><strong class="text-ink">Stock moves fast and changes daily.</strong> Allocated bottles come and go quickly, so this list may not match what's on the shelf today. Please call before you drive over.</p>
       </div>
       <div class="mt-6">
-        <ShelfList tone="dark" label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.tag, photo: b.photo }))} />
+        <ShelfList  label="Bourbon on the shelf" items={shelf.items.map((b) => ({ name: b.name, meta: b.size, tag: b.tag, photo: b.photo }))} />
       </div>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href={telHref} class="btn btn-gold px-6 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>
-        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
+        <a href={telHref} class="btn btn-primary px-6 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone} to check what's in</a>
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     </div>
   </section>

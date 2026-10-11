@@ -17,14 +17,14 @@ import { Picture } from 'astro:assets';
 >
   <Hero
     eyebrow="Cigars"
-    title="Kept right.<br />Smoked slow."
+    title="Kept right.<em>Smoked slow.</em>"
     subtitle="A humidor stocked with premium cigars, kept at the right humidity so every smoke is ready when you are."
     photo="hero-cigars.jpg"
     photoAlt="Cigars in the Palace Liquor humidor"
   >
     <div class="flex flex-col gap-3 sm:flex-row">
-      <a href={telHref} class="btn btn-gold"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
-      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
+      <a href={telHref} class="btn btn-primary"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark"><Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </Hero>
 
@@ -34,12 +34,12 @@ import { Picture } from 'astro:assets';
     </div>
   </section>
 
-  <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="brands-title">
+  <section class="border-y border-line bg-cream-2 py-16 sm:py-24" aria-labelledby="brands-title">
     <div class="container-x">
-      <SectionHeading id="brands-title" tone="dark" eyebrow="What we carry" title="Brands we carry." intro="Selection changes, so call to check on a specific cigar." />
+      <SectionHeading id="brands-title"  eyebrow="What we carry" title="Brands we carry." intro="Selection changes, so call to check on a specific cigar." />
       <ul class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {cigars.brands.map((b) => (
-          <li class="reveal rounded-xl border border-white/10 bg-ink-2 px-4 py-5 text-center font-display text-lg">
+          <li class="reveal card px-4 py-5 text-center font-display text-lg">
             <Text value={b} />
           </li>
         ))}
@@ -87,7 +87,7 @@ import { Picture } from 'astro:assets';
   >
     <div class="flex flex-col gap-3 sm:flex-row">
       <a href={telHref} class="btn btn-gold px-8 text-lg"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
-      <a href="/events-catering/" class="btn btn-outline-light">Planning a whole event? <Icon name="arrow" class="h-5 w-5" /></a>
+      <a href="/events-catering/" class="btn btn-outline-dark">Planning a whole event? <Icon name="arrow" class="h-5 w-5" /></a>
     </div>
   </CtaBanner>
 

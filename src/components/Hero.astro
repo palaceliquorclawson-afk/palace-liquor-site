@@ -1,9 +1,13 @@
 ---
 /**
- * Page hero. `photo` is a file name in src/assets/photos/ (e.g. "hero-home.jpg").
- * Large on the home page, shorter on inner pages.
+ * Page banner.
+ * - tone "light" (default): warm white, headline left, arched photo right (if `photo` exists).
+ * - tone "burgundy": bold red band, no photo (events page).
+ * `photo` is a file name in src/assets/photos/ (e.g. "hero-home.jpg").
  */
-import ImageSlot from './ImageSlot.astro';
+import { Picture } from 'astro:assets';
+import { findPhoto, photoCredit } from '../lib/photos';
+
 interface Props {
   eyebrow?: string;
   title: string;
@@ -11,31 +15,62 @@ interface Props {
   photo?: string;
   photoAlt?: string;
   size?: 'home' | 'page';
-  /** 'burgundy' is a bold, photo-free version for feature pages. */
-  tone?: 'ink' | 'burgundy';
+  tone?: 'light' | 'burgundy';
 }
-const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page', tone = 'ink' } = Astro.props;
+const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page', tone = 'light' } = Astro.props;
+const image = findPhoto(photo);
+const alt = photoCredit(photo)?.alt ?? photoAlt;
+const red = tone === 'burgundy';
 ---
-<section class:list={['relative isolate overflow-hidden text-cream', tone === 'burgundy' ? 'bg-burgundy' : 'bg-ink', size === 'home' ? 'min-h-[78svh] py-20 sm:py-28' : 'py-16 sm:py-24']}>
-  {tone === 'burgundy' ? (
+<section
+  class:list={[
+    'relative isolate overflow-hidden',
+    red ? 'bg-burgundy text-cream' : 'bg-cream text-ink',
+    size === 'home' ? 'py-14 sm:py-20' : 'py-12 sm:py-16',
+  ]}
+>
+  {red && (
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <div class="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-gold/25"></div>
       <div class="absolute -right-4 -top-12 h-64 w-64 rounded-full border border-gold/20"></div>
       <div class="absolute -bottom-40 -left-32 h-96 w-96 rounded-full border border-gold/15"></div>
     </div>
-  ) : (
-    <div class="absolute inset-0 -z-10">
-      <ImageSlot photo={photo} alt={photoAlt} aspect="" class="h-full" eager sizes="100vw" motif={false} />
-      <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
-      <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent"></div>
-    </div>
   )}
-  <div class:list={['container-x', size === 'home' && 'flex min-h-[inherit] flex-col justify-center']}>
-    <div class="max-w-3xl">
-      {eyebrow && <p class:list={['eyebrow', tone === 'burgundy' ? 'text-gold-light' : 'text-gold']}>{eyebrow}</p>}
-      <h1 class:list={['mt-4 uppercase', size === 'home' ? 'text-display' : 'text-h1']} set:html={title} />
-      {subtitle && <p class="mt-5 max-w-xl text-lg text-cream/85 sm:text-xl">{subtitle}</p>}
-      <div class="mt-8"><slot /></div>
+
+  <div class:list={['container-x', red && 'text-center']}>
+    <div class:list={[!red && image && 'grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16']}>
+      <div class:list={[red && 'mx-auto max-w-3xl']}>
+        {eyebrow && <p class:list={['eyebrow', red ? 'text-gold-light' : 'text-brass']}>{eyebrow}</p>}
+        <h1
+          class:list={[
+            'mt-4',
+            !red && 'hero-title',
+            red ? 'text-display uppercase' : size === 'home' ? 'text-display' : 'text-h1',
+          ]}
+          set:html={title}
+        />
+        {subtitle && (
+          <p class:list={['mt-5 text-lg sm:text-xl', red ? 'mx-auto max-w-2xl text-cream/90' : 'max-w-xl text-muted']}>
+            {subtitle}
+          </p>
+        )}
+        <div class:list={['mt-8', red && 'flex justify-center']}><slot /></div>
+      </div>
+
+      {!red && image && (
+        <div class="arch mx-auto w-full max-w-sm lg:max-w-none">
+          <Picture
+            src={image}
+            alt={alt}
+            formats={['avif', 'webp']}
+            widths={[480, 800, 1200].filter((w) => w <= image.width)}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            loading="eager"
+            fetchpriority="high"
+            class:list={['h-full w-full object-cover', size === 'home' ? 'aspect-[4/5]' : 'aspect-[4/4.2]']}
+          />
+        </div>
+      )}
     </div>
   </div>
 </section>

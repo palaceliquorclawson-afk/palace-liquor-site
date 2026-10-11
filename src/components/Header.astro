@@ -37,11 +37,16 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
   </div>
 
   <!-- Main navigation -->
-  <div class="border-b border-white/10 bg-ink/95 text-cream backdrop-blur supports-[backdrop-filter]:bg-ink/85">
-    <div class="container-x flex h-16 items-center justify-between gap-4">
-      <a href="/" class="flex items-center gap-2.5 font-display text-xl font-bold tracking-wide" aria-label={`${site.name}, home`}>
-        <Icon name="crown" class="h-7 w-7 text-gold" />
-        <span>Palace <span class="text-gold">Liquor</span></span>
+  <div class="border-b border-line bg-cream/95 text-ink backdrop-blur supports-[backdrop-filter]:bg-cream/85">
+    <div class="container-x flex h-[4.5rem] items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2.5" aria-label={`${site.name}, home`}>
+        <Icon name="crown" class="h-7 w-7 flex-none text-burgundy" />
+        <span>
+          <span class="block font-display text-xl font-bold leading-none tracking-wide sm:text-[1.4rem]">
+            Palace <span class="text-burgundy">Liquor</span>
+          </span>
+          <span class="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-muted">Clawson · Michigan</span>
+        </span>
       </a>
 
       <nav aria-label="Main" class="hidden xl:block">
@@ -51,8 +56,8 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
               <a
                 href={item.href}
                 class:list={[
-                  'py-2 transition-colors hover:text-gold',
-                  path === item.href ? 'text-gold' : 'text-cream/85',
+                  'py-2 transition-colors hover:text-burgundy',
+                  path === item.href ? 'font-semibold text-burgundy' : 'text-muted',
                 ]}
                 aria-current={path === item.href ? 'page' : undefined}
               >{item.label}</a>
@@ -63,31 +68,32 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
 
       <button
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 xl:hidden"
+        class="inline-flex h-11 items-center gap-2 rounded-lg border border-ink/25 px-3 text-xs font-semibold uppercase tracking-[0.14em] xl:hidden"
         aria-expanded="false"
         aria-controls="mobile-menu"
         data-menu-toggle
       >
-        <span class="sr-only" data-menu-label>Open menu</span>
-        <Icon name="menu" class="menu-open-icon h-6 w-6" />
-        <Icon name="close" class="menu-close-icon hidden h-6 w-6" />
+        <span data-menu-label>Menu</span>
+        <Icon name="menu" class="menu-open-icon h-5 w-5" />
+        <Icon name="close" class="menu-close-icon hidden h-5 w-5" />
       </button>
     </div>
 
-    <nav id="mobile-menu" aria-label="Main" class="hidden max-h-[calc(100dvh-6.75rem)] overflow-y-auto border-t border-white/10 xl:hidden" data-menu>
+    <nav id="mobile-menu" aria-label="Main" class="hidden max-h-[calc(100dvh-7.25rem)] overflow-y-auto border-t border-line bg-cream xl:hidden" data-menu>
       <ul class="container-x grid gap-1 py-3">
-        {nav.map((item) => (
+        {nav.map((item, i) => (
           <li>
             <a
               href={item.href}
               class:list={[
-                'flex min-h-12 items-center justify-between rounded-lg px-3 text-lg hover:bg-white/5',
-                path === item.href ? 'text-gold' : 'text-cream',
+                'flex min-h-12 items-center gap-3 rounded-lg px-3 text-lg hover:bg-cream-2',
+                path === item.href ? 'font-semibold text-burgundy' : 'text-ink',
               ]}
               aria-current={path === item.href ? 'page' : undefined}
             >
+              <span class="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
               {item.label}
-              <Icon name="arrow" class="h-5 w-5 opacity-50" />
+              <Icon name="arrow" class="ml-auto h-5 w-5 opacity-40" />
             </a>
           </li>
         ))}
@@ -98,8 +104,8 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
 
 <style>
   [data-open-status][data-open='true'] .status-dot {
-    background: #7ee2a0;
-    box-shadow: 0 0 0 3px rgb(126 226 160 / 0.25);
+    background: #8ce0a6;
+    box-shadow: 0 0 0 3px rgb(140 224 166 / 0.25);
   }
   [data-menu-toggle][aria-expanded='true'] :global(.menu-open-icon) { display: none; }
   [data-menu-toggle][aria-expanded='true'] :global(.menu-close-icon) { display: block; }
@@ -117,7 +123,7 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     toggle.setAttribute('aria-expanded', String(open));
     menu?.classList.toggle('hidden', !open);
-    if (label) label.textContent = open ? 'Close menu' : 'Open menu';
+    if (label) label.textContent = open ? 'Close' : 'Menu';
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {

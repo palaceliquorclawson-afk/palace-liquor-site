@@ -3,7 +3,7 @@
 interface Props { eyebrow?: string; title: string; text?: string; tone?: 'burgundy' | 'ink' }
 const { eyebrow, title, text, tone = 'burgundy' } = Astro.props;
 ---
-<section class:list={['relative overflow-hidden py-16 text-cream sm:py-20', tone === 'burgundy' ? 'bg-burgundy' : 'bg-ink']}>
+<section class:list={['relative overflow-hidden py-16 text-cream sm:py-20', tone === 'burgundy' ? 'bg-burgundy' : 'bg-burgundy-dark']}>
   <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-gold/25"></div>
   <div class="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full border border-gold/20"></div>
   <div class="container-x reveal relative">

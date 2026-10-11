@@ -15,14 +15,14 @@ import rentals from '../data/rentals.json';
 >
   <Hero
     eyebrow="Kegs & rentals"
-    title="Tap it.<br />Table it. Done."
+    title="Tap it.<em>Table it. Done.</em>"
     subtitle="Kegs, tappers and tables for parties of any size. Give us a call to reserve."
     photo="hero-kegs.jpg"
     photoAlt="Beer kegs ready for pickup at Palace Liquor"
   >
     <div class="flex flex-col gap-3 sm:flex-row">
-      <a href="#request" class="btn btn-gold">{isPlaceholder(site.forms.rentalRequest) ? 'Reserve a rental' : 'Request a rental'} <Icon name="arrow" class="h-5 w-5" /></a>
-      <a href={telHref} class="btn btn-outline-light"><Icon name="phone" class="h-5 w-5" /> {site.phone}</a>
+      <a href="#request" class="btn btn-primary">{isPlaceholder(site.forms.rentalRequest) ? 'Reserve a rental' : 'Request a rental'} <Icon name="arrow" class="h-5 w-5" /></a>
+      <a href={telHref} class="btn btn-outline-dark"><Icon name="phone" class="h-5 w-5" /> {site.phone}</a>
     </div>
   </Hero>
 
@@ -43,19 +43,19 @@ import rentals from '../data/rentals.json';
     </div>
   </section>
 
-  <section class="bg-ink py-16 text-cream sm:py-24" aria-labelledby="gear-title">
+  <section class="border-y border-line bg-cream-2 py-16 sm:py-24" aria-labelledby="gear-title">
     <div class="container-x">
-      <SectionHeading id="gear-title" tone="dark" eyebrow="Rentals" title="Tappers & tables." />
+      <SectionHeading id="gear-title"  eyebrow="Rentals" title="Tappers & tables." />
       <div class="mt-10 grid gap-4 md:grid-cols-2">
-        <div class="reveal rounded-2xl border border-white/10 bg-ink-2 p-6">
-          <Icon name="beer" class="h-8 w-8 text-gold" />
+        <div class="reveal card p-6">
+          <Icon name="beer" class="h-8 w-8 text-burgundy" />
           <h3 class="mt-3 text-2xl">Tapper rental</h3>
-          <Text as="p" value={rentals.tapper} class="mt-2 text-cream/80" />
+          <Text as="p" value={rentals.tapper} class="mt-2 text-muted" />
         </div>
-        <div class="reveal rounded-2xl border border-white/10 bg-ink-2 p-6">
-          <Icon name="table" class="h-8 w-8 text-gold" />
+        <div class="reveal card p-6">
+          <Icon name="table" class="h-8 w-8 text-burgundy" />
           <h3 class="mt-3 text-2xl">Table rental</h3>
-          <Text as="p" value={rentals.tables} class="mt-2 text-cream/80" />
+          <Text as="p" value={rentals.tables} class="mt-2 text-muted" />
         </div>
       </div>
     </div>

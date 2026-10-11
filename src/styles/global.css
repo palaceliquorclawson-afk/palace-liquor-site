@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 /* ─── Design tokens ─────────────────────────────────────────────
-   Contrast (WCAG): cream on ink 16:1 · burgundy on cream 10:1 ·
-   gold on ink 8:1 · muted on cream 6.6:1 · cream on burgundy 10:1
-   Gold is decorative / for text on dark backgrounds only.        */
+   Palette: signage red + warm white + brass, with near-black text.
+   Contrast (WCAG AA or better): ink on bg 16:1 · muted on bg 7:1 ·
+   red on bg 8.9:1 · cream on red 9.5:1 · gold on ink 7.9:1.
+   Gold/brass is for small accents and for text on dark only.      */
 @theme {
-  --color-ink: #141110;
-  --color-ink-2: #211b19;
-  --color-ink-3: #2e2623;
-  --color-cream: #f6efe3;
-  --color-cream-2: #ece2d0;
-  --color-paper: #fffcf6;
-  --color-burgundy: #7a1f2b;
-  --color-burgundy-dark: #5a1520;
-  --color-gold: #c9a45c;
-  --color-gold-light: #e2c992;
-  --color-muted: #5b5048;
-  --color-line: #ddd0bb;
+  --color-ink: #1e1a18;
+  --color-ink-2: #2a2422;
+  --color-ink-3: #3a322e;
+  --color-cream: #fbf8f4;      /* page background, and text on dark */
+  --color-cream-2: #f2ece2;    /* alternating light band */
+  --color-paper: #ffffff;      /* cards */
+  --color-burgundy: #7a2430;   /* signage red */
+  --color-burgundy-dark: #631b26;
+  --color-gold: #c8a966;       /* brass on dark */
+  --color-gold-light: #e3ca92;
+  --color-brass: #8a6a2f;      /* brass for small text on light */
+  --color-muted: #5b544c;
+  --color-line: #e6dfd4;
 
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --text-display: clamp(2.6rem, 8vw, 5.25rem);
+  --text-display: clamp(2.6rem, 7.2vw, 4.75rem);
   --text-display--line-height: 1.02;
   --text-h1: clamp(2.2rem, 6vw, 3.75rem);
   --text-h1--line-height: 1.05;
@@ -31,7 +33,7 @@
 
 @layer base {
   html {
-    background: var(--color-ink);
+    background: var(--color-cream);
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -49,7 +51,7 @@
   }
   p { text-wrap: pretty; }
   :focus-visible {
-    outline: 3px solid var(--color-gold);
+    outline: 3px solid var(--color-burgundy);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -82,14 +84,20 @@
   .btn:hover { transform: translateY(-1px); }
   .btn-primary { background: var(--color-burgundy); color: var(--color-cream); }
   .btn-primary:hover { background: var(--color-burgundy-dark); }
-  .btn-gold { background: var(--color-gold); color: var(--color-ink); }
-  .btn-gold:hover { background: var(--color-gold-light); }
-  .btn-outline-light { border: 1.5px solid rgb(246 239 227 / .55); color: var(--color-cream); }
-  .btn-outline-light:hover { border-color: var(--color-cream); background: rgb(246 239 227 / .08); }
+  .btn-gold { background: var(--color-cream); color: var(--color-burgundy); }
+  .btn-gold:hover { background: #fff; }
+  .btn-outline-light { border: 1.5px solid rgb(251 248 244 / .6); color: var(--color-cream); }
+  .btn-outline-light:hover { border-color: var(--color-cream); background: rgb(251 248 244 / .1); }
   .btn-outline-dark { border: 1.5px solid var(--color-ink); color: var(--color-ink); }
   .btn-outline-dark:hover { background: var(--color-ink); color: var(--color-cream); }
 
   .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1rem; }
+
+  /* Arched photo frame, used for hero and feature images. */
+  /* Italic accent line inside a headline: <em> renders red and on its own line. */
+  .hero-title em { font-style: italic; color: var(--color-burgundy); display: block; }
+
+  .arch { border-radius: 14rem 14rem 0.875rem 0.875rem; overflow: hidden; border: 1px solid rgb(200 169 102 / .45); }
 
   /* Unfilled "[PLACEHOLDER ...]" text: easy to spot, still readable. */
   .placeholder-text {
