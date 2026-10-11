@@ -9,7 +9,7 @@ import GoogleReviewButton from '../components/GoogleReviewButton.astro';
 import Text from '../components/Text.astro';
 import Icon from '../components/Icon.astro';
 import { site, telHref, directionsUrl, isPlaceholder, socialLinks } from '../site.config';
-import { findPhoto, allCredits } from '../lib/photos';
+import { findPhoto, allCredits, pexelsNote } from '../lib/photos';
 
 // ✏️ Edit your store story here. Each line is one paragraph.
 const story = [
@@ -25,12 +25,13 @@ const storePhotos = [
   { photo: 'inside.jpg', alt: 'Inside Palace Liquor', aspect: 'aspect-square', wide: false },
 ].filter((p) => findPhoto(p.photo));
 const credits = allCredits();
+const pexels = pexelsNote();
 ---
 <BaseLayout
   title="Palace Liquor | About & Contact"
   description="Palace Liquor & Deli Shop at 650 W 14 Mile Rd, Clawson, MI 48017. Hours, directions, phone and our story. Call (248) 435-4888."
 >
-  <Hero eyebrow="About & contact" title="Your neighborhood<em>bottle shop.</em>" photo="hero-about.jpg" photoAlt="The front of Palace Liquor in Clawson" />
+  <Hero eyebrow="About & contact" title="Your neighborhood<em>bottle shop.</em>" photo="hero-about.webp" photoAlt="The front of Palace Liquor in Clawson" />
 
   <section class="py-16 sm:py-24" aria-labelledby="story-title">
     <div class:list={['container-x grid items-center gap-10', storePhotos.length > 0 && 'lg:grid-cols-2']}>
@@ -80,12 +81,13 @@ const credits = allCredits();
       <Map class="reveal self-start" />
     </div>
   </section>
-  {credits.length > 0 && (
+  {(credits.length > 0 || pexels) && (
     <section class="border-t border-line py-10" aria-labelledby="credits-title">
       <div class="container-x">
         <details class="text-sm text-muted">
           <summary id="credits-title" class="cursor-pointer font-semibold text-ink">Photo credits</summary>
-          <p class="mt-3">Some product and scene photos on this site are from <a class="underline" href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, used under their free licenses. Photos show the products and styles we carry, not our store.</p>
+          <p class="mt-3">Photos on this site show the products and styles we carry, not our store. Bottle photos come from <a class="underline" href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> under their free licenses, credited below.</p>
+          {pexels && <p class="mt-2">{pexels}</p>}
           <ul class="mt-3 grid gap-1 sm:grid-cols-2">
             {credits.map((c) => (
               <li>

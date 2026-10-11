@@ -161,126 +161,6 @@
       "licenseUrl": "",
       "source": "https://commons.wikimedia.org/wiki/File:Padroncigars.jpg"
     },
-    "hero-home.jpg": {
-      "alt": "A whiskey old fashioned cocktail",
-      "title": "Whiskey Old Fashioned1",
-      "author": "Erich Wagner (www.eventografie.de)",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Whiskey_Old_Fashioned1.jpg"
-    },
-    "hero-bourbon.jpg": {
-      "alt": "Rows of aging barrels in a cellar",
-      "title": "Porto Calém Cellar Age-Old Casks and Tasting Experience (55243068528)",
-      "author": "Michael Gaylard from Horsham, UK",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Porto_Cal%C3%A9m_Cellar_Age-Old_Casks_and_Tasting_Experience_(55243068528).jpg"
-    },
-    "tile-bourbon.jpg": {
-      "alt": "Shelves lined with bourbon bottles",
-      "title": "Selection of Kentucky Bourbon 1, Liquor Barn, Lexington, KY, USA",
-      "author": "Cory Doctorow",
-      "license": "CC BY-SA 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Selection_of_Kentucky_Bourbon_1,_Liquor_Barn,_Lexington,_KY,_USA.jpg"
-    },
-    "tile-spirits.jpg": {
-      "alt": "A whiskey cocktail on a bar",
-      "title": "Smoked Old Fashioned, Restaurant R'Evolution, the French Quarter, New Orleans, Louisiana",
-      "author": "Cory Doctorow",
-      "license": "CC BY-SA 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Smoked_Old_Fashioned,_Restaurant_R%27Evolution,_the_French_Quarter,_New_Orleans,_Louisiana.jpg"
-    },
-    "spirits-wall.jpg": {
-      "alt": "A whiskey cocktail on a bar",
-      "title": "Smoked Old Fashioned, Restaurant R'Evolution, the French Quarter, New Orleans, Louisiana",
-      "author": "Cory Doctorow",
-      "license": "CC BY-SA 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Smoked_Old_Fashioned,_Restaurant_R%27Evolution,_the_French_Quarter,_New_Orleans,_Louisiana.jpg"
-    },
-    "hero-wine.jpg": {
-      "alt": "Wine bottles aging in an underground cellar",
-      "title": "Underground wine cellar of Pontet-Canet",
-      "author": "seligmanwaite",
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Underground_wine_cellar_of_Pontet-Canet.jpg"
-    },
-    "tile-wine.jpg": {
-      "alt": "Racks of wine bottles in a wine shop",
-      "title": "CorkBottleRacksJune2008",
-      "author": "Infrogmation of New Orleans",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File:CorkBottleRacksJune2008.jpg"
-    },
-    "wine-wall.jpg": {
-      "alt": "Sparkling wine bottles stacked in a cellar",
-      "title": "Bottles at the Schramsberg wine cellar",
-      "author": "Frank Schulenburg",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Bottles_at_the_Schramsberg_wine_cellar.jpg"
-    },
-    "hero-beer.jpg": {
-      "alt": "Glass-door coolers filled with craft beer",
-      "title": "Special beers in K-Citymarket Järvenpää",
-      "author": "Arkke",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Special_beers_in_K-Citymarket_J%C3%A4rvenp%C3%A4%C3%A4.jpg"
-    },
-    "tile-cooler.jpg": {
-      "alt": "A walk-in beer cooler stocked with cases and kegs",
-      "title": "Beer (50574140528)",
-      "author": "Tom Mills",
-      "license": "CC BY-SA 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Beer_(50574140528).jpg"
-    },
-    "tile-beer.jpg": {
-      "alt": "Craft beer cans",
-      "title": "Three British craft brewery beer cans",
-      "author": "JIP",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Three_British_craft_brewery_beer_cans.jpg"
-    },
-    "beer-shelf.jpg": {
-      "alt": "Craft beer cans",
-      "title": "Three British craft brewery beer cans",
-      "author": "JIP",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Three_British_craft_brewery_beer_cans.jpg"
-    },
-    "hero-cigars.jpg": {
-      "alt": "Premium cigars inside a humidor",
-      "title": "Humidor innen",
-      "author": "Langinger",
-      "license": "Public domain",
-      "licenseUrl": "",
-      "source": "https://commons.wikimedia.org/wiki/File:Humidor_innen.jpg"
-    },
-    "tile-cigars.jpg": {
-      "alt": "An open humidor filled with cigars",
-      "title": "Humidor",
-      "author": "Friman",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Humidor.jpg"
-    },
-    "hero-kegs.jpg": {
-      "alt": "Beer kegs lined up in a cellar",
-      "title": "Kegs in the cellar of the New Inn, Wetherby (4th December 2022)",
-      "author": "Mtaylor848",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Kegs_in_the_cellar_of_the_New_Inn,_Wetherby_(4th_December_2022).jpg"
-    },
     "wine-cgt-semidry-riesling.jpg": {
       "alt": "Bottles of Chateau Grand Traverse Select Semi-Dry Riesling",
       "title": "CGTRiesling",
@@ -360,6 +240,143 @@
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
       "source": "https://www.flickr.com/photos/98178986@N00/4249219837"
+    },
+    "hero-home.webp": {
+      "alt": "A glass of whiskey glowing on a dark bar",
+      "title": "hero-home",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-bourbon.webp": {
+      "alt": "Oak barrels lit by a lantern",
+      "title": "hero-bourbon",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-wine.webp": {
+      "alt": "A wall of wine bottles on wooden racks",
+      "title": "hero-wine",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-beer.webp": {
+      "alt": "A flight of craft beers on a wooden paddle",
+      "title": "hero-beer",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-cigars.webp": {
+      "alt": "A lit cigar resting beside a glass",
+      "title": "hero-cigars",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-kegs.webp": {
+      "alt": "A row of beer taps on a bar wall",
+      "title": "hero-kegs",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-delivery.webp": {
+      "alt": "A bottle of wine in a paper gift bag",
+      "title": "hero-delivery",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "hero-about.webp": {
+      "alt": "A crystal decanter of whiskey on a bar",
+      "title": "about-decanter",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "wine-wall.webp": {
+      "alt": "Wine bottles stacked cork-out in a cellar wall",
+      "title": "wine-wall",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "beer-shelf.webp": {
+      "alt": "A row of beer tasting glasses on a wooden board",
+      "title": "beer-shelf",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "spirits-wall.webp": {
+      "alt": "A bottle and glass of spirits on a bar",
+      "title": "tile-spirits",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "tile-wine.webp": {
+      "alt": "Wine bottles on wooden racks",
+      "title": "tile-wine",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "tile-beer.webp": {
+      "alt": "Craft beer glasses",
+      "title": "tile-beer",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "tile-bourbon.webp": {
+      "alt": "Bourbon barrels",
+      "title": "tile-bourbon",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "tile-cigars.webp": {
+      "alt": "A cigar resting beside a glass",
+      "title": "tile-cigars",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "tile-spirits.webp": {
+      "alt": "A bottle and glass of spirits",
+      "title": "tile-spirits",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
+    },
+    "tile-cooler.webp": {
+      "alt": "Cold beer ready to grab",
+      "title": "tile-cooler",
+      "author": "Pexels contributor",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "source": "https://www.pexels.com"
     }
-  }
+  },
+  "_pexels": "Scene photos are from Pexels (free to use, attribution not required). Photographers credited on the About page: Marcelo Verfe, Alari Tammsalu, cottonbro studio, Han Sen, Airam Dato-on, Adrianna CA, Cup of Couple, Vladimir Srajber, Vinicius Caricatte, Matheus Bertelli, Kirill Abramov."
 }

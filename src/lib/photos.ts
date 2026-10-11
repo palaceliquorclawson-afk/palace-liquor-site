@@ -17,10 +17,16 @@ export function photoCredit(name?: string | null): PhotoCredit | undefined {
   return name ? creditMap[name] : undefined;
 }
 
-/** Credits for every Commons photo that's actually in use, for the About page. */
+/** Credits for each individually credited photo in use (Wikimedia Commons), for the About page. */
 export function allCredits() {
   const seen = new Set<string>();
   return Object.entries(creditMap)
-    .filter(([file, c]) => byName.has(file.toLowerCase()) && !seen.has(c.source) && seen.add(c.source))
+    .filter(([file, c]) => byName.has(file.toLowerCase()) && c.license !== 'Pexels License' && !seen.has(c.source) && seen.add(c.source))
     .map(([file, c]) => ({ file, ...c }));
+}
+
+/** One-line note covering the Pexels scene photos (attribution isn't required, but we list them). */
+export function pexelsNote(): string | undefined {
+  const used = Object.entries(creditMap).some(([file, c]) => byName.has(file.toLowerCase()) && c.license === 'Pexels License');
+  return used ? (credits as { _pexels?: string })._pexels : undefined;
 }

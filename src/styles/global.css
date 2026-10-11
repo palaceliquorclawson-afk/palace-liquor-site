@@ -96,6 +96,7 @@
   /* Arched photo frame, used for hero and feature images. */
   /* Italic accent line inside a headline: <em> renders red and on its own line. */
   .hero-title em { font-style: italic; color: var(--color-burgundy); display: block; }
+  .hero-title-on-photo em { color: var(--color-gold-light); }
 
   .arch { border-radius: 14rem 14rem 0.875rem 0.875rem; overflow: hidden; border: 1px solid rgb(200 169 102 / .45); }
 
