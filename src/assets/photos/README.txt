@@ -2,7 +2,7 @@ Drop photos in this folder using these exact file names and they appear on the s
 automatically (resized and converted to fast AVIF/WebP). JPG, PNG or WebP all work.
 Wide photos at least 1600px across look best.
 
-HOME          hero-home.webp, tile-wine.webp, tile-beer.webp, tile-bourbon.webp, tile-cigars.webp,
+HOME          hero-home.jpg (wide ~2:1 storefront banner), tile-wine.webp, tile-beer.webp, tile-bourbon.webp, tile-cigars.webp,
               tile-spirits.webp, tile-cooler.webp
 WINE          hero-wine.webp, wine-wall.webp
 CRAFT BEER    hero-beer.webp, beer-shelf.webp

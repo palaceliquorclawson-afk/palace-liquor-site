@@ -3,7 +3,8 @@
  * Page banner.
  * - tone "light" (default): warm white, headline left, arched photo right (if `photo` exists).
  * - tone "burgundy": bold red band, no photo (events page).
- * `photo` is a file name in src/assets/photos/ (e.g. "hero-home.webp").
+ * - banner: headline on top, then the photo full width and uncropped (for wide ~2:1 photos).
+ * `photo` is a file name in src/assets/photos/ (e.g. "hero-cigars.webp").
  */
 import { Picture } from 'astro:assets';
 import { findPhoto, photoCredit } from '../lib/photos';
@@ -16,11 +17,14 @@ interface Props {
   photoAlt?: string;
   size?: 'home' | 'page';
   tone?: 'light' | 'burgundy';
+  banner?: boolean;
 }
-const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page', tone = 'light' } = Astro.props;
+const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page', tone = 'light', banner = false } = Astro.props;
 const image = findPhoto(photo);
 const alt = photoCredit(photo)?.alt ?? photoAlt;
 const red = tone === 'burgundy';
+const side = !red && !banner && image;
+const wide = !red && banner && image;
 ---
 <section
   class:list={[
@@ -38,7 +42,7 @@ const red = tone === 'burgundy';
   )}
 
   <div class:list={['container-x', red && 'text-center']}>
-    <div class:list={[!red && image && 'grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16']}>
+    <div class:list={[side && 'grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16']}>
       <div class:list={[red && 'mx-auto max-w-3xl']}>
         {eyebrow && <p class:list={['eyebrow', red ? 'text-gold-light' : 'text-brass']}>{eyebrow}</p>}
         <h1
@@ -57,7 +61,7 @@ const red = tone === 'burgundy';
         <div class:list={['mt-8', red && 'flex justify-center']}><slot /></div>
       </div>
 
-      {!red && image && (
+      {side && (
         <div class="arch mx-auto w-full max-w-sm lg:max-w-none">
           <Picture
             src={image}
@@ -72,5 +76,20 @@ const red = tone === 'burgundy';
         </div>
       )}
     </div>
+
+    {wide && (
+      <div class="mt-10 overflow-hidden rounded-2xl border border-gold/45 shadow-sm sm:mt-12">
+        <Picture
+          src={image}
+          alt={alt}
+          formats={['avif', 'webp']}
+          widths={[640, 960, 1400, 1932].filter((w) => w <= image.width)}
+          sizes="(min-width: 1152px) 1104px, calc(100vw - 2rem)"
+          loading="eager"
+          fetchpriority="high"
+          class="block h-auto w-full"
+        />
+      </div>
+    )}
   </div>
 </section>
