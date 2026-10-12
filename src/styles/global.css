@@ -55,6 +55,8 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
+  /* The burgundy focus ring disappears on dark bands, so use cream there. */
+  :is(.bg-burgundy, .bg-burgundy-dark, .bg-ink) :focus-visible { outline-color: var(--color-cream); }
   .on-light :focus-visible, .bg-cream :focus-visible, .bg-paper :focus-visible {
     outline-color: var(--color-burgundy);
   }
@@ -86,10 +88,13 @@
   .btn-primary:hover { background: var(--color-burgundy-dark); }
   .btn-gold { background: var(--color-cream); color: var(--color-burgundy); }
   .btn-gold:hover { background: #fff; }
+  /* Outline buttons: use -light on burgundy/ink bands, -dark on cream/paper.
+     -light: cream text 9.3:1 on burgundy; border at 60% cream is 4.3:1 (AA non-text).
+     Hover/focus fills cream with burgundy text (9.3:1). */
   .btn-outline-light { border: 1.5px solid rgb(251 248 244 / .6); color: var(--color-cream); }
-  .btn-outline-light:hover { border-color: var(--color-cream); background: rgb(251 248 244 / .1); }
+  .btn-outline-light:hover, .btn-outline-light:focus-visible { border-color: var(--color-cream); background: var(--color-cream); color: var(--color-burgundy); }
   .btn-outline-dark { border: 1.5px solid var(--color-ink); color: var(--color-ink); }
-  .btn-outline-dark:hover { background: var(--color-ink); color: var(--color-cream); }
+  .btn-outline-dark:hover, .btn-outline-dark:focus-visible { background: var(--color-ink); color: var(--color-cream); }
 
   .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1rem; }
 
