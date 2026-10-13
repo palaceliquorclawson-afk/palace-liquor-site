@@ -25,6 +25,7 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
             href={site.doordashUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onclick="gtag_report_conversion(); return true;"
             class="inline-flex min-h-8 items-center gap-1.5 rounded-full bg-cream px-3 py-1 font-semibold text-burgundy hover:bg-white"
           >
             <Icon name="bag" class="h-4 w-4" />

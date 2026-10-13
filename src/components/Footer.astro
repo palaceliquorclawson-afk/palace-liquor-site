@@ -45,7 +45,7 @@ const year = new Date().getFullYear();
       <h2 class="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-gold">Stay in touch</h2>
       <ul class="mt-4 grid gap-3">
         {!isPlaceholder(site.doordashUrl) && (
-          <li><a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-gold"><Icon name="bag" class="h-5 w-5 text-gold" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" onclick="gtag_report_conversion(); return true;" class="inline-flex items-center gap-2 hover:text-gold"><Icon name="bag" class="h-5 w-5 text-gold" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span></a></li>
         )}
         {socialLinks.map((s) => (
           <li><a href={s.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-gold"><Icon name={s.icon as 'instagram'} class="h-5 w-5 text-gold" /> {s.name}<span class="sr-only"> (opens in a new tab)</span></a></li>
