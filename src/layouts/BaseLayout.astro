@@ -16,9 +16,13 @@ interface Props {
   description: string;
   /** Extra JSON-LD for this page (e.g. a Service). */
   schema?: Record<string, unknown>;
+  /** Keep the page out of search results (used for the ads landing page). */
+  noindex?: boolean;
+  /** "none" skips the site header and footer so a page can supply its own. */
+  chrome?: 'full' | 'none';
 }
 
-const { title, description, schema } = Astro.props;
+const { title, description, schema, noindex = false, chrome = 'full' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL('/og-image.jpg', site.url).href;
 
@@ -85,6 +89,7 @@ const localBusiness = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#141110" />
     <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={playfairLatin} as="font" type="font/woff2" crossorigin />
@@ -118,11 +123,11 @@ const localBusiness = {
     <AgeGate />
     <div class="site-content flex min-h-screen flex-col">
       <a href="#main" class="sr-only z-[60] rounded-md bg-gold px-4 py-2 font-semibold text-ink focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
-      <Header />
+      {chrome === 'full' && <Header />}
       <main id="main" tabindex="-1" class="flex-1 outline-none">
         <slot />
       </main>
-      <Footer />
+      {chrome === 'full' && <Footer />}
     </div>
 
     <script>
