@@ -8,7 +8,7 @@ const outline = tone === 'dark' ? 'btn-outline-light' : 'btn-outline-dark';
 ---
 <div class:list={['flex flex-col gap-3 sm:flex-row sm:flex-wrap', className]}>
   {doordash && !isPlaceholder(site.doordashUrl) && (
-    <a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" class:list={['btn', tone === 'dark' ? 'btn-gold' : 'btn-primary']}>
+    <a href={site.doordashUrl} target="_blank" rel="noopener noreferrer" onclick="gtag_report_conversion(); return true;" class:list={['btn', tone === 'dark' ? 'btn-gold' : 'btn-primary']}>
       <Icon name="bag" class="h-5 w-5" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span>
     </a>
   )}
