@@ -1,0 +1,184 @@
+---
+/**
+ * Google Ads landing page (/liquor-store/).
+ * Not in the site navigation and not in the sitemap, and it carries <meta name="robots" content="noindex">.
+ * It uses its own slim header and footer (chrome="none") so the page links only to wine, beer,
+ * bourbon, events and rentals. Everything else — fonts, colors, buttons, the Google tag — comes
+ * from the shared layout, so it matches the rest of the site.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import HoursTable from '../components/HoursTable.astro';
+import GoogleReviewButton from '../components/GoogleReviewButton.astro';
+import { site, telHref, directionsUrl, fullAddress, isPlaceholder } from '../site.config';
+
+const hasDoorDash = !isPlaceholder(site.doordashUrl);
+
+const features = [
+  {
+    icon: 'tag',
+    title: 'State minimum pricing',
+    body: 'Michigan sets the minimum shelf price for spirits, and that’s exactly what we charge. Shop knowing you’re paying the lowest legal shelf price.',
+  },
+  {
+    icon: 'wine',
+    title: 'Fine wine & craft beer',
+    body: 'Hand-picked bottles for every table and budget, plus Michigan craft favorites and new releases.',
+  },
+  {
+    icon: 'bourbon',
+    title: 'Allocated bourbon',
+    body: 'No lists. No games. When hard-to-find bottles come in, they go straight on the shelf — first come, first served.',
+  },
+  {
+    icon: 'cooler',
+    title: 'Walk-in cooler',
+    body: 'Cold singles, 4-packs and cases, ready to grab on your way out.',
+  },
+] as const;
+---
+<BaseLayout
+  title="Liquor Store in Clawson, MI | Palace Liquor"
+  description="Palace Liquor on 14 Mile Rd in Clawson, MI. Michigan state minimum pricing on spirits, fine wine, craft beer and allocated bourbon. Call (248) 435-4888, get directions or order delivery."
+  noindex
+  chrome="none"
+>
+  <!-- Slim header: name, phone, DoorDash -->
+  <header class="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/85">
+    <div class="container-x flex h-16 items-center justify-between gap-3">
+      <span class="flex items-center gap-2.5">
+        <Icon name="crown" class="h-7 w-7 flex-none text-burgundy" />
+        <span>
+          <span class="block font-display text-xl font-bold leading-none">Palace <span class="text-burgundy">Liquor</span></span>
+          <span class="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-muted">Clawson · Michigan</span>
+        </span>
+      </span>
+      <a href={telHref} class="btn btn-primary px-4 text-sm sm:px-6 sm:text-base">
+        <Icon name="phone" class="h-5 w-5" />
+        <span class="hidden sm:inline">{site.phone}</span>
+        <span class="sm:hidden">Call</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero + the three actions -->
+  <section class="bg-cream py-12 sm:py-16">
+    <div class="container-x">
+      <p class="eyebrow text-brass">{site.address.city}, Michigan</p>
+      <h1 class="hero-title mt-4 text-h1">Clawson's Neighborhood<em>Liquor Store</em></h1>
+      <p class="mt-5 max-w-xl text-lg text-muted sm:text-xl">
+        State minimum pricing on spirits. Fine wine, craft beer and allocated bourbon.
+      </p>
+      <p class="mt-2 text-sm text-muted">Excludes select bottles.</p>
+
+      <div class="mt-8 grid gap-3 sm:max-w-xl sm:grid-cols-1">
+        <a href={telHref} class="btn btn-primary w-full px-8 py-4 text-lg">
+          <Icon name="phone" class="h-5 w-5" /> Call {site.phone}
+        </a>
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark w-full px-8 py-4 text-lg">
+          <Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+        {hasDoorDash && (
+          <a
+            href={site.doordashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag_report_conversion(); return true;"
+            class="btn btn-primary w-full px-8 py-4 text-lg"
+          >
+            <Icon name="bag" class="h-5 w-5" /> Order on DoorDash<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        )}
+      </div>
+
+      <p class="mt-6 flex items-center gap-2 text-muted">
+        <Icon name="pin" class="h-5 w-5 flex-none text-burgundy" />
+        {fullAddress}
+      </p>
+    </div>
+  </section>
+
+  <!-- What you'll find -->
+  <section class="border-y border-line bg-cream-2 py-14 sm:py-20" aria-labelledby="find-title">
+    <div class="container-x">
+      <h2 id="find-title" class="text-h2">What you'll find inside.</h2>
+      <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+        {features.map((f) => (
+          <li class="card p-6">
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-burgundy text-cream">
+              <Icon name={f.icon} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-4 text-xl text-burgundy">{f.title}</h3>
+            <p class="mt-2 text-muted">{f.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Party planning -->
+  <section class="bg-burgundy py-14 text-cream sm:py-20" aria-labelledby="party-title">
+    <div class="container-x">
+      <p class="eyebrow text-gold-light">Events &amp; catering</p>
+      <h2 id="party-title" class="mt-3 text-h2">Planning a party?</h2>
+      <p class="mt-4 max-w-2xl text-lg text-cream/90">
+        Kegs and table rentals, and full event orders: tell us your guest count and we'll recommend exactly
+        what you need, then deliver it.
+      </p>
+      <p class="mt-5 inline-flex items-center gap-2 rounded-full border border-gold/50 bg-black/20 px-5 py-2.5 font-semibold text-gold-light">
+        <Icon name="ice" class="h-5 w-5 flex-none" /> {site.cateringOffer.text}
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="/events-catering/" class="btn btn-gold">Plan your event <Icon name="arrow" class="h-5 w-5" /></a>
+        <a href="/kegs-rentals/" class="btn btn-outline-light">Kegs &amp; table rentals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hours + story + reviews -->
+  <section class="py-14 sm:py-20" aria-labelledby="hours-title">
+    <div class="container-x grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 id="hours-title" class="text-h2">Open 7 days a week.</h2>
+        <div class="mt-6"><HoursTable /></div>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href={telHref} class="btn btn-primary"><Icon name="phone" class="h-5 w-5" /> Call {site.phone}</a>
+          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+            <Icon name="pin" class="h-5 w-5" /> Get Directions<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </div>
+      <div class="card flex flex-col p-6 sm:p-8">
+        <h2 class="text-h2">Family owned, right here in Clawson.</h2>
+        <p class="mt-4 text-lg text-muted">
+          Palace Liquor is Clawson's neighborhood bottle shop on 14 Mile Road: a place where a rare bourbon,
+          a special-occasion wine and a cold six-pack on the way home all get the same friendly welcome.
+        </p>
+        <p class="mt-3 text-muted">Stop in and say hi. We'd love to help you find something great.</p>
+        <GoogleReviewButton class="mt-6 self-start" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Slim footer -->
+  <footer class="bg-ink py-10 text-cream">
+    <div class="container-x grid gap-6 sm:grid-cols-2">
+      <div>
+        <p class="font-display text-xl font-bold">Palace <span class="text-gold">Liquor</span></p>
+        <address class="mt-3 space-y-2 text-sm not-italic text-cream/80">
+          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="flex gap-2 hover:text-gold">
+            <Icon name="pin" class="mt-0.5 h-4 w-4 flex-none text-gold" /> {fullAddress}<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a href={telHref} class="flex gap-2 hover:text-gold">
+            <Icon name="phone" class="mt-0.5 h-4 w-4 flex-none text-gold" /> {site.phone}
+          </a>
+        </address>
+      </div>
+      <div class="text-sm text-cream/75 sm:text-right">
+        <p><strong class="text-cream">Must be 21+ with valid ID.</strong></p>
+        <p class="mt-1">Please drink responsibly and never drink and drive.</p>
+        <p class="mt-3">© {new Date().getFullYear()} {site.legalName}</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

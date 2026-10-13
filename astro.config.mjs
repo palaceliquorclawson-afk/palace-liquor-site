@@ -8,7 +8,7 @@ export default defineConfig({
   trailingSlash: 'ignore',
   // Inline the (small) stylesheet so pages render without an extra blocking request.
   build: { inlineStylesheets: 'always' },
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/liquor-store') })],
   vite: {
     plugins: [tailwindcss()],
   },
