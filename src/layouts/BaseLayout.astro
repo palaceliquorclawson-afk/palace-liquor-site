@@ -147,5 +147,23 @@ const localBusiness = {
         });
       }
     </script>
+    <script is:inline>
+      // Palace Liquor click tracking for Google Analytics 4
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a || typeof gtag !== 'function') return;
+        var href = a.getAttribute('href') || '';
+        var name = null;
+        if (/^tel:/i.test(href)) name = 'click_call';
+        else if (/google\.com\/maps\/dir|maps\.google|goo\.gl\/maps/i.test(href)) name = 'click_directions';
+        else if (/doordash\.com/i.test(href)) name = 'click_order_doordash';
+        if (!name) return;
+        gtag('event', name, {
+          send_to: 'G-C11ZBSXHZY',
+          link_url: href,
+          page_path: location.pathname
+        });
+      });
+    </script>
   </body>
 </html>
