@@ -1,0 +1,24 @@
+---
+/**
+ * Slim header for the Google Ads pages (/party-drinks/, /keg-rentals/), copied from /liquor-store/.
+ * Use with <BaseLayout chrome="none">: it has no site navigation, so it never links to the cigars page.
+ */
+import Icon from './Icon.astro';
+import { site, telHref } from '../site.config';
+---
+<header class="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/85">
+  <div class="container-x flex h-16 items-center justify-between gap-3">
+    <span class="flex items-center gap-2.5">
+      <Icon name="crown" class="h-7 w-7 flex-none text-burgundy" />
+      <span>
+        <span class="block font-display text-xl font-bold leading-none">Palace <span class="text-burgundy">Liquor</span></span>
+        <span class="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-muted">Clawson · Michigan</span>
+      </span>
+    </span>
+    <a href={telHref} class="btn btn-primary px-4 text-sm sm:px-6 sm:text-base">
+      <Icon name="phone" class="h-5 w-5" />
+      <span class="hidden sm:inline">{site.phone}</span>
+      <span class="sm:hidden">Call</span>
+    </a>
+  </div>
+</header>

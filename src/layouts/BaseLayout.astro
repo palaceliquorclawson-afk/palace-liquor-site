@@ -20,10 +20,12 @@ interface Props {
   noindex?: boolean;
   /** "none" skips the site header and footer so a page can supply its own. */
   chrome?: 'full' | 'none';
+  /** Canonical path when this page duplicates another (e.g. "/events-catering/" for an ads copy). */
+  canonicalPath?: string;
 }
 
-const { title, description, schema, noindex = false, chrome = 'full' } = Astro.props;
-const canonical = new URL(Astro.url.pathname, site.url).href;
+const { title, description, schema, noindex = false, chrome = 'full', canonicalPath } = Astro.props;
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url).href;
 const ogImage = new URL('/og-image.jpg', site.url).href;
 
 const localBusiness = {
