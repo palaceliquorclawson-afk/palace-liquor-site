@@ -1,0 +1,25 @@
+---
+/** Slim footer for the Google Ads pages, copied from /liquor-store/. No links to other site pages. */
+import Icon from './Icon.astro';
+import { site, telHref, directionsUrl, fullAddress } from '../site.config';
+---
+<footer class="bg-ink py-10 text-cream">
+  <div class="container-x grid gap-6 sm:grid-cols-2">
+    <div>
+      <p class="font-display text-xl font-bold">Palace <span class="text-gold">Liquor</span></p>
+      <address class="mt-3 space-y-2 text-sm not-italic text-cream/80">
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="flex gap-2 hover:text-gold">
+          <Icon name="pin" class="mt-0.5 h-4 w-4 flex-none text-gold" /> {fullAddress}<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+        <a href={telHref} class="flex gap-2 hover:text-gold">
+          <Icon name="phone" class="mt-0.5 h-4 w-4 flex-none text-gold" /> {site.phone}
+        </a>
+      </address>
+    </div>
+    <div class="text-sm text-cream/75 sm:text-right">
+      <p><strong class="text-cream">Must be 21+ with valid ID.</strong></p>
+      <p class="mt-1">Please drink responsibly and never drink and drive.</p>
+      <p class="mt-3">© {new Date().getFullYear()} {site.legalName}</p>
+    </div>
+  </div>
+</footer>
