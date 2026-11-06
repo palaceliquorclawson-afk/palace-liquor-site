@@ -65,7 +65,7 @@ export const site = {
   /** Free-ice offer on catering orders. */
   cateringOffer: {
     minimum: 250,
-    text: 'Free 16 lb bag of Palace Ice with any catering order over $250.',
+    text: 'Free 16 lb bag of Palace Ice with any order of $250 or more.',
     mention: 'Mention this website when you order.',
   },
 } as const;
