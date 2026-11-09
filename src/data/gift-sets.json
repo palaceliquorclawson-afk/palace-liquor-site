@@ -1,0 +1,926 @@
+{
+  "categories": [
+    "Tequila",
+    "Bourbon",
+    "Irish Whiskey",
+    "Scotch",
+    "Whiskey",
+    "Gin",
+    "Vodka",
+    "Soju",
+    "Wine",
+    "Champagne",
+    "Liqueurs",
+    "Egg Nog",
+    "Beer",
+    "Ready-to-Go Cocktails"
+  ],
+  "items": [
+    {
+      "category": "Tequila",
+      "name": "Tequila Ocho Reposado",
+      "tagline": "Single estate, 100% puro de agave",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$59.99",
+      "price_number": "59.99",
+      "badges": [
+        "Special pricing"
+      ],
+      "includes": [
+        "Tequila Ocho Single Estate Reposado, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-tequila-ocho-reposado.jpg",
+      "image_width": 596,
+      "image_height": 800,
+      "alt": "Tequila Ocho Reposado gift set"
+    },
+    {
+      "category": "Tequila",
+      "name": "Patrón Silver",
+      "tagline": "Margaritas, made to be shared",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$49.99",
+      "price_number": "49.99",
+      "badges": [],
+      "includes": [
+        "Patrón Silver Tequila, 750 mL",
+        "2 Patrón minis"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-patr-n-silver.jpg",
+      "image_width": 800,
+      "image_height": 524,
+      "alt": "Patrón Silver gift set"
+    },
+    {
+      "category": "Tequila",
+      "name": "Casamigos Reposado",
+      "tagline": "Reposado tequila with a travel flask",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$44.99",
+      "price_number": "44.99",
+      "badges": [],
+      "includes": [
+        "Casamigos Reposado Tequila, 750 mL",
+        "Travel flask"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-casamigos-reposado.jpg",
+      "image_width": 638,
+      "image_height": 800,
+      "alt": "Casamigos Reposado gift set"
+    },
+    {
+      "category": "Tequila",
+      "name": "Don Julio Blanco",
+      "tagline": "Blanco tequila with salsa bowls",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$54.99",
+      "price_number": "54.99",
+      "badges": [],
+      "includes": [
+        "Don Julio Blanco Tequila, 750 mL",
+        "3 signature salsa bowls"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-don-julio-blanco.jpg",
+      "image_width": 800,
+      "image_height": 495,
+      "alt": "Don Julio Blanco gift set"
+    },
+    {
+      "category": "Tequila",
+      "name": "Don Julio Reposado",
+      "tagline": "Limited Edition Artist Collection, design by Claudio Limón",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$59.99",
+      "price_number": "59.99",
+      "badges": [],
+      "includes": [
+        "Don Julio Reposado Tequila, 750 mL",
+        "2 cocktail glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-don-julio-reposado.jpg",
+      "image_width": 800,
+      "image_height": 764,
+      "alt": "Don Julio Reposado gift set"
+    },
+    {
+      "category": "Tequila",
+      "name": "Milagro Silver",
+      "tagline": "Silver tequila with special edition glasses",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$29.99",
+      "price_number": "29.99",
+      "badges": [],
+      "includes": [
+        "Milagro Silver Tequila, 750 mL",
+        "2 special edition rocks glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-milagro-silver.jpg",
+      "image_width": 602,
+      "image_height": 800,
+      "alt": "Milagro Silver gift set"
+    },
+    {
+      "category": "Tequila",
+      "name": "Milagro Reposado",
+      "tagline": "Reposado tequila with special edition glasses",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$29.99",
+      "price_number": "29.99",
+      "badges": [],
+      "includes": [
+        "Milagro Reposado Tequila, 750 mL",
+        "2 special edition rocks glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-milagro-reposado.jpg",
+      "image_width": 602,
+      "image_height": 800,
+      "alt": "Milagro Reposado gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Eagle Rare 10 Year",
+      "tagline": "Kentucky straight bourbon whiskey, aged 10 years",
+      "size": "750 mL",
+      "abv": "45%",
+      "price": "$59.99",
+      "price_number": "59.99",
+      "badges": [
+        "Special pricing"
+      ],
+      "includes": [
+        "Eagle Rare 10 Year Kentucky Straight Bourbon Whiskey, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-eagle-rare-10-year.jpg",
+      "image_width": 551,
+      "image_height": 800,
+      "alt": "Eagle Rare 10 Year gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Blanton's Single Barrel",
+      "tagline": "The original single barrel bourbon whiskey",
+      "size": "750 mL",
+      "abv": "46.5%",
+      "price": "$99.99",
+      "price_number": "99.99",
+      "badges": [
+        "Special pricing",
+        "Allocated",
+        "Limit 1"
+      ],
+      "includes": [
+        "Blanton's Single Barrel Bourbon Whiskey, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-blanton-s-single-barrel.jpg",
+      "image_width": 800,
+      "image_height": 580,
+      "alt": "Blanton's Single Barrel gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Booker's Bourbon",
+      "tagline": "Uncut and unfiltered",
+      "size": "750 mL",
+      "abv": null,
+      "price": "$99.99",
+      "price_number": "99.99",
+      "badges": [
+        "State minimum pricing"
+      ],
+      "includes": [
+        "Booker's Bourbon, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-booker-s-bourbon.jpg",
+      "image_width": 747,
+      "image_height": 800,
+      "alt": "Booker's Bourbon gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Buffalo Trace",
+      "tagline": "Kentucky straight bourbon whiskey",
+      "size": "750 mL",
+      "abv": "45%",
+      "price": "$27.99",
+      "price_number": "27.99",
+      "badges": [],
+      "includes": [
+        "Buffalo Trace Kentucky Straight Bourbon Whiskey, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-buffalo-trace.jpg",
+      "image_width": 800,
+      "image_height": 668,
+      "alt": "Buffalo Trace gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Four Roses Small Batch",
+      "tagline": "Small batch bourbon with a tasting glass",
+      "size": "750 mL",
+      "abv": "45%",
+      "price": "$36.99",
+      "price_number": "36.99",
+      "badges": [],
+      "includes": [
+        "Four Roses Small Batch Bourbon, 750 mL",
+        "Four Roses Small Batch Select, 50 mL",
+        "Neat tasting glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-four-roses-small-batch.jpg",
+      "image_width": 794,
+      "image_height": 800,
+      "alt": "Four Roses Small Batch gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Jefferson's Very Small Batch",
+      "tagline": "Old Fashioned Cocktail Kit",
+      "size": "750 mL",
+      "abv": "44%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [],
+      "includes": [
+        "Jefferson's Very Small Batch Bourbon, 750 mL",
+        "Angostura bitters, 50 mL each: aromatic, orange and cocoa"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-jefferson-s-very-small-batch.jpg",
+      "image_width": 657,
+      "image_height": 800,
+      "alt": "Jefferson's Very Small Batch gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Larceny Small Batch",
+      "tagline": "Wheated bourbon with a rocks glass and dice game",
+      "size": "750 mL",
+      "abv": "46%",
+      "price": "$25.99",
+      "price_number": "25.99",
+      "badges": [],
+      "includes": [
+        "Larceny Kentucky Straight Bourbon, 750 mL",
+        "Rocks glass",
+        "Dice game"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-larceny-small-batch.jpg",
+      "image_width": 692,
+      "image_height": 800,
+      "alt": "Larceny Small Batch gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Bulleit Bourbon",
+      "tagline": "Old Fashioned Cocktail Kit",
+      "size": "750 mL",
+      "abv": "45%",
+      "price": "$27.99",
+      "price_number": "27.99",
+      "badges": [],
+      "includes": [
+        "Bulleit Bourbon, 750 mL",
+        "Stir spoon",
+        "Ice mold"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-bulleit-bourbon.jpg",
+      "image_width": 720,
+      "image_height": 800,
+      "alt": "Bulleit Bourbon gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Woodford Reserve",
+      "tagline": "Limited edition with a Woodford Reserve glass",
+      "size": "750 mL",
+      "abv": "45.2%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [],
+      "includes": [
+        "Woodford Reserve Kentucky Straight Bourbon, 750 mL",
+        "Woodford Reserve glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-woodford-reserve.jpg",
+      "image_width": 800,
+      "image_height": 682,
+      "alt": "Woodford Reserve gift set"
+    },
+    {
+      "category": "Bourbon",
+      "name": "Elijah Craig Small Batch",
+      "tagline": "Old Fashioned Cocktail Kit",
+      "size": "750 mL",
+      "abv": "47%",
+      "price": "$34.99",
+      "price_number": "34.99",
+      "badges": [],
+      "includes": [
+        "Elijah Craig Small Batch Bourbon, 750 mL",
+        "Espresso Old Fashioned cocktail syrup, 4 fl oz (makes 8 cocktails)",
+        "Jigger"
+      ],
+      "includes_label": "What's included",
+      "image": "images/bourbon-elijah-craig-small-batch.jpg",
+      "image_width": 613,
+      "image_height": 800,
+      "alt": "Elijah Craig Small Batch gift set"
+    },
+    {
+      "category": "Irish Whiskey",
+      "name": "Jameson",
+      "tagline": "Refreshingly smooth, with 2 highball glasses",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$29.99",
+      "price_number": "29.99",
+      "badges": [],
+      "includes": [
+        "Jameson Irish Whiskey, 750 mL",
+        "2 Jameson highball glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/irish-whiskey-jameson.jpg",
+      "image_width": 508,
+      "image_height": 800,
+      "alt": "Jameson gift set"
+    },
+    {
+      "category": "Irish Whiskey",
+      "name": "Bushmills Original",
+      "tagline": "The original whiskey meets the original cocktail",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$26.99",
+      "price_number": "26.99",
+      "badges": [],
+      "includes": [
+        "Bushmills Original Irish Whiskey, 750 mL",
+        "Old fashioned glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/irish-whiskey-bushmills-original.jpg",
+      "image_width": 586,
+      "image_height": 800,
+      "alt": "Bushmills Original gift set"
+    },
+    {
+      "category": "Scotch",
+      "name": "Dewar's 19 Year The Champion's Edition",
+      "tagline": "Double aged blended Scotch whisky, special edition",
+      "size": "750 mL",
+      "abv": "43%",
+      "price": "$29.99",
+      "price_number": "29.99",
+      "badges": [
+        "Special pricing",
+        "Limited supply"
+      ],
+      "includes": [
+        "Dewar's 19 Year Blended Scotch Whisky, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/scotch-dewar-s-19-year-the-champion-s-edition.jpg",
+      "image_width": 391,
+      "image_height": 800,
+      "alt": "Dewar's 19 Year The Champion's Edition gift set"
+    },
+    {
+      "category": "Scotch",
+      "name": "Johnnie Walker Black Label 12 Year",
+      "tagline": "Blended Scotch with 2 highball glasses",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$38.99",
+      "price_number": "38.99",
+      "badges": [],
+      "includes": [
+        "Johnnie Walker Black Label 12 Year, 750 mL",
+        "2 highball glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/scotch-johnnie-walker-black-label-12-year.jpg",
+      "image_width": 618,
+      "image_height": 800,
+      "alt": "Johnnie Walker Black Label 12 Year gift set"
+    },
+    {
+      "category": "Scotch",
+      "name": "Glenfiddich 14 Year Tasting Set",
+      "tagline": "Single malt Scotch tasting gift set",
+      "size": "750 mL",
+      "abv": "43%",
+      "price": "$79.99",
+      "price_number": "79.99",
+      "badges": [],
+      "includes": [
+        "Glenfiddich 14 Year Bourbon Barrel Reserve, 750 mL",
+        "Glenfiddich 15 Year Solera, 50 mL",
+        "Glenfiddich 18 Year Small Batch, 50 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/scotch-glenfiddich-14-year-tasting-set.jpg",
+      "image_width": 800,
+      "image_height": 750,
+      "alt": "Glenfiddich 14 Year Tasting Set gift set"
+    },
+    {
+      "category": "Scotch",
+      "name": "The Balvenie DoubleWood 12 Year",
+      "tagline": "Limited edition design",
+      "size": "750 mL",
+      "abv": "43%",
+      "price": "$79.99",
+      "price_number": "79.99",
+      "badges": [],
+      "includes": [
+        "The Balvenie DoubleWood 12 Year, 750 mL",
+        "The Balvenie 14 Year Caribbean Cask, 50 mL",
+        "Leather accessory"
+      ],
+      "includes_label": "What's included",
+      "image": "images/scotch-the-balvenie-doublewood-12-year.jpg",
+      "image_width": 800,
+      "image_height": 681,
+      "alt": "The Balvenie DoubleWood 12 Year gift set"
+    },
+    {
+      "category": "Scotch",
+      "name": "Glenmorangie 12 Year The Original",
+      "tagline": "Highland single malt, aged in bourbon casks",
+      "size": "750 mL",
+      "abv": "43%",
+      "price": "$49.96",
+      "price_number": "49.96",
+      "badges": [],
+      "includes": [
+        "Glenmorangie 12 Year, 750 mL",
+        "2 glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/scotch-glenmorangie-12-year-the-original.jpg",
+      "image_width": 530,
+      "image_height": 800,
+      "alt": "Glenmorangie 12 Year The Original gift set"
+    },
+    {
+      "category": "Whiskey",
+      "name": "Crown Royal Regal Apple",
+      "tagline": "Limited edition Tumbling Tower game set",
+      "size": "750 mL",
+      "abv": "35%",
+      "price": "$29.99",
+      "price_number": "29.99",
+      "badges": [],
+      "includes": [
+        "Crown Royal Regal Apple, 750 mL",
+        "Tumbling Tower game"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-crown-royal-regal-apple.jpg",
+      "image_width": 800,
+      "image_height": 777,
+      "alt": "Crown Royal Regal Apple gift set"
+    },
+    {
+      "category": "Whiskey",
+      "name": "Jack Daniel's Old No. 7",
+      "tagline": "The gift you can open more than once",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$25.99",
+      "price_number": "25.99",
+      "badges": [],
+      "includes": [
+        "Jack Daniel's Old No. 7, 750 mL",
+        "Jack Daniel's highball glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-jack-daniel-s-old-no-7.jpg",
+      "image_width": 574,
+      "image_height": 800,
+      "alt": "Jack Daniel's Old No. 7 gift set"
+    },
+    {
+      "category": "Whiskey",
+      "name": "Jack Daniel's Tennessee Apple",
+      "tagline": "Crisp and delicious",
+      "size": "750 mL",
+      "abv": "35%",
+      "price": "$25.99",
+      "price_number": "25.99",
+      "badges": [],
+      "includes": [
+        "Jack Daniel's Tennessee Apple, 750 mL",
+        "Highball glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-jack-daniel-s-tennessee-apple.jpg",
+      "image_width": 654,
+      "image_height": 800,
+      "alt": "Jack Daniel's Tennessee Apple gift set"
+    },
+    {
+      "category": "Whiskey",
+      "name": "Jack Daniel's Tennessee Fire",
+      "tagline": "Cinnamon spice",
+      "size": "750 mL",
+      "abv": "35%",
+      "price": "$25.99",
+      "price_number": "25.99",
+      "badges": [],
+      "includes": [
+        "Jack Daniel's Tennessee Fire, 750 mL",
+        "2 shot glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-jack-daniel-s-tennessee-fire.jpg",
+      "image_width": 588,
+      "image_height": 800,
+      "alt": "Jack Daniel's Tennessee Fire gift set"
+    },
+    {
+      "category": "Whiskey",
+      "name": "Jack Daniel's Tennessee Honey",
+      "tagline": "Smooth and balanced",
+      "size": "750 mL",
+      "abv": "35%",
+      "price": "$25.99",
+      "price_number": "25.99",
+      "badges": [],
+      "includes": [
+        "Jack Daniel's Tennessee Honey, 750 mL",
+        "2 rocks glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-jack-daniel-s-tennessee-honey.jpg",
+      "image_width": 665,
+      "image_height": 800,
+      "alt": "Jack Daniel's Tennessee Honey gift set"
+    },
+    {
+      "category": "Gin",
+      "name": "Hendrick's Gin",
+      "tagline": "Rose and cucumber holiday box",
+      "size": "750 mL",
+      "abv": "44%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [],
+      "includes": [
+        "Hendrick's Gin, 750 mL",
+        "Hendrick's gin glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/gin-hendrick-s-gin.jpg",
+      "image_width": 800,
+      "image_height": 670,
+      "alt": "Hendrick's Gin gift set"
+    },
+    {
+      "category": "Vodka",
+      "name": "Absolut Espresso Martini Kit",
+      "tagline": "Original vodka with a coupe glass",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$19.99",
+      "price_number": "19.99",
+      "badges": [],
+      "includes": [
+        "Absolut Original Vodka, 750 mL",
+        "Absolut coupe glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/vodka-absolut-espresso-martini-kit.jpg",
+      "image_width": 800,
+      "image_height": 757,
+      "alt": "Absolut Espresso Martini Kit gift set"
+    },
+    {
+      "category": "Soju",
+      "name": "Soonhari Variety 6-Pack",
+      "tagline": "The original flavored soju, ready to drink",
+      "size": "6 × 375 mL",
+      "abv": "12%",
+      "price": "$34.99",
+      "price_number": "34.99",
+      "badges": [],
+      "includes": [
+        "6 bottles, 375 mL each",
+        "2 yogurt, 2 peach, 2 strawberry"
+      ],
+      "includes_label": "What's included",
+      "image": "images/soju-soonhari-variety-6-pack.jpg",
+      "image_width": 739,
+      "image_height": 800,
+      "alt": "Soonhari Variety 6-Pack gift set"
+    },
+    {
+      "category": "Wine",
+      "name": "Seaglass Wine Company",
+      "tagline": "Central Coast wines, certified sustainable",
+      "size": "750 mL",
+      "abv": null,
+      "price": "2 for $24.00",
+      "price_number": "24.00",
+      "badges": [
+        "Wine special",
+        "Mix and match"
+      ],
+      "includes": [
+        "Cabernet Sauvignon, Central Coast 2024",
+        "Sauvignon Blanc, Central Coast 2025",
+        "Pinot Grigio, Central Coast 2025",
+        "Rosé, Central Coast 2025"
+      ],
+      "includes_label": "Pick any two",
+      "image": "images/wine-seaglass-wine-company.jpg",
+      "image_width": 800,
+      "image_height": 712,
+      "alt": "Four Seaglass wine bottles in front of a Seaglass lighthouse display"
+    },
+    {
+      "category": "Champagne",
+      "name": "Veuve Clicquot Brut",
+      "tagline": "Holiday bubbles, in the signature yellow gift box",
+      "size": "750 mL",
+      "abv": "12.5%",
+      "price": "$69.99",
+      "price_number": "69.99",
+      "badges": [],
+      "includes": [
+        "Veuve Clicquot Brut Champagne, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/champagne-veuve-clicquot-brut.jpg",
+      "image_width": 540,
+      "image_height": 800,
+      "alt": "Veuve Clicquot Brut gift set"
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Grand Marnier Gift Pack",
+      "tagline": "Includes “The Grand Margarita” glass pitcher",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$36.99",
+      "price_number": "36.99",
+      "badges": [],
+      "includes": [
+        "Grand Marnier Liqueur, 750 mL",
+        "Glass pitcher, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-grand-marnier-gift-pack.jpg",
+      "image_width": 800,
+      "image_height": 610,
+      "alt": "Grand Marnier Gift Pack gift set"
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Mozart Chocolate Cream",
+      "tagline": "Assorted chocolate liqueur gift set",
+      "size": "750 mL",
+      "abv": "17%",
+      "price": "$29.99",
+      "price_number": "29.99",
+      "badges": [],
+      "includes": [
+        "Mozart Chocolate Cream Liqueur, 750 mL",
+        "Mozart Chocolate White, 50 mL",
+        "Mozart Chocolate Dark, 50 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-mozart-chocolate-cream.jpg",
+      "image_width": 800,
+      "image_height": 676,
+      "alt": "Mozart Chocolate Cream gift set"
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Licor 43 Minibeer",
+      "tagline": "Licor 43 topped with fresh cream",
+      "size": "750 mL",
+      "abv": "31%",
+      "price": "$28.96",
+      "price_number": "28.96",
+      "badges": [],
+      "includes": [
+        "Licor 43 Original, 750 mL",
+        "4 mini beer mugs"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-licor-43-minibeer.jpg",
+      "image_width": 667,
+      "image_height": 800,
+      "alt": "Licor 43 Minibeer gift set"
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Drambuie",
+      "tagline": "Iced Espresso Cocktail Kit",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$42.96",
+      "price_number": "42.96",
+      "badges": [],
+      "includes": [
+        "Drambuie Isle of Skye Liqueur, 750 mL",
+        "Drambuie glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-drambuie.jpg",
+      "image_width": 751,
+      "image_height": 800,
+      "alt": "Drambuie gift set"
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Baileys Original",
+      "tagline": "The original Irish cream with a coupe glass",
+      "size": "750 mL",
+      "abv": "17%",
+      "price": "$19.99",
+      "price_number": "19.99",
+      "badges": [],
+      "includes": [
+        "Baileys Original Irish Cream, 750 mL",
+        "Baileys coupe glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-baileys-original.jpg",
+      "image_width": 582,
+      "image_height": 800,
+      "alt": "Baileys Original gift set"
+    },
+    {
+      "category": "Egg Nog",
+      "name": "Evan Williams Egg Nog",
+      "tagline": "Original Southern, ready to serve",
+      "size": "750 mL",
+      "abv": "15%",
+      "price": "$10.99",
+      "price_number": "10.99",
+      "badges": [],
+      "includes": [
+        "Evan Williams Egg Nog, 750 mL",
+        "Made with Kentucky straight bourbon whiskey, blended whiskey, liqueur, rum and brandy"
+      ],
+      "includes_label": "What's included",
+      "image": "images/egg-nog-evan-williams-egg-nog.jpg",
+      "image_width": 451,
+      "image_height": 800,
+      "alt": "Evan Williams Egg Nog gift set"
+    },
+    {
+      "category": "Egg Nog",
+      "name": "Evan Williams Peppermint White Chocolate Egg Nog",
+      "tagline": "Ready to serve",
+      "size": "750 mL",
+      "abv": "15%",
+      "price": "$10.99",
+      "price_number": "10.99",
+      "badges": [],
+      "includes": [
+        "Evan Williams Peppermint White Chocolate Egg Nog, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/egg-nog-evan-williams-peppermint-white-chocolate-egg-nog.jpg",
+      "image_width": 490,
+      "image_height": 800,
+      "alt": "Evan Williams Peppermint White Chocolate Egg Nog gift set"
+    },
+    {
+      "category": "Egg Nog",
+      "name": "McAfee's Benchmark Egg Nog",
+      "tagline": "Made with Kentucky straight bourbon",
+      "size": "750 mL",
+      "abv": "15%",
+      "price": "$10.99",
+      "price_number": "10.99",
+      "badges": [],
+      "includes": [
+        "McAfee's Benchmark Egg Nog, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/egg-nog-mcafee-s-benchmark-egg-nog.jpg",
+      "image_width": 218,
+      "image_height": 800,
+      "alt": "McAfee's Benchmark Egg Nog gift set"
+    },
+    {
+      "category": "Egg Nog",
+      "name": "The Christian Brothers Holiday Nog",
+      "tagline": "Made with brandy",
+      "size": "750 mL",
+      "abv": "10%",
+      "price": "$10.99",
+      "price_number": "10.99",
+      "badges": [],
+      "includes": [
+        "The Christian Brothers Holiday Nog, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/egg-nog-the-christian-brothers-holiday-nog.jpg",
+      "image_width": 291,
+      "image_height": 800,
+      "alt": "The Christian Brothers Holiday Nog gift set"
+    },
+    {
+      "category": "Egg Nog",
+      "name": "Yule Nog",
+      "tagline": "Premium holiday nog with a cinnamon kick, made with Fireball",
+      "size": "750 mL",
+      "abv": "16.5%",
+      "price": "$13.99",
+      "price_number": "13.99",
+      "badges": [],
+      "includes": [
+        "Yule Nog, 750 mL"
+      ],
+      "includes_label": "What's included",
+      "image": "images/egg-nog-yule-nog.jpg",
+      "image_width": 268,
+      "image_height": 800,
+      "alt": "Yule Nog gift set"
+    },
+    {
+      "category": "Egg Nog",
+      "name": "Evan Williams Egg Nog, Large Bottle",
+      "tagline": "Original Southern, ready to serve",
+      "size": "1.5 L",
+      "abv": "15%",
+      "price": "$19.99",
+      "price_number": "19.99",
+      "badges": [],
+      "includes": [
+        "Evan Williams Egg Nog, 1.5 L"
+      ],
+      "includes_label": "What's included",
+      "image": "images/egg-nog-evan-williams-egg-nog-large-bottle.jpg",
+      "image_width": 314,
+      "image_height": 800,
+      "alt": "Evan Williams Egg Nog, Large Bottle gift set"
+    },
+    {
+      "category": "Beer",
+      "name": "12 Days of Milkshake Stout 2026",
+      "tagline": "Rochester Mills Beer Co. seasonal sampler pack",
+      "size": "Sampler pack",
+      "abv": null,
+      "price": "$24.99 + deposit",
+      "price_number": "24.99 + deposit",
+      "badges": [],
+      "includes": [
+        "Rochester Mills seasonal sampler pack"
+      ],
+      "includes_label": "What's included",
+      "image": "images/beer-12-days-of-milkshake-stout-2026.jpg",
+      "image_width": 800,
+      "image_height": 603,
+      "alt": "12 Days of Milkshake Stout 2026 gift set"
+    },
+    {
+      "category": "Ready-to-Go Cocktails",
+      "name": "BuzzBallz Ready-to-Go Cocktails",
+      "tagline": "Single-serve cocktails in a ball",
+      "size": "187 mL",
+      "abv": "15%",
+      "price": "$3.99 each",
+      "price_number": "3.99",
+      "badges": [
+        "2 for $7"
+      ],
+      "includes": [
+        "Flavors include Peachballz, Lime 'Rita, Pink Lemonsqueezy and Berry Cherry Limeade"
+      ],
+      "includes_label": "Flavors",
+      "image": "images/ready-to-go-cocktails-buzzballz-ready-to-go-cocktails.jpg",
+      "image_width": 800,
+      "image_height": 450,
+      "alt": "BuzzBallz shelf sign showing five flavors and the 2 for $7 price"
+    }
+  ]
+}
