@@ -1,11 +1,11 @@
 ---
 /**
- * Slim header for the cigar-free pages (/liquor-store/, /party-drinks/, /keg-rentals/, /gift-sets/).
+ * Slim header for the cigar-free pages (/liquor-store/, /party-drinks/, /keg-rentals/, /holiday-catalog/).
  * Use with <BaseLayout chrome="none">: it has no site navigation, so it never links to the cigars page.
  */
 import Icon from './Icon.astro';
 import { site, telHref } from '../site.config';
-const onGiftSets = Astro.url.pathname === '/gift-sets/';
+const onCatalog = Astro.url.pathname === '/holiday-catalog/';
 ---
 <header class="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/85">
   <div class="container-x flex h-16 items-center justify-between gap-2 sm:gap-3">
@@ -18,10 +18,10 @@ const onGiftSets = Astro.url.pathname === '/gift-sets/';
     </span>
     <div class="flex items-center gap-2.5 sm:gap-5">
       <a
-        href="/gift-sets/"
-        class:list={['whitespace-nowrap text-sm font-semibold hover:text-burgundy sm:text-base', onGiftSets ? 'text-burgundy' : 'text-ink']}
-        aria-current={onGiftSets ? 'page' : undefined}
-      >Gift Sets</a>
+        href="/holiday-catalog/"
+        class:list={['whitespace-nowrap text-sm font-semibold hover:text-burgundy sm:text-base', onCatalog ? 'text-burgundy' : 'text-ink']}
+        aria-current={onCatalog ? 'page' : undefined}
+      ><span class="max-[399px]:hidden">Holiday </span>Catalog</a>
       <a href={telHref} class="btn btn-primary px-3 text-sm sm:px-6 sm:text-base">
         <Icon name="phone" class="h-5 w-5" />
         <span class="hidden sm:inline">{site.phone}</span>
