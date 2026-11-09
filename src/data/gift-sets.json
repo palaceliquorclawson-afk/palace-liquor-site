@@ -127,8 +127,8 @@
       ],
       "includes_label": "What's included",
       "image": "images/tequila-milagro-silver.jpg",
-      "image_width": 602,
-      "image_height": 800,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "Milagro Silver gift set"
     },
     {
@@ -146,8 +146,8 @@
       ],
       "includes_label": "What's included",
       "image": "images/tequila-milagro-reposado.jpg",
-      "image_width": 602,
-      "image_height": 800,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "Milagro Reposado gift set"
     },
     {
@@ -344,8 +344,8 @@
       ],
       "includes_label": "What's included",
       "image": "images/bourbon-elijah-craig-small-batch.jpg",
-      "image_width": 613,
-      "image_height": 800,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "Elijah Craig Small Batch gift set"
     },
     {
@@ -442,8 +442,8 @@
       ],
       "includes_label": "What's included",
       "image": "images/scotch-glenfiddich-14-year-tasting-set.jpg",
-      "image_width": 800,
-      "image_height": 750,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "Glenfiddich 14 Year Tasting Set gift set"
     },
     {
@@ -898,8 +898,8 @@
       ],
       "includes_label": "What's included",
       "image": "images/beer-12-days-of-milkshake-stout-2026.jpg",
-      "image_width": 800,
-      "image_height": 603,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "12 Days of Milkshake Stout 2026 gift set"
     },
     {
