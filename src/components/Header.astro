@@ -40,7 +40,7 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
   <!-- Main navigation -->
   <div class="border-b border-line bg-cream/95 text-ink backdrop-blur supports-[backdrop-filter]:bg-cream/85">
     <div class="container-x flex h-[4.5rem] items-center justify-between gap-4">
-      <a href="/" class="flex items-center gap-2.5" aria-label={`${site.name}, home`}>
+      <a href="/" class="flex flex-none items-center gap-2.5" aria-label={`${site.name}, home`}>
         <Icon name="crown" class="h-7 w-7 flex-none text-burgundy" />
         <span>
           <span class="block font-display text-xl font-bold leading-none tracking-wide sm:text-[1.4rem]">
@@ -51,13 +51,13 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
       </a>
 
       <nav aria-label="Main" class="hidden xl:block">
-        <ul class="flex items-center gap-5 text-[0.92rem]">
+        <ul class="flex items-center gap-4 text-[0.875rem]">
           {nav.map((item) => (
             <li>
               <a
                 href={item.href}
                 class:list={[
-                  'py-2 transition-colors hover:text-burgundy',
+                  'whitespace-nowrap py-2 transition-colors hover:text-burgundy',
                   path === item.href ? 'font-semibold text-burgundy' : 'text-muted',
                 ]}
                 aria-current={path === item.href ? 'page' : undefined}
