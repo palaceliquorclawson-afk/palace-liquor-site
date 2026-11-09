@@ -481,8 +481,8 @@
       ],
       "includes_label": "What's included",
       "image": "images/scotch-glenmorangie-12-year-the-original.jpg",
-      "image_width": 530,
-      "image_height": 800,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "Glenmorangie 12 Year The Original gift set"
     },
     {
@@ -918,8 +918,8 @@
       ],
       "includes_label": "Flavors",
       "image": "images/ready-to-go-cocktails-buzzballz-ready-to-go-cocktails.jpg",
-      "image_width": 800,
-      "image_height": 450,
+      "image_width": 960,
+      "image_height": 1200,
       "alt": "BuzzBallz shelf sign showing five flavors and the 2 for $7 price"
     }
   ]
