@@ -76,6 +76,25 @@
     },
     {
       "category": "Tequila",
+      "name": "Casamigos Blanco",
+      "tagline": "Blanco tequila with a travel flask",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [],
+      "includes": [
+        "Casamigos Blanco Tequila, 750 mL",
+        "Travel flask"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-casamigos-blanco.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Casamigos Blanco gift set"
+    },
+    {
+      "category": "Tequila",
       "name": "Don Julio Blanco",
       "tagline": "Blanco tequila with salsa bowls",
       "size": "750 mL",
@@ -522,6 +541,25 @@
       "image_width": 960,
       "image_height": 1200,
       "alt": "Jack Daniel's Old No. 7 gift set"
+    },
+    {
+      "category": "Whiskey",
+      "name": "Jack Daniel's Single Barrel Select",
+      "tagline": "Single barrel Tennessee whiskey with a Glencairn glass",
+      "size": "750 mL",
+      "abv": "47%",
+      "price": "$52.99",
+      "price_number": "52.99",
+      "badges": [],
+      "includes": [
+        "Jack Daniel's Single Barrel Select Tennessee Whiskey, 750 mL",
+        "Glencairn crystal snifter glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-jack-daniel-s-single-barrel-select.jpg",
+      "alt": "Jack Daniel's Single Barrel Select gift set",
+      "image_width": 960,
+      "image_height": 1200
     },
     {
       "category": "Whiskey",
