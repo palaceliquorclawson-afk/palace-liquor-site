@@ -544,6 +544,25 @@
     },
     {
       "category": "Whiskey",
+      "name": "Jack Daniel's Single Barrel Select",
+      "tagline": "Single barrel Tennessee whiskey with a Glencairn glass",
+      "size": "750 mL",
+      "abv": "47%",
+      "price": "$52.99",
+      "price_number": "52.99",
+      "badges": [],
+      "includes": [
+        "Jack Daniel's Single Barrel Select Tennessee Whiskey, 750 mL",
+        "Glencairn crystal snifter glass"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-jack-daniel-s-single-barrel-select.jpg",
+      "alt": "Jack Daniel's Single Barrel Select gift set",
+      "image_width": 960,
+      "image_height": 1200
+    },
+    {
+      "category": "Whiskey",
       "name": "Jack Daniel's Tennessee Apple",
       "tagline": "Crisp and delicious",
       "size": "750 mL",
