@@ -16,6 +16,7 @@ import HoursTable from './HoursTable.astro';
 import Icon from './Icon.astro';
 import { site, telHref, directionsUrl, isPlaceholder } from '../site.config';
 import data from '../data/gift-sets.json';
+import buffalo from '../assets/photos/buffalo-trace-statue.jpg';
 
 interface Props {
   /** Cigar-free Google Ads version: slim header/footer, links only to cigar-free pages. */
@@ -145,6 +146,7 @@ const searchText = (i: Item) =>
       Nothing in the catalog matches your search. Try another word, or call {site.phone} and we'll check for you.
     </p>
     {sections.map((s, si) => (
+      <Fragment>
       <section id={s.id} class:list={["gs-section pb-10", ads && "gs-ads"]} aria-labelledby={`${s.id}-title`} data-gs-section>
         <h2 id={`${s.id}-title`} class="text-h2">{s.name}</h2>
         <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -201,6 +203,22 @@ const searchText = (i: Item) =>
           })}
         </ul>
       </section>
+      {s.name === 'Bourbon' && (
+        <figure class="mx-auto mb-12 max-w-3xl text-center" data-gs-feature>
+          <Image
+            src={buffalo}
+            alt="Bronze Buffalo Trace Distillery buffalo statue on display in the store"
+            widths={[480, 800, 1200].filter((w) => w <= buffalo.width)}
+            sizes="(min-width: 800px) 768px, 100vw"
+            loading="lazy"
+            class="w-full rounded-2xl border border-line object-cover shadow-sm"
+          />
+          <figcaption class="mt-4">
+            <span class="block font-display text-2xl italic text-burgundy sm:text-3xl">Come in and check out our buffalo!</span>
+          </figcaption>
+        </figure>
+      )}
+      </Fragment>
     ))}
     <p class="text-lg text-muted">Prices and availability change. Call <a href={telHref} class="font-semibold text-burgundy underline">{site.phone}</a> or stop in.</p>
     <p class="mt-2 font-semibold">Must be 21+ with valid ID.</p>
@@ -269,6 +287,7 @@ const searchText = (i: Item) =>
       if (shown) any = true;
     }
     empty?.classList.toggle('hidden', any);
+    document.querySelectorAll<HTMLElement>('[data-gs-feature]').forEach((f) => { f.hidden = words.length > 0; });
   }
   search?.addEventListener('input', filter);
 
