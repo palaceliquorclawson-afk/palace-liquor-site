@@ -1,0 +1,17 @@
+---
+/**
+ * Google Ads copy of /holiday-catalog/: same catalog, but cigar-free (slim ads header/footer, no
+ * site menu), noindex, canonical to /holiday-catalog/, and left out of the sitemap.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HolidayCatalog from '../components/HolidayCatalog.astro';
+---
+<BaseLayout
+  title="Holiday Catalog | Palace Liquor Clawson, MI"
+  description="The Palace Liquor Holiday Catalog, Clawson, MI. Gift sets of tequila, bourbon, Scotch, whiskey, gin, wine, Champagne, liqueurs, egg nog and more, boxed with glasses, minis, games and cocktail extras."
+  noindex
+  chrome="none"
+  canonicalPath="/holiday-catalog/"
+>
+  <HolidayCatalog ads />
+</BaseLayout>
