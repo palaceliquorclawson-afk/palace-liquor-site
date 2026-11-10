@@ -76,6 +76,25 @@
     },
     {
       "category": "Tequila",
+      "name": "Casamigos Blanco",
+      "tagline": "Blanco tequila with a travel flask",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [],
+      "includes": [
+        "Casamigos Blanco Tequila, 750 mL",
+        "Travel flask"
+      ],
+      "includes_label": "What's included",
+      "image": "images/tequila-casamigos-blanco.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Casamigos Blanco gift set"
+    },
+    {
+      "category": "Tequila",
       "name": "Don Julio Blanco",
       "tagline": "Blanco tequila with salsa bowls",
       "size": "750 mL",
