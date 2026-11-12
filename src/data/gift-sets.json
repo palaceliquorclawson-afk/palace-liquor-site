@@ -638,6 +638,24 @@
       "image_height": 1200
     },
     {
+      "category": "Whiskey",
+      "name": "Fireball Holiday Wreath",
+      "tagline": "14 Fireball shots in a holiday wreath gift box",
+      "size": "14 × 50 mL shots",
+      "abv": "33%",
+      "price": "$13.99",
+      "price_number": "13.99",
+      "badges": [],
+      "includes": [
+        "14 Fireball Cinnamon Whisky shots, 50 mL each"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-fireball-holiday-wreath.jpg",
+      "alt": "Fireball holiday wreath gift box with 14 mini bottles",
+      "image_width": 960,
+      "image_height": 1200
+    },
+    {
       "category": "Gin",
       "name": "Hendrick's Gin",
       "tagline": "Rose and cucumber holiday box",
