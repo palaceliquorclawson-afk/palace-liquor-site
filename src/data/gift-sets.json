@@ -619,6 +619,25 @@
       "alt": "Jack Daniel's Tennessee Honey gift set"
     },
     {
+      "category": "Whiskey",
+      "name": "Fireball Candy Cane",
+      "tagline": "10 shots of Fireball in a holiday candy cane",
+      "size": "10 × 50 mL shots",
+      "abv": null,
+      "price": "$9.99",
+      "price_number": "9.99",
+      "badges": [],
+      "includes": [
+        "Original Fireball Cinnamon Whisky",
+        "Fireball Blazin' Apple"
+      ],
+      "includes_label": "Available in",
+      "image": "images/whiskey-fireball-candy-cane.jpg",
+      "alt": "Fireball candy canes, each filled with 10 shots, in a Fireball display box",
+      "image_width": 960,
+      "image_height": 1200
+    },
+    {
       "category": "Gin",
       "name": "Hendrick's Gin",
       "tagline": "Rose and cucumber holiday box",
