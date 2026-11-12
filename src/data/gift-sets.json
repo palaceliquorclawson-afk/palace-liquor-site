@@ -871,6 +871,25 @@
     },
     {
       "category": "Liqueurs",
+      "name": "Buffalo Trace Bourbon Cream",
+      "tagline": "Made with real Buffalo Trace bourbon, with a Christmas ornament",
+      "size": "750 mL",
+      "abv": "15%",
+      "price": "$19.99",
+      "price_number": "19.99",
+      "badges": [],
+      "includes": [
+        "Buffalo Trace Bourbon Cream, 750 mL",
+        "Barrel-shaped Christmas ornament"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-buffalo-trace-bourbon-cream.jpg",
+      "alt": "Buffalo Trace Bourbon Cream bottle with a barrel-shaped Christmas ornament",
+      "image_width": 959,
+      "image_height": 1199
+    },
+    {
+      "category": "Liqueurs",
       "name": "Jägermeister Shotski Set",
       "tagline": "Ice cold shots with friends",
       "size": "750 mL",
