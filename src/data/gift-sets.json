@@ -657,6 +657,25 @@
       "alt": "Absolut Espresso Martini Kit gift set"
     },
     {
+      "category": "Vodka",
+      "name": "Grey Goose Vodka",
+      "tagline": "French vodka with 2 martini glasses",
+      "size": "1.75 L",
+      "abv": "40%",
+      "price": "$49.99",
+      "price_number": "49.99",
+      "badges": [],
+      "includes": [
+        "Grey Goose Vodka, 1.75 L",
+        "2 Grey Goose martini cocktail glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/vodka-grey-goose-vodka.jpg",
+      "alt": "Grey Goose Vodka gift set",
+      "image_width": 960,
+      "image_height": 1200
+    },
+    {
       "category": "Soju",
       "name": "Soonhari Variety 6-Pack",
       "tagline": "The original flavored soju, ready to drink",
