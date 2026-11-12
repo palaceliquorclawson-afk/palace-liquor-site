@@ -619,6 +619,43 @@
       "alt": "Jack Daniel's Tennessee Honey gift set"
     },
     {
+      "category": "Whiskey",
+      "name": "Fireball Candy Cane",
+      "tagline": "10 shots of Fireball in a holiday candy cane",
+      "size": "10 × 50 mL shots",
+      "abv": null,
+      "price": "$9.99",
+      "price_number": "9.99",
+      "badges": [],
+      "includes": [
+        "Original Fireball Cinnamon Whisky",
+        "Fireball Blazin' Apple"
+      ],
+      "includes_label": "Available in",
+      "image": "images/whiskey-fireball-candy-cane.jpg",
+      "alt": "Fireball candy canes, each filled with 10 shots, in a Fireball display box",
+      "image_width": 960,
+      "image_height": 1200
+    },
+    {
+      "category": "Whiskey",
+      "name": "Fireball Holiday Wreath",
+      "tagline": "14 Fireball shots in a holiday wreath gift box",
+      "size": "14 × 50 mL shots",
+      "abv": "33%",
+      "price": "$13.99",
+      "price_number": "13.99",
+      "badges": [],
+      "includes": [
+        "14 Fireball Cinnamon Whisky shots, 50 mL each"
+      ],
+      "includes_label": "What's included",
+      "image": "images/whiskey-fireball-holiday-wreath.jpg",
+      "alt": "Fireball holiday wreath gift box with 14 mini bottles",
+      "image_width": 960,
+      "image_height": 1200
+    },
+    {
       "category": "Gin",
       "name": "Hendrick's Gin",
       "tagline": "Rose and cucumber holiday box",
@@ -655,6 +692,25 @@
       "image_width": 960,
       "image_height": 1200,
       "alt": "Absolut Espresso Martini Kit gift set"
+    },
+    {
+      "category": "Vodka",
+      "name": "Grey Goose Vodka",
+      "tagline": "French vodka with 2 martini glasses",
+      "size": "1.75 L",
+      "abv": "40%",
+      "price": "$49.99",
+      "price_number": "49.99",
+      "badges": [],
+      "includes": [
+        "Grey Goose Vodka, 1.75 L",
+        "2 Grey Goose martini cocktail glasses"
+      ],
+      "includes_label": "What's included",
+      "image": "images/vodka-grey-goose-vodka.jpg",
+      "alt": "Grey Goose Vodka gift set",
+      "image_width": 960,
+      "image_height": 1200
     },
     {
       "category": "Soju",
@@ -812,6 +868,45 @@
       "image_width": 960,
       "image_height": 1200,
       "alt": "Baileys Original gift set"
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Buffalo Trace Bourbon Cream",
+      "tagline": "Made with real Buffalo Trace bourbon, with a Christmas ornament",
+      "size": "750 mL",
+      "abv": "15%",
+      "price": "$19.99",
+      "price_number": "19.99",
+      "badges": [],
+      "includes": [
+        "Buffalo Trace Bourbon Cream, 750 mL",
+        "Barrel-shaped Christmas ornament"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-buffalo-trace-bourbon-cream.jpg",
+      "alt": "Buffalo Trace Bourbon Cream bottle with a barrel-shaped Christmas ornament",
+      "image_width": 959,
+      "image_height": 1199
+    },
+    {
+      "category": "Liqueurs",
+      "name": "Jägermeister Shotski Set",
+      "tagline": "Ice cold shots with friends",
+      "size": "750 mL",
+      "abv": "35%",
+      "price": "$21.96",
+      "price_number": "21.96",
+      "badges": [],
+      "includes": [
+        "Jägermeister, 750 mL",
+        "Buildable Shotski",
+        "2 shot cups"
+      ],
+      "includes_label": "What's included",
+      "image": "images/liqueurs-jagermeister-shotski-set.jpg",
+      "alt": "Jägermeister bottle with the Shotski gift box",
+      "image_width": 960,
+      "image_height": 1200
     },
     {
       "category": "Egg Nog",
