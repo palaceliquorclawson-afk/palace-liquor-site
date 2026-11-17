@@ -3,8 +3,10 @@
  * Page banner.
  * - tone "light" (default): warm white, headline left, arched photo right (if `photo` exists).
  * - tone "burgundy": bold red band, no photo (events page).
+ * - tone "cinematic": full-bleed photo under the (transparent) header, headline over it (home).
  * - banner: headline on top, then the photo full width and uncropped (for wide ~2:1 photos).
  * `photo` is a file name in src/assets/photos/ (e.g. "hero-cigars.webp").
+ * Everything on the first screen animates in with CSS on load (see global.css "Motion").
  */
 import { Picture } from 'astro:assets';
 import { findPhoto, photoCredit } from '../lib/photos';
@@ -16,80 +18,118 @@ interface Props {
   photo?: string;
   photoAlt?: string;
   size?: 'home' | 'page';
-  tone?: 'light' | 'burgundy';
+  tone?: 'light' | 'burgundy' | 'cinematic';
   banner?: boolean;
 }
 const { eyebrow, title, subtitle, photo, photoAlt = '', size = 'page', tone = 'light', banner = false } = Astro.props;
 const image = findPhoto(photo);
 const alt = photoCredit(photo)?.alt ?? photoAlt;
 const red = tone === 'burgundy';
-const side = !red && !banner && image;
-const wide = !red && banner && image;
+const cine = tone === 'cinematic' && image;
+const side = tone === 'light' && !banner && image;
+const wide = tone === 'light' && banner && image;
 ---
-<section
-  class:list={[
-    'relative isolate overflow-hidden',
-    red ? 'bg-burgundy text-cream' : 'bg-cream text-ink',
-    size === 'home' ? 'py-14 sm:py-20' : 'py-12 sm:py-16',
-  ]}
->
-  {red && (
-    <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-      <div class="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-gold/25"></div>
-      <div class="absolute -right-4 -top-12 h-64 w-64 rounded-full border border-gold/20"></div>
-      <div class="absolute -bottom-40 -left-32 h-96 w-96 rounded-full border border-gold/15"></div>
+{cine ? (
+  <section class="hero-cinematic relative isolate overflow-hidden bg-ink text-cream">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <Picture
+        src={image}
+        alt={alt}
+        formats={['avif', 'webp']}
+        widths={[800, 1200, 1448].filter((w) => w <= image.width)}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="anim-settle h-full w-full object-cover object-[55%_38%]"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/10 to-ink/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/10 to-transparent"></div>
+      <slot name="overlay" />
     </div>
-  )}
+    <div class="container-x relative flex min-h-[inherit] flex-col justify-end pb-16 sm:pb-24">
+      {eyebrow && <p class="eyebrow anim-rise text-gold-light">{eyebrow}</p>}
+      <h1 class="hero-title-on-photo anim-rise mt-5 max-w-4xl text-display" style="--d:120ms" set:html={title} />
+      {subtitle && <p class="anim-rise mt-6 max-w-xl text-lg text-cream/85 sm:text-xl" style="--d:240ms">{subtitle}</p>}
+      <div class="anim-rise mt-9" style="--d:360ms"><slot /></div>
+    </div>
+  </section>
+) : (
+  <section
+    class:list={[
+      'relative isolate overflow-hidden',
+      red ? 'bg-burgundy text-cream' : 'bg-cream text-ink',
+      size === 'home' ? 'py-14 sm:py-20' : 'py-12 sm:py-20',
+    ]}
+  >
+    {red && (
+      <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div class="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-gold/25"></div>
+        <div class="absolute -right-4 -top-12 h-64 w-64 rounded-full border border-gold/20"></div>
+        <div class="absolute -bottom-40 -left-32 h-96 w-96 rounded-full border border-gold/15"></div>
+      </div>
+    )}
 
-  <div class:list={['container-x', red && 'text-center']}>
-    <div class:list={[side && 'grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16']}>
-      <div class:list={[red && 'mx-auto max-w-3xl']}>
-        {eyebrow && <p class:list={['eyebrow', red ? 'text-gold-light' : 'text-brass']}>{eyebrow}</p>}
-        <h1
-          class:list={[
-            'mt-4',
-            !red && 'hero-title',
-            red ? 'text-display uppercase' : size === 'home' ? 'text-display' : 'text-h1',
-          ]}
-          set:html={title}
-        />
-        {subtitle && (
-          <p class:list={['mt-5 text-lg sm:text-xl', red ? 'mx-auto max-w-2xl text-cream/90' : 'max-w-xl text-muted']}>
-            {subtitle}
-          </p>
+    <div class:list={['container-x', red && 'text-center']}>
+      <div class:list={[side && 'grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16']}>
+        <div class:list={[red && 'mx-auto max-w-3xl']}>
+          {eyebrow && <p class:list={['eyebrow anim-rise', red ? 'text-gold-light' : 'text-brass']}>{eyebrow}</p>}
+          <h1
+            class:list={[
+              'anim-rise mt-4',
+              !red && 'hero-title',
+              red ? 'text-display uppercase' : size === 'home' ? 'text-display' : 'text-h1',
+            ]}
+            style="--d:100ms"
+            set:html={title}
+          />
+          {subtitle && (
+            <p class:list={['anim-rise mt-5 text-lg sm:text-xl', red ? 'mx-auto max-w-2xl text-cream/90' : 'max-w-xl text-muted']} style="--d:200ms">
+              {subtitle}
+            </p>
+          )}
+          <div class:list={['anim-rise mt-8', red && 'flex justify-center']} style="--d:300ms"><slot /></div>
+        </div>
+
+        {side && (
+          <div class="arch anim-unveil mx-auto w-full max-w-sm lg:max-w-none" style="--d:150ms">
+            <Picture
+              src={image}
+              alt={alt}
+              formats={['avif', 'webp']}
+              widths={[480, 800, 1200].filter((w) => w <= image.width)}
+              sizes="(min-width: 1024px) 45vw, 90vw"
+              loading="eager"
+              fetchpriority="high"
+              class:list={['anim-settle h-full w-full object-cover', size === 'home' ? 'aspect-[4/5]' : 'aspect-[4/4.2]']}
+            />
+          </div>
         )}
-        <div class:list={['mt-8', red && 'flex justify-center']}><slot /></div>
       </div>
 
-      {side && (
-        <div class="arch mx-auto w-full max-w-sm lg:max-w-none">
+      {wide && (
+        <div class="anim-unveil mt-10 overflow-hidden rounded-2xl border border-gold/45 shadow-sm sm:mt-12" style="--d:200ms">
           <Picture
             src={image}
             alt={alt}
             formats={['avif', 'webp']}
-            widths={[480, 800, 1200].filter((w) => w <= image.width)}
-            sizes="(min-width: 1024px) 45vw, 90vw"
+            widths={[640, 960, 1400, 1932].filter((w) => w <= image.width)}
+            sizes="(min-width: 1184px) 1120px, calc(100vw - 2.5rem)"
             loading="eager"
             fetchpriority="high"
-            class:list={['h-full w-full object-cover', size === 'home' ? 'aspect-[4/5]' : 'aspect-[4/4.2]']}
+            class="anim-settle block h-auto w-full"
           />
         </div>
       )}
     </div>
+  </section>
+)}
 
-    {wide && (
-      <div class="mt-10 overflow-hidden rounded-2xl border border-gold/45 shadow-sm sm:mt-12">
-        <Picture
-          src={image}
-          alt={alt}
-          formats={['avif', 'webp']}
-          widths={[640, 960, 1400, 1932].filter((w) => w <= image.width)}
-          sizes="(min-width: 1152px) 1104px, calc(100vw - 2rem)"
-          loading="eager"
-          fetchpriority="high"
-          class="block h-auto w-full"
-        />
-      </div>
-    )}
-  </div>
-</section>
+<style>
+  /* Full-bleed hero: slides up under the sticky header and fills most of the first screen. */
+  .hero-cinematic {
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: var(--header-h);
+    min-height: min(100svh, 62rem);
+  }
+  @media (max-width: 639px) { .hero-cinematic { min-height: min(92svh, 50rem); } }
+</style>

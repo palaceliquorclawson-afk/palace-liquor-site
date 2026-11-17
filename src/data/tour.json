@@ -1,0 +1,8 @@
+{
+  "_howTo": "The 'Look inside' tour on the home page. 'marker' is where the door sits in the hero photo (0-1 across and down). Add a stop per aisle photo: put the file in src/assets/photos/ and list it here in walking order.",
+  "marker": { "x": 0.601, "y": 0.69 },
+  "stops": [
+    { "photo": "hero-home.jpg", "title": "Welcome in", "note": "650 W 14 Mile Rd, Clawson. Aisle-by-aisle tour photos are on the way.", "alt": "The Palace Liquor storefront on 14 Mile Road" },
+    { "photo": "buffalo-trace-statue.jpg", "title": "Say hi to the buffalo", "note": "Our Buffalo Trace buffalo greets you by the bourbon.", "alt": "Bronze Buffalo Trace buffalo statue on display in the store" }
+  ]
+}
