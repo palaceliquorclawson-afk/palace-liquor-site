@@ -1,7 +1,6 @@
 ---
 import { Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Map from '../components/Map.astro';
 import Text from '../components/Text.astro';
@@ -34,15 +33,14 @@ const pexels = pexelsNote();
   title="Palace Liquor | About & Contact"
   description="Palace Liquor & Deli Shop at 650 W 14 Mile Rd, Clawson, MI 48017. Our story, directions, phone and email. Call (248) 435-4888."
 >
-  <Hero eyebrow="About & contact" title="Your neighborhood<em>bottle shop.</em>" photo="hero-about.webp" photoAlt="The front of Palace Liquor in Clawson" />
-
   <!-- Story -->
-  <section class="py-20 sm:py-28" aria-labelledby="story-title">
+  <section class="pb-20 pt-14 sm:pb-28 sm:pt-20" aria-labelledby="story-title">
     <div class="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
       <div>
-        <SectionHeading id="story-title" eyebrow="Our story" title="Clawson's place for the good stuff." />
-        <Text as="p" value={story[0]} class="reveal mt-7 text-xl leading-relaxed text-ink sm:text-[1.35rem]" />
-        <div class="reveal mt-6 grid gap-4 text-lg text-muted" style="--d:120ms">
+        <p class="eyebrow anim-rise text-brass">Our story</p>
+        <h1 id="story-title" class="anim-rise mt-3 text-h1" style="--d:100ms">Clawson's place for the good stuff.</h1>
+        <div class="anim-rise mt-7" style="--d:200ms"><Text as="p" value={story[0]} class="text-xl leading-relaxed text-ink sm:text-[1.35rem]" /></div>
+        <div class="anim-rise mt-6 grid gap-4 text-lg text-muted" style="--d:300ms">
           {story.slice(1).map((p) => <Text as="p" value={p} />)}
         </div>
       </div>
