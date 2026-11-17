@@ -1,92 +1,168 @@
 ---
+import { Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import ImageSlot from '../components/ImageSlot.astro';
-import HoursTable from '../components/HoursTable.astro';
 import Map from '../components/Map.astro';
-import GoogleReviewButton from '../components/GoogleReviewButton.astro';
 import Text from '../components/Text.astro';
 import Icon from '../components/Icon.astro';
-import { site, telHref, directionsUrl, isPlaceholder, socialLinks } from '../site.config';
+import { site, telHref, directionsUrl, fullAddress, isPlaceholder, socialLinks } from '../site.config';
 import { findPhoto, allCredits, pexelsNote } from '../lib/photos';
 
-// ✏️ Edit your store story here. Each line is one paragraph.
+// ✏️ Edit your store story here. The first line is the large opening paragraph.
 const story = [
   'Palace Liquor is Clawson’s neighborhood bottle shop on 14 Mile Road: a place where a rare bourbon, a special-occasion wine and a cold six-pack on the way home all get the same friendly welcome.',
   'We keep our shelves stocked with fine wine, Michigan craft beer, a deep bourbon and whiskey selection and a well-kept humidor. Spirits are always at Michigan state minimum pricing, and when allocated bottles come in, they go straight on the shelf for our customers. No lists, no games.',
   'Planning a party? We’ll help with that too, from kegs and tables to a full drink order delivered to your door. Stop in and say hi. We’d love to help you find something great.',
 ];
 
-// Your own store photos. Each shows once you add the file to src/assets/photos/.
-const storePhotos = [
-  { photo: 'storefront.jpg', alt: 'Palace Liquor storefront on 14 Mile Road', aspect: 'aspect-[16/10]', wide: true },
-  { photo: 'team.jpg', alt: 'The Palace Liquor team', aspect: 'aspect-square', wide: false },
-  { photo: 'inside.jpg', alt: 'Inside Palace Liquor', aspect: 'aspect-square', wide: false },
-].filter((p) => findPhoto(p.photo));
+const knownFor = [
+  { icon: 'tag', title: 'State minimum pricing', body: 'The lowest legal shelf price on every bottle of spirits.' },
+  { icon: 'bourbon', title: 'Allocated bourbon', body: 'Straight to the shelf. No lists, no games.' },
+  { icon: 'beer', title: 'Michigan craft beer', body: 'Local favorites and new releases, ice cold.' },
+  { icon: 'truck', title: 'Events & delivery', body: 'Kegs, tables and full drink orders, delivered.' },
+] as const;
+
+// Real store photos (storefront + the buffalo). Each shows once its file is in src/assets/photos/.
+const storefront = findPhoto('hero-home-dusk.jpg');
+const buffalo = findPhoto('buffalo-trace-statue.jpg');
+const hasEmail = !isPlaceholder(site.email);
 const credits = allCredits();
 const pexels = pexelsNote();
 ---
 <BaseLayout
   title="Palace Liquor | About & Contact"
-  description="Palace Liquor & Deli Shop at 650 W 14 Mile Rd, Clawson, MI 48017. Hours, directions, phone and our story. Call (248) 435-4888."
+  description="Palace Liquor & Deli Shop at 650 W 14 Mile Rd, Clawson, MI 48017. Our story, directions, phone and email. Call (248) 435-4888."
 >
   <Hero eyebrow="About & contact" title="Your neighborhood<em>bottle shop.</em>" photo="hero-about.webp" photoAlt="The front of Palace Liquor in Clawson" />
 
-  <section class="py-16 sm:py-24" aria-labelledby="story-title">
-    <div class:list={['container-x grid items-center gap-10', storePhotos.length > 0 && 'lg:grid-cols-2']}>
-      <div class:list={[storePhotos.length === 0 && 'max-w-3xl']}>
+  <!-- Story -->
+  <section class="py-20 sm:py-28" aria-labelledby="story-title">
+    <div class="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
+      <div>
         <SectionHeading id="story-title" eyebrow="Our story" title="Clawson's place for the good stuff." />
-        <div class="reveal mt-6 grid gap-4 text-lg">
-          {story.map((p) => <Text as="p" value={p} />)}
+        <Text as="p" value={story[0]} class="reveal mt-7 text-xl leading-relaxed text-ink sm:text-[1.35rem]" />
+        <div class="reveal mt-6 grid gap-4 text-lg text-muted" style="--d:120ms">
+          {story.slice(1).map((p) => <Text as="p" value={p} />)}
         </div>
       </div>
-      {storePhotos.length > 0 && (
-        <div class="grid grid-cols-2 gap-4">
-          {storePhotos.map((p) => (
-            <div class:list={['reveal overflow-hidden rounded-2xl', (p.wide || storePhotos.length === 1) && 'col-span-2']}>
-              <ImageSlot photo={p.photo} alt={p.alt} aspect={p.aspect} />
-            </div>
-          ))}
+
+      {storefront && (
+        <div class="relative pb-16 sm:pb-20">
+          <div class="reveal overflow-hidden rounded-[1.5rem] shadow-[0_30px_60px_-30px_rgb(30_26_24/.55)]">
+            <Picture
+              src={storefront}
+              alt="The Palace Liquor storefront on 14 Mile Road"
+              formats={['avif', 'webp']}
+              widths={[640, 960, 1448].filter((w) => w <= storefront.width)}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              loading="lazy"
+              class="aspect-[4/3] w-full object-cover object-[55%_60%]"
+            />
+          </div>
+          {buffalo && (
+            <figure class="reveal absolute bottom-0 left-4 w-[46%] sm:left-8 lg:-left-10" style="--d:180ms">
+              <div class="overflow-hidden rounded-[1.25rem] border-4 border-cream shadow-[0_24px_50px_-20px_rgb(30_26_24/.6)]">
+                <Picture
+                  src={buffalo}
+                  alt="The bronze Buffalo Trace buffalo inside Palace Liquor"
+                  formats={['avif', 'webp']}
+                  widths={[400, 640].filter((w) => w <= buffalo.width)}
+                  sizes="(min-width: 1024px) 260px, 46vw"
+                  loading="lazy"
+                  class="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <figcaption class="mt-2 font-display text-sm italic text-burgundy sm:text-base">Come in and say hi to our buffalo.</figcaption>
+            </figure>
+          )}
         </div>
       )}
     </div>
   </section>
 
-  <section class="border-t border-line bg-paper py-16 sm:py-24" aria-labelledby="contact-title">
-    <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.3fr]">
-      <div>
-        <SectionHeading id="contact-title" eyebrow="Contact" title="Come see us." />
-        <address class="reveal mt-8 grid gap-4 not-italic">
-          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="flex gap-3 text-lg hover:text-burgundy">
-            <Icon name="pin" class="mt-1 h-5 w-5 flex-none text-burgundy" />
-            <span>{site.address.street}<br />{site.address.city}, {site.address.state} {site.address.zip}<br /><span class="font-semibold text-burgundy underline">Get directions</span><span class="sr-only"> (opens in a new tab)</span></span>
+  <!-- Known for -->
+  <section class="border-y border-line bg-cream-2 py-16 sm:py-20" aria-label="What we're known for">
+    <ul class="container-x grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      {knownFor.map((k, i) => (
+        <li class="reveal" style={`--d:${i * 90}ms`}>
+          <span class="grid h-12 w-12 place-items-center rounded-full bg-burgundy text-cream"><Icon name={k.icon} class="h-6 w-6" /></span>
+          <h3 class="mt-4 text-xl">{k.title}</h3>
+          <p class="mt-1.5 text-muted">{k.body}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-20 sm:py-28" aria-labelledby="contact-title">
+    <div class="container-x">
+      <SectionHeading id="contact-title" eyebrow="Contact" title="Come see us." intro="Stop in, give us a call, or send a message. We're happy to check stock, set aside a bottle or help plan your party." />
+
+      <div class="mt-12 grid gap-4 lg:grid-cols-[1fr_1.2fr] lg:gap-8">
+        <div class="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-1">
+          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="contact-card reveal group sm:col-span-2 lg:col-span-1">
+            <span class="contact-icon"><Icon name="pin" class="h-6 w-6" /></span>
+            <span class="min-w-0">
+              <span class="eyebrow block text-brass">Visit</span>
+              <span class="mt-2 block font-display text-2xl leading-tight text-ink">{site.address.street}</span>
+              <span class="block text-lg text-muted">{site.address.city}, {site.address.state} {site.address.zip}</span>
+              <span class="contact-cta">Get directions <Icon name="arrow" class="h-4 w-4" /></span>
+            </span>
+            <span class="sr-only"> (opens in a new tab)</span>
           </a>
-          <a href={telHref} class="flex gap-3 text-lg hover:text-burgundy">
-            <Icon name="phone" class="mt-1 h-5 w-5 flex-none text-burgundy" /> {site.phone}
+
+          <a href={telHref} class="contact-card reveal group" style="--d:80ms">
+            <span class="contact-icon"><Icon name="phone" class="h-6 w-6" /></span>
+            <span class="min-w-0">
+              <span class="eyebrow block text-brass">Call</span>
+              <span class="mt-2 block whitespace-nowrap font-display text-2xl leading-tight text-ink">{site.phone}</span>
+              <span class="contact-cta">Tap to call <Icon name="arrow" class="h-4 w-4" /></span>
+            </span>
           </a>
-          <p class="flex gap-3 text-lg">
-            <Icon name="mail" class="mt-1 h-5 w-5 flex-none text-burgundy" />
-            {isPlaceholder(site.email) ? <Text value={site.email} /> : <a href={`mailto:${site.email}`} class="hover:text-burgundy">{site.email}</a>}
-          </p>
-          {socialLinks.map((s) => (
-            <a href={s.url} target="_blank" rel="noopener noreferrer" class="flex gap-3 text-lg hover:text-burgundy">
-              <Icon name={s.icon as 'instagram'} class="mt-1 h-5 w-5 flex-none text-burgundy" /> {s.name}<span class="sr-only"> (opens in a new tab)</span>
+
+          {hasEmail && (
+            <a href={`mailto:${site.email}`} class="contact-card reveal group" style="--d:160ms">
+              <span class="contact-icon"><Icon name="mail" class="h-6 w-6" /></span>
+              <span class="min-w-0">
+                <span class="eyebrow block text-brass">Email</span>
+                <span class="mt-2 block text-lg font-semibold text-ink [overflow-wrap:anywhere]">{site.email.split('@')[0]}<wbr />@{site.email.split('@')[1]}</span>
+                <span class="contact-cta">Send a message <Icon name="arrow" class="h-4 w-4" /></span>
+              </span>
             </a>
-          ))}
-          <GoogleReviewButton variant="link" class="text-lg text-burgundy" />
-        </address>
-        <div class="reveal mt-8"><HoursTable /></div>
+          )}
+
+          <div class="contact-card reveal sm:col-span-2 lg:col-span-1" style="--d:240ms">
+            <span class="contact-icon"><Icon name="star" class="h-6 w-6" /></span>
+            <span class="min-w-0 flex-1">
+              <span class="eyebrow block text-brass">Follow &amp; review</span>
+              <span class="mt-3 flex flex-wrap gap-2.5">
+                {socialLinks.map((s) => (
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" class="chip">
+                    <Icon name={s.icon as 'instagram'} class="h-4 w-4" /> {s.name}<span class="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ))}
+                <a href={site.googleReviewUrl} target="_blank" rel="noopener noreferrer" class="chip chip-primary">
+                  <Icon name="star" class="h-4 w-4" /> Review us on Google<span class="sr-only"> (opens in a new tab)</span>
+                </a>
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <Map class="reveal h-full min-h-[22rem] rounded-[1.5rem] [&_iframe]:h-full [&_iframe]:min-h-[22rem]" />
       </div>
-      <Map class="reveal self-start" />
+
+      <p class="reveal mt-8 text-sm text-muted">Store hours are listed at the bottom of every page. {fullAddress}.</p>
     </div>
   </section>
+
   {(credits.length > 0 || pexels) && (
     <section class="border-t border-line py-10" aria-labelledby="credits-title">
       <div class="container-x">
         <details class="text-sm text-muted">
           <summary id="credits-title" class="cursor-pointer font-semibold text-ink">Photo credits</summary>
-          <p class="mt-3">Photos on this site show the products and styles we carry, not our store. Bottle photos come from <a class="underline" href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> under their free licenses, credited below.</p>
+          <p class="mt-3">Some photos on this site show the products and styles we carry rather than our store. Bottle photos come from <a class="underline" href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> under their free licenses, credited below.</p>
           {pexels && <p class="mt-2">{pexels}</p>}
           <ul class="mt-3 grid gap-1 sm:grid-cols-2">
             {credits.map((c) => (
@@ -102,3 +178,22 @@ const pexels = pexelsNote();
     </section>
   )}
 </BaseLayout>
+
+<style>
+  .contact-card {
+    display: flex; gap: 1.1rem; align-items: flex-start; min-width: 0;
+    padding: 1.4rem 1.5rem; border-radius: 1.25rem;
+    background: var(--color-paper); border: 1px solid var(--color-line);
+    transition: transform .6s var(--ease-expo), box-shadow .6s var(--ease-expo), border-color .4s;
+  }
+  a.contact-card:hover { transform: translateY(-3px); border-color: rgb(122 36 48 / .35); box-shadow: 0 24px 48px -28px rgb(30 26 24 / .45); }
+  .contact-icon { display: grid; place-items: center; flex: none; width: 3rem; height: 3rem; border-radius: 999px; background: var(--color-cream-2); color: var(--color-burgundy); transition: background .4s, color .4s; }
+  a.contact-card:hover .contact-icon { background: var(--color-burgundy); color: var(--color-cream); }
+  .contact-cta { margin-top: .9rem; display: inline-flex; align-items: center; gap: .4rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--color-burgundy); }
+  .contact-cta :global(svg) { transition: transform .5s var(--ease-expo); }
+  a.contact-card:hover .contact-cta :global(svg) { transform: translateX(4px); }
+  .chip { display: inline-flex; align-items: center; gap: .45rem; padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--color-line); font-weight: 600; font-size: .92rem; color: var(--color-ink); transition: background .3s, border-color .3s, color .3s; }
+  .chip:hover { border-color: var(--color-ink); }
+  .chip-primary { background: var(--color-burgundy); border-color: var(--color-burgundy); color: var(--color-cream); }
+  .chip-primary:hover { background: var(--color-burgundy-dark); border-color: var(--color-burgundy-dark); }
+</style>
