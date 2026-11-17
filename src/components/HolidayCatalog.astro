@@ -95,7 +95,7 @@ const searchText = (i: Item) =>
 </section>
 
 <!-- Sticky search + Categories menu -->
-<div class:list={["sticky z-40 border-y border-line bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/85", ads ? "top-16" : "top-[7.25rem]"]} data-gs-bar>
+<div class:list={["sticky z-40 border-y border-line bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/85", ads ? "top-16" : "top-[var(--header-h)]"]} data-gs-bar>
   <div class="container-x flex items-center gap-3 py-3">
     <label class="relative flex-1">
       <span class="sr-only">Search the Holiday Catalog</span>
@@ -261,7 +261,7 @@ const searchText = (i: Item) =>
 {ads && <AdsFooter />}
 
 <style>
-  /* Clear the sticky header (site header ~7.25rem, slim ads header 4rem) and search bar when jumping to a category. */
+  /* Clear the sticky header (site header 7rem, slim ads header 4rem) and search bar when jumping to a category. */
   .gs-section { scroll-margin-top: 13rem; }
   .gs-section.gs-ads { scroll-margin-top: 9.5rem; }
 </style>

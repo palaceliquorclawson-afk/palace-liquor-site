@@ -30,27 +30,28 @@ const side = tone === 'light' && !banner && image;
 const wide = tone === 'light' && banner && image;
 ---
 {cine ? (
-  <section class="hero-cinematic relative isolate overflow-hidden bg-ink text-cream">
-    <div class="absolute inset-0 -z-10 overflow-hidden">
+  <section class="hero-cinematic relative isolate flex flex-col overflow-hidden bg-ink text-cream">
+    <div class="container-x relative z-10 pb-12 pt-6 sm:pb-14 lg:pb-12 lg:pt-10">
+      {eyebrow && <p class="eyebrow anim-rise text-gold-light">{eyebrow}</p>}
+      <h1 class="hero-title-on-photo anim-rise mt-4 text-display lg:mt-5" style="--d:120ms" set:html={title} />
+      <div class="mt-6 flex flex-col gap-7 lg:mt-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        {subtitle && <p class="anim-rise max-w-lg text-lg text-cream/80 sm:text-xl" style="--d:240ms">{subtitle}</p>}
+        <div class="anim-rise flex-none" style="--d:360ms"><slot /></div>
+      </div>
+    </div>
+    <div class="hero-photo anim-unveil relative order-first lg:order-none" style="--d:200ms">
       <Picture
         src={image}
         alt={alt}
         formats={['avif', 'webp']}
-        widths={[800, 1200, 1448].filter((w) => w <= image.width)}
+        widths={[640, 960, 1448].filter((w) => w <= image.width)}
         sizes="100vw"
         loading="eager"
         fetchpriority="high"
-        class="anim-settle h-full w-full object-cover object-[55%_38%]"
+        class="anim-settle absolute inset-0 h-full w-full object-cover"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/10 to-ink/90"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/10 to-transparent"></div>
-      <slot name="overlay" />
-    </div>
-    <div class="container-x relative flex min-h-[inherit] flex-col justify-end pb-16 sm:pb-24">
-      {eyebrow && <p class="eyebrow anim-rise text-gold-light">{eyebrow}</p>}
-      <h1 class="hero-title-on-photo anim-rise mt-5 max-w-4xl text-display" style="--d:120ms" set:html={title} />
-      {subtitle && <p class="anim-rise mt-6 max-w-xl text-lg text-cream/85 sm:text-xl" style="--d:240ms">{subtitle}</p>}
-      <div class="anim-rise mt-9" style="--d:360ms"><slot /></div>
+      <div class="hero-fade-top pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
+      <div class="hero-fade-bot pointer-events-none absolute inset-x-0 bottom-0" aria-hidden="true"></div>
     </div>
   </section>
 ) : (
@@ -125,11 +126,20 @@ const wide = tone === 'light' && banner && image;
 )}
 
 <style>
-  /* Full-bleed hero: slides up under the sticky header and fills most of the first screen. */
+  /* Dark hero that starts under the sticky header. Desktop: text, then the storefront edge to edge.
+     Phones: the storefront first (so the sign shows on the first screen), fading into the text. */
   .hero-cinematic {
     margin-top: calc(-1 * var(--header-h));
     padding-top: var(--header-h);
-    min-height: min(100svh, 62rem);
   }
-  @media (max-width: 639px) { .hero-cinematic { min-height: min(92svh, 50rem); } }
+  .hero-photo { width: 100%; height: min(42vw, 70svh); overflow: hidden; }
+  .hero-photo :global(img) { object-position: 50% 78%; }
+  .hero-fade-top { top: -1px; height: 34%; background: linear-gradient(to bottom, var(--color-ink), transparent); }
+  .hero-fade-bot { bottom: -1px; height: 22%; background: linear-gradient(to top, rgb(30 26 24 / .55), transparent); }
+  @media (max-width: 1023px) {
+    .hero-photo { height: min(72vw, 52svh); }
+    .hero-photo :global(img) { object-position: 58% 52%; }
+    .hero-fade-top { height: 22%; opacity: .7; }
+    .hero-fade-bot { height: 40%; background: linear-gradient(to top, var(--color-ink), transparent); }
+  }
 </style>

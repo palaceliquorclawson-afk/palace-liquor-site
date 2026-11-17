@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ActionButtons from '../components/ActionButtons.astro';
-import StoreTour from '../components/StoreTour.astro';
 import CategoryTile from '../components/CategoryTile.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ImageSlot from '../components/ImageSlot.astro';
@@ -44,8 +43,7 @@ const eventOfferings = [
     photo="hero-home-dusk.jpg"
     photoAlt="The Palace Liquor storefront on 14 Mile Road, with its red sign and open front door"
   >
-    <ActionButtons tone="dark" />
-    <StoreTour slot="overlay" />
+    <ActionButtons tone="dark" class="max-sm:grid max-sm:grid-cols-2 max-sm:[&>a:first-child]:col-span-2 max-sm:[&>a:not(:first-child)]:px-3 max-sm:[&>a:not(:first-child)]:text-[0.95rem] [&>a]:whitespace-nowrap" />
   </Hero>
 
   <!-- Events & catering: the headline feature -->
