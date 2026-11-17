@@ -23,13 +23,19 @@
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --text-display: clamp(2.6rem, 7.2vw, 4.75rem);
-  --text-display--line-height: 1.02;
-  --text-h1: clamp(2.2rem, 6vw, 3.75rem);
-  --text-h1--line-height: 1.05;
-  --text-h2: clamp(1.8rem, 4.2vw, 2.75rem);
-  --text-h2--line-height: 1.1;
+  --text-display: clamp(2.8rem, 7.6vw, 5.5rem);
+  --text-display--line-height: 1.0;
+  --text-h1: clamp(2.3rem, 6vw, 3.9rem);
+  --text-h1--line-height: 1.04;
+  --text-h2: clamp(1.85rem, 4.2vw, 2.9rem);
+  --text-h2--line-height: 1.08;
+
+  /* Motion: one expressive ease for everything that moves. */
+  --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+:root { --header-h: 7rem; } /* status bar (2.5rem) + nav bar (4.5rem) */
 
 @layer base {
   html {
@@ -40,15 +46,18 @@
     background: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-sans);
+    font-size: 1.0625rem;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
+  em { font-style: italic; }
   p { text-wrap: pretty; }
   :focus-visible {
     outline: 3px solid var(--color-burgundy);
@@ -56,54 +65,69 @@
     border-radius: 4px;
   }
   /* The burgundy focus ring disappears on dark bands, so use cream there. */
-  :is(.bg-burgundy, .bg-burgundy-dark, .bg-ink) :focus-visible { outline-color: var(--color-cream); }
+  :is(.bg-burgundy, .bg-burgundy-dark, .bg-ink, .hero-cinematic) :focus-visible { outline-color: var(--color-cream); }
   .on-light :focus-visible, .bg-cream :focus-visible, .bg-paper :focus-visible {
     outline-color: var(--color-burgundy);
   }
-  [id] { scroll-margin-top: 7.5rem; }
+  [id] { scroll-margin-top: calc(var(--header-h) + 0.5rem); }
   [hidden]:where(:not([hidden='until-found'])) { display: none !important; }
   ::selection { background: var(--color-burgundy); color: var(--color-cream); }
 }
 
 @layer components {
-  .container-x { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
-  @media (min-width: 640px) { .container-x { padding-inline: 1.5rem; } }
+  .container-x { width: 100%; max-width: 74rem; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 640px) { .container-x { padding-inline: 2rem; } }
 
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
   }
 
+  /* Buttons: pill, calm, with a soft lift on hover. */
   .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    min-height: 3rem; padding: 0.75rem 1.4rem;
-    border-radius: 0.5rem; font-weight: 600; line-height: 1.2; text-decoration: none;
-    transition: background-color .2s, color .2s, border-color .2s, transform .2s;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+    min-height: 3.1rem; padding: 0.8rem 1.6rem;
+    border-radius: 999px; font-weight: 600; line-height: 1.2; text-decoration: none;
+    transition: background-color .25s, color .25s, border-color .25s,
+                transform .45s var(--ease-expo), box-shadow .45s var(--ease-expo);
   }
-  .btn:hover { transform: translateY(-1px); }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -14px rgb(30 26 24 / .45); }
+  .btn:active { transform: translateY(0); transition-duration: .1s; }
+  .btn svg { transition: transform .45s var(--ease-expo); }
+  .btn:hover svg:last-child:not(:first-child) { transform: translateX(3px); }
   .btn-primary { background: var(--color-burgundy); color: var(--color-cream); }
   .btn-primary:hover { background: var(--color-burgundy-dark); }
   .btn-gold { background: var(--color-cream); color: var(--color-burgundy); }
-  .btn-gold:hover { background: #fff; }
+  .btn-gold:hover { background: #fff; box-shadow: 0 14px 36px -12px rgb(0 0 0 / .5); }
   /* Outline buttons: use -light on burgundy/ink bands, -dark on cream/paper.
      -light: cream text 9.3:1 on burgundy; border at 60% cream is 4.3:1 (AA non-text).
      Hover/focus fills cream with burgundy text (9.3:1). */
   .btn-outline-light { border: 1.5px solid rgb(251 248 244 / .6); color: var(--color-cream); }
   .btn-outline-light:hover, .btn-outline-light:focus-visible { border-color: var(--color-cream); background: var(--color-cream); color: var(--color-burgundy); }
-  .btn-outline-dark { border: 1.5px solid var(--color-ink); color: var(--color-ink); }
-  .btn-outline-dark:hover, .btn-outline-dark:focus-visible { background: var(--color-ink); color: var(--color-cream); }
+  .btn-outline-dark { border: 1.5px solid rgb(30 26 24 / .8); color: var(--color-ink); }
+  .btn-outline-dark:hover, .btn-outline-dark:focus-visible { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-cream); }
 
-  .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1rem; }
+  .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1.25rem; }
+
+  /* Italic accent line inside a headline: <em> renders red and on its own line. */
+  .hero-title em { color: var(--color-burgundy); display: block; }
+  .hero-title-on-photo em { color: var(--color-gold-light); display: block; }
 
   /* Arched photo frame, used for hero and feature images. */
-  /* Italic accent line inside a headline: <em> renders red and on its own line. */
-  .hero-title em { font-style: italic; color: var(--color-burgundy); display: block; }
-  .hero-title-on-photo em { color: var(--color-gold-light); }
-
   .arch { border-radius: 14rem 14rem 0.875rem 0.875rem; overflow: hidden; border: 1px solid rgb(200 169 102 / .45); }
+
+  /* Nav links: sliding underline on hover, held on the current page. */
+  .nav-link { position: relative; padding-block: .45rem; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: .05rem; height: 1.5px;
+    background: currentColor; opacity: .9;
+    transform: scaleX(0); transform-origin: right;
+    transition: transform .45s var(--ease-expo);
+  }
+  .nav-link:hover::after, .nav-link[aria-current='page']::after { transform: scaleX(1); transform-origin: left; }
 
   /* Unfilled "[PLACEHOLDER ...]" text: easy to spot, still readable. */
   .placeholder-text {
@@ -118,7 +142,7 @@
   .field {
     width: 100%; min-height: 3rem; padding: .7rem .9rem; font-size: 1rem;
     background: #fff; color: var(--color-ink);
-    border: 1.5px solid #b9a98f; border-radius: .5rem;
+    border: 1.5px solid #b9a98f; border-radius: .75rem;
   }
   .field:focus { outline: 3px solid var(--color-burgundy); outline-offset: 1px; border-color: var(--color-burgundy); }
   .field[aria-invalid="true"] { border-color: #b3261e; }
@@ -130,13 +154,37 @@
 html.age-pending .site-content { visibility: hidden; }
 html:not(.age-pending) #age-gate { display: none; }
 
-/* ─── Subtle motion: only sections below the fold fade in (JS marks them), so
-   nothing on the first screen waits and no-JS visitors see everything. ─── */
-.reveal-pending { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-.reveal-pending.is-visible { opacity: 1; transform: none; }
+/* ─── Motion ─────────────────────────────────────────────────────
+   Two systems: (1) load animations on the first screen (CSS keyframes, no JS),
+   (2) scroll reveals below the fold (JS marks .reveal elements as pending).
+   `--d` on an element delays it, which is how groups stagger.               */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); filter: blur(8px); }
+  to   { opacity: 1; transform: none;             filter: blur(0); }
+}
+@keyframes settle {           /* a photo drifting from a slight zoom to rest */
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+@keyframes unveil {           /* a framed photo rising from behind its bottom edge */
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.anim-rise { animation: rise 1.1s var(--ease-expo) both; animation-delay: var(--d, 0ms); }
+.anim-settle { animation: settle 1.9s var(--ease-expo) both; }
+.anim-unveil { animation: unveil 1.2s var(--ease-expo) both; animation-delay: var(--d, 0ms); }
+
+.reveal-pending {
+  opacity: 0; transform: translateY(22px); filter: blur(6px);
+  transition: opacity .9s var(--ease-expo), transform .9s var(--ease-expo), filter .9s var(--ease-expo);
+  transition-delay: var(--d, 0ms);
+}
+.reveal-pending.is-visible { opacity: 1; transform: none; filter: blur(0); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal-pending { opacity: 1; transform: none; transition: none; }
+  .reveal-pending { opacity: 1; transform: none; filter: none; transition: none; }
+  .anim-rise, .anim-settle, .anim-unveil { animation: none; }
   .btn, .btn:hover { transition: none; transform: none; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

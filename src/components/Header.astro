@@ -1,22 +1,29 @@
 ---
+/**
+ * Site header: a slim status bar (open/closed, phone, DoorDash) over the main nav.
+ * tone "overlay" (home) starts transparent over the cinematic hero in cream text and
+ * turns solid cream once the page scrolls; "solid" is the everyday header.
+ */
 import { site, telHref, isPlaceholder } from '../site.config';
 import { nav } from '../lib/nav';
 import Icon from './Icon.astro';
 
+interface Props { tone?: 'solid' | 'overlay' }
+const { tone = 'solid' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/?$/, '/');
 const hasDoorDash = !isPlaceholder(site.doordashUrl);
 ---
-<header class="sticky top-0 z-50">
+<header class="site-header sticky top-0 z-50" data-tone={tone}>
   <!-- Status bar: open/closed, phone, DoorDash -->
   <div class="bg-burgundy text-cream">
-    <div class="container-x flex h-11 items-center justify-between gap-3 text-sm">
+    <div class="container-x flex h-10 items-center justify-between gap-3 text-[0.8rem]">
       <p class="flex min-w-0 items-center gap-2" data-open-status aria-live="polite">
-        <span class="status-dot h-2.5 w-2.5 flex-none rounded-full bg-cream/50" aria-hidden="true"></span>
+        <span class="status-dot h-2 w-2 flex-none rounded-full bg-cream/50" aria-hidden="true"></span>
         <span class="truncate font-medium" data-open-text>Open 7 days a week</span>
       </p>
-      <div class="flex flex-none items-center gap-2 sm:gap-4">
-        <a href={telHref} class="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 font-semibold hover:underline">
-          <Icon name="phone" class="h-5 w-5 sm:h-4 sm:w-4" />
+      <div class="flex flex-none items-center gap-2 sm:gap-5">
+        <a href={telHref} class="inline-flex min-h-10 min-w-10 items-center justify-center gap-1.5 font-semibold hover:underline">
+          <Icon name="phone" class="h-4 w-4" />
           <span class="hidden sm:inline">{site.phone}</span>
           <span class="sr-only sm:hidden">Call {site.phone}</span>
         </a>
@@ -26,9 +33,9 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
             target="_blank"
             rel="noopener noreferrer"
             onclick="gtag_report_conversion(); return true;"
-            class="inline-flex min-h-8 items-center gap-1.5 rounded-full bg-cream px-3 py-1 font-semibold text-burgundy hover:bg-white"
+            class="inline-flex min-h-7 items-center gap-1.5 rounded-full bg-cream px-3 font-semibold text-burgundy transition-colors hover:bg-white"
           >
-            <Icon name="bag" class="h-4 w-4" />
+            <Icon name="bag" class="h-3.5 w-3.5" />
             <span>DoorDash</span>
             <span class="sr-only">(opens in a new tab)</span>
           </a>
@@ -38,28 +45,25 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
   </div>
 
   <!-- Main navigation -->
-  <div class="border-b border-line bg-cream/95 text-ink backdrop-blur supports-[backdrop-filter]:bg-cream/85">
+  <div class="navbar border-b">
     <div class="container-x flex h-[4.5rem] items-center justify-between gap-4">
-      <a href="/" class="flex flex-none items-center gap-2.5" aria-label={`${site.name}, home`}>
-        <Icon name="crown" class="h-7 w-7 flex-none text-burgundy" />
+      <a href="/" class="brand flex flex-none items-center gap-2.5" aria-label={`${site.name}, home`}>
+        <Icon name="crown" class="brand-crown h-7 w-7 flex-none" />
         <span>
           <span class="block font-display text-xl font-bold leading-none tracking-wide sm:text-[1.4rem]">
-            Palace <span class="text-burgundy">Liquor</span>
+            Palace <span class="brand-accent">Liquor</span>
           </span>
-          <span class="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-muted">Clawson · Michigan</span>
+          <span class="brand-sub mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.22em]">Clawson · Michigan</span>
         </span>
       </a>
 
       <nav aria-label="Main" class="hidden xl:block">
-        <ul class="flex items-center gap-4 text-[0.875rem]">
+        <ul class="flex items-center gap-6 text-[0.875rem]">
           {nav.map((item) => (
             <li>
               <a
                 href={item.href}
-                class:list={[
-                  'whitespace-nowrap py-2 transition-colors hover:text-burgundy',
-                  path === item.href ? 'font-semibold text-burgundy' : 'text-muted',
-                ]}
+                class:list={['nav-link whitespace-nowrap transition-colors', path === item.href && 'font-semibold']}
                 aria-current={path === item.href ? 'page' : undefined}
               >{item.label}</a>
             </li>
@@ -69,7 +73,7 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
 
       <button
         type="button"
-        class="inline-flex h-11 items-center gap-2 rounded-lg border border-ink/25 px-3 text-xs font-semibold uppercase tracking-[0.14em] xl:hidden"
+        class="menu-btn inline-flex h-11 items-center gap-2 rounded-full border px-4 text-xs font-semibold uppercase tracking-[0.14em] transition-colors xl:hidden"
         aria-expanded="false"
         aria-controls="mobile-menu"
         data-menu-toggle
@@ -80,14 +84,14 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
       </button>
     </div>
 
-    <nav id="mobile-menu" aria-label="Main" class="hidden max-h-[calc(100dvh-7.25rem)] overflow-y-auto border-t border-line bg-cream xl:hidden" data-menu>
+    <nav id="mobile-menu" aria-label="Main" class="hidden max-h-[calc(100dvh-var(--header-h))] overflow-y-auto border-t border-line bg-cream text-ink xl:hidden" data-menu>
       <ul class="container-x grid gap-1 py-3">
         {nav.map((item, i) => (
           <li>
             <a
               href={item.href}
               class:list={[
-                'flex min-h-12 items-center gap-3 rounded-lg px-3 text-lg hover:bg-cream-2',
+                'flex min-h-12 items-center gap-3 rounded-xl px-3 text-lg transition-colors hover:bg-cream-2',
                 path === item.href ? 'font-semibold text-burgundy' : 'text-ink',
               ]}
               aria-current={path === item.href ? 'page' : undefined}
@@ -110,6 +114,39 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
   }
   [data-menu-toggle][aria-expanded='true'] :global(.menu-open-icon) { display: none; }
   [data-menu-toggle][aria-expanded='true'] :global(.menu-close-icon) { display: block; }
+
+  /* Solid state (default, and overlay once scrolled or with the menu open). */
+  .navbar {
+    background: rgb(251 248 244 / .95);
+    border-color: var(--color-line);
+    color: var(--color-ink);
+    backdrop-filter: blur(14px) saturate(1.3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    transition: background-color .5s var(--ease-expo), border-color .5s var(--ease-expo), color .5s var(--ease-expo);
+  }
+  .navbar .brand-crown, .navbar .brand-accent { color: var(--color-burgundy); transition: color .5s var(--ease-expo); }
+  .navbar .brand-sub { color: var(--color-muted); transition: color .5s var(--ease-expo); }
+  .navbar .nav-link { color: var(--color-muted); }
+  .navbar .nav-link:hover, .navbar .nav-link[aria-current='page'] { color: var(--color-burgundy); }
+  .navbar .menu-btn { border-color: rgb(30 26 24 / .25); }
+
+  /* Overlay state: transparent over the hero, cream text, gold accents. */
+  .site-header[data-tone='overlay']:not(.is-solid) .navbar {
+    background: transparent; border-color: transparent; color: var(--color-cream);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  .site-header[data-tone='overlay']:not(.is-solid) :is(.brand-crown, .brand-accent) { color: var(--color-gold-light); }
+  .site-header[data-tone='overlay']:not(.is-solid) .brand-sub { color: rgb(251 248 244 / .7); }
+  .site-header[data-tone='overlay']:not(.is-solid) .nav-link { color: rgb(251 248 244 / .85); }
+  .site-header[data-tone='overlay']:not(.is-solid) .nav-link:hover,
+  .site-header[data-tone='overlay']:not(.is-solid) .nav-link[aria-current='page'] { color: var(--color-cream); }
+  .site-header[data-tone='overlay']:not(.is-solid) .nav-link::after { background: var(--color-gold-light); }
+  .site-header[data-tone='overlay']:not(.is-solid) .menu-btn { border-color: rgb(251 248 244 / .45); color: var(--color-cream); }
+  /* Scrolled but still over the dark hero: dark frosted glass, same cream text. */
+  .site-header[data-tone='overlay'].is-glass:not(.is-solid) .navbar {
+    background: rgb(30 26 24 / .94); border-color: rgb(251 248 244 / .08);
+    backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
 </style>
 
 <script>
@@ -117,14 +154,32 @@ const hasDoorDash = !isPlaceholder(site.doordashUrl);
   renderOpenStatus();
   setInterval(renderOpenStatus, 60_000);
 
+  const header = document.querySelector<HTMLElement>('.site-header');
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-menu]');
   const label = document.querySelector('[data-menu-label]');
+
+  // Overlay header: transparent at the top, dark glass while over the dark hero,
+  // solid cream once the hero has scrolled away (or whenever the menu is open).
+  const hero = document.querySelector<HTMLElement>('.hero-cinematic');
+  const sync = () => {
+    const open = toggle?.getAttribute('aria-expanded') === 'true';
+    const navH = header?.offsetHeight ?? 0;
+    const pastHero = hero ? hero.getBoundingClientRect().bottom <= navH : window.scrollY > 24;
+    header?.classList.toggle('is-glass', window.scrollY > 8);
+    header?.classList.toggle('is-solid', open || pastHero);
+  };
+  if (header?.dataset.tone === 'overlay') {
+    sync();
+    addEventListener('scroll', sync, { passive: true });
+  }
+
   toggle?.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     toggle.setAttribute('aria-expanded', String(open));
     menu?.classList.toggle('hidden', !open);
     if (label) label.textContent = open ? 'Close' : 'Menu';
+    sync();
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {

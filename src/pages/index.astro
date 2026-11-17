@@ -33,21 +33,21 @@ const eventOfferings = [
 <BaseLayout
   title="Palace Liquor | Liquor Store in Clawson, MI"
   description="Palace Liquor is Clawson, Michigan's neighborhood liquor store for fine wine, craft beer, allocated bourbon and cigars, with Michigan state minimum pricing on spirits. Order on DoorDash or visit us on 14 Mile Rd."
+  headerTone="overlay"
 >
   <Hero
-    size="home"
-    banner
+    tone="cinematic"
     eyebrow="Clawson, Michigan"
     title="Clawson's go-to.<em>Cheers to the season.</em>"
     subtitle="Fine wine, craft beer, allocated bourbon and cigars. Your neighborhood liquor store on 14 Mile Road."
-    photo="hero-home.jpg"
+    photo="hero-home-dusk.jpg"
     photoAlt="The Palace Liquor storefront on 14 Mile Road, with its red sign and open front door"
   >
-    <ActionButtons tone="light" />
+    <ActionButtons tone="dark" class="max-sm:grid max-sm:grid-cols-2 max-sm:[&>a:first-child]:col-span-2 max-sm:[&>a:not(:first-child)]:px-3 max-sm:[&>a:not(:first-child)]:text-[0.95rem] [&>a]:whitespace-nowrap" />
   </Hero>
 
   <!-- Events & catering: the headline feature -->
-  <section class="relative isolate overflow-hidden bg-burgundy py-20 text-cream sm:py-28" aria-labelledby="events-title">
+  <section class="relative isolate overflow-hidden bg-burgundy py-24 text-cream sm:py-32" aria-labelledby="events-title">
     <div class="pointer-events-none absolute -left-32 -top-32 -z-10 h-96 w-96 rounded-full border border-gold/25" aria-hidden="true"></div>
     <div class="pointer-events-none absolute -bottom-40 -right-24 -z-10 h-[28rem] w-[28rem] rounded-full border border-gold/20" aria-hidden="true"></div>
     <div class="pointer-events-none absolute -bottom-24 -right-8 -z-10 h-72 w-72 rounded-full border border-gold/15" aria-hidden="true"></div>
@@ -60,8 +60,8 @@ const eventOfferings = [
       </p>
 
       <ul class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-8" aria-label="What we provide">
-        {eventOfferings.map((o) => (
-          <li class="flex w-24 flex-col items-center gap-2">
+        {eventOfferings.map((o, i) => (
+          <li class="reveal flex w-24 flex-col items-center gap-2" style={`--d:${i * 80}ms`}>
             <span class="grid h-16 w-16 place-items-center rounded-full border-2 border-gold/70 text-gold-light sm:h-20 sm:w-20">
               <Icon name={o.icon} class="h-8 w-8 sm:h-9 sm:w-9" />
             </span>
@@ -83,10 +83,10 @@ const eventOfferings = [
   </section>
 
   <!-- Categories -->
-  <section class="py-16 sm:py-24" aria-labelledby="shop-title">
+  <section class="py-20 sm:py-28" aria-labelledby="shop-title">
     <div class="container-x">
       <SectionHeading id="shop-title" eyebrow="Shop the store" title="Something for every pour." intro="From a special-occasion bottle to a cold six-pack on the way home, we've got you covered." />
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {categories.map((c, i) => <CategoryTile {...c} index={i + 1} />)}
       </div>
     </div>
@@ -139,7 +139,7 @@ const eventOfferings = [
   )}
 
   <!-- Visit -->
-  <section class="py-16 sm:py-24" aria-labelledby="visit-title">
+  <section class="py-20 sm:py-28" aria-labelledby="visit-title">
     <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-center">
       <div class="reveal">
         <SectionHeading id="visit-title" eyebrow="Visit us" title="Find us on 14 Mile." />

@@ -1,6 +1,7 @@
 ---
 import '@fontsource-variable/inter';
 import '@fontsource/playfair-display/latin-700.css';
+import '@fontsource/playfair-display/latin-700-italic.css';
 import '../styles/global.css';
 import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import playfairLatin from '@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2?url';
@@ -22,9 +23,11 @@ interface Props {
   chrome?: 'full' | 'none';
   /** Canonical path when this page duplicates another (e.g. "/events-catering/" for an ads copy). */
   canonicalPath?: string;
+  /** "overlay" starts the header transparent over a cinematic hero (home). */
+  headerTone?: 'solid' | 'overlay';
 }
 
-const { title, description, schema, noindex = false, chrome = 'full', canonicalPath } = Astro.props;
+const { title, description, schema, noindex = false, chrome = 'full', canonicalPath, headerTone = 'solid' } = Astro.props;
 const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url).href;
 const ogImage = new URL('/og-image.jpg', site.url).href;
 
@@ -126,7 +129,7 @@ const localBusiness = {
     <AgeGate />
     <div class="site-content flex min-h-screen flex-col">
       <a href="#main" class="sr-only z-[60] rounded-md bg-gold px-4 py-2 font-semibold text-ink focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
-      {chrome === 'full' && <Header />}
+      {chrome === 'full' && <Header tone={headerTone} />}
       <main id="main" tabindex="-1" class="flex-1 outline-none">
         <slot />
       </main>
@@ -140,7 +143,7 @@ const localBusiness = {
           entries.forEach((e) => {
             if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
           });
-        }, { rootMargin: '0px 0px -8% 0px' });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
         document.querySelectorAll('.reveal').forEach((el) => {
           if (el.getBoundingClientRect().top > innerHeight) {
             el.classList.add('reveal-pending');

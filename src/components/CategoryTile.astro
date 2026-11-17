@@ -1,4 +1,5 @@
 ---
+/** Editorial category tile: full-bleed photo with the title set over it. Hover lifts the photo; tiles stagger in on scroll. */
 import ImageSlot from './ImageSlot.astro';
 import Icon from './Icon.astro';
 import type { ComponentProps } from 'astro/types';
@@ -7,27 +8,39 @@ const { title, blurb, href, photo, icon, index = 1 } = Astro.props;
 ---
 <a
   href={href}
-  class="card group reveal flex flex-col overflow-hidden transition-colors hover:border-burgundy/40"
+  class="tile group reveal relative block overflow-hidden rounded-[1.25rem] bg-ink text-cream"
+  style={`--d:${(index - 1) * 90}ms`}
 >
-  <div class="overflow-hidden">
-    <ImageSlot
-      photo={photo}
-      alt=""
-      tone="light"
-      aspect="aspect-[16/11]"
-      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-      class="transition-transform duration-700 group-hover:scale-[1.04]"
-    />
-  </div>
-  <div class="flex flex-1 flex-col p-5 sm:p-6">
-    <div class="flex items-center gap-2">
-      <span class="font-display text-sm font-bold text-brass">{String(index).padStart(2, '0')}</span>
-      <Icon name={icon} class="h-5 w-5 text-brass/80" />
+  <ImageSlot
+    photo={photo}
+    alt=""
+    tone="dark"
+    aspect="aspect-[4/5] sm:aspect-square lg:aspect-[4/5]"
+    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+    class="tile-img"
+  />
+  <div class="tile-shade absolute inset-0" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+    <div class="flex items-center gap-2 text-gold-light">
+      <span class="font-display text-sm font-bold">{String(index).padStart(2, '0')}</span>
+      <Icon name={icon} class="h-[1.1rem] w-[1.1rem]" />
     </div>
-    <h3 class="mt-2 text-xl text-burgundy sm:text-2xl">{title}</h3>
-    <p class="mt-1 flex-1 text-[0.95rem] text-muted">{blurb}</p>
-    <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-ink">
-      Explore <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    <h3 class="mt-2 text-[1.65rem] leading-tight text-cream sm:text-3xl">{title}</h3>
+    <p class="mt-1.5 max-w-xs text-[0.95rem] leading-snug text-cream/75">{blurb}</p>
+    <span class="mt-4 inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-gold-light">
+      Explore <Icon name="arrow" class="tile-arrow h-4 w-4" />
     </span>
   </div>
 </a>
+
+<style>
+  .tile :global(.tile-img) { transition: transform 1.4s var(--ease-expo); transform-origin: 50% 60%; }
+  .tile:hover :global(.tile-img) { transform: scale(1.06); }
+  .tile-shade {
+    background: linear-gradient(to top, rgb(30 26 24 / .92) 0%, rgb(30 26 24 / .45) 40%, rgb(30 26 24 / 0) 72%);
+    transition: opacity .7s var(--ease-expo);
+  }
+  .tile:hover .tile-shade { opacity: .97; }
+  .tile-arrow { transition: transform .5s var(--ease-expo); }
+  .tile:hover .tile-arrow { transform: translateX(4px); }
+</style>

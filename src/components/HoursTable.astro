@@ -10,7 +10,7 @@ const { tone = 'light' } = Astro.props;
     {site.hours.map((h) => (
       <tr data-today-row={h.day} class:list={['hours-row border-b', tone === 'light' ? 'border-line' : 'border-white/10']}>
         <th scope="row" class="py-2.5 pr-4 font-medium">{h.day}</th>
-        <td class="py-2.5 text-right tabular-nums">{formatRange(h)}</td>
+        <td class="whitespace-nowrap py-2.5 pl-3 text-right tabular-nums">{formatRange(h)}</td>
       </tr>
     ))}
   </tbody>
