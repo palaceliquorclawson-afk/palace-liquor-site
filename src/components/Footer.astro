@@ -7,8 +7,8 @@ import HoursTable from './HoursTable.astro';
 const year = new Date().getFullYear();
 ---
 <footer class="bg-ink text-cream">
-  <div class="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
-    <div>
+  <div class="container-x grid gap-12 py-16 md:grid-cols-2 xl:grid-cols-[1.3fr_1.45fr_1fr_1fr]">
+    <div class="min-w-0 [overflow-wrap:anywhere]">
       <a href="/" class="flex items-center gap-2.5 font-display text-2xl font-bold">
         <Icon name="crown" class="h-8 w-8 text-gold" /> Palace <span class="text-gold">Liquor</span>
       </a>
@@ -23,7 +23,7 @@ const year = new Date().getFullYear();
         </a>
         {!isPlaceholder(site.email) && (
           <a href={`mailto:${site.email}`} class="flex gap-2 hover:text-gold">
-            <Icon name="mail" class="mt-0.5 h-5 w-5 flex-none text-gold" /> {site.email}
+            <Icon name="mail" class="mt-0.5 h-5 w-5 flex-none text-gold" /> <span>{site.email.split('@')[0]}<wbr />@{site.email.split('@')[1]}</span>
           </a>
         )}
       </address>
@@ -36,8 +36,8 @@ const year = new Date().getFullYear();
 
     <nav aria-label="Footer">
       <h2 class="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-gold">Explore</h2>
-      <ul class="mt-4 grid gap-2">
-        {nav.map((item) => <li><a href={item.href} class="text-cream/85 hover:text-gold">{item.label}</a></li>)}
+      <ul class="mt-4 grid text-[0.95rem]">
+        {nav.map((item) => <li><a href={item.href} class="block border-b border-transparent py-2 text-cream/85 hover:text-gold">{item.label}</a></li>)}
       </ul>
     </nav>
 
