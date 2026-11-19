@@ -176,8 +176,8 @@
       "description": "Rich, bold, and full of character. A unique bourbon hand-selected exclusively for our customers. Limited quantities available: stop by Palace Liquor in Clawson and grab your bottle while supplies last.",
       "size": "750 mL",
       "abv": "49.3%",
-      "price": null,
-      "price_number": null,
+      "price": "$44.99",
+      "price_number": 44.99,
       "badges": [
         "Store pick",
         "Exclusive",
