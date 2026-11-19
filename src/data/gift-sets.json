@@ -171,6 +171,31 @@
     },
     {
       "category": "Bourbon",
+      "name": "1792 Single Barrel",
+      "tagline": "Exclusive Palace Liquor store pick",
+      "description": "Rich, bold, and full of character. A unique bourbon hand-selected exclusively for our customers. Limited quantities available: stop by Palace Liquor in Clawson and grab your bottle while supplies last.",
+      "size": "750 mL",
+      "abv": "49.3%",
+      "price": null,
+      "price_number": null,
+      "badges": [
+        "Store pick",
+        "Exclusive",
+        "Limited quantities"
+      ],
+      "includes": [
+        "1792 Single Barrel Kentucky Straight Bourbon, 750 mL",
+        "98.6 proof",
+        "Hand-selected barrel exclusive to Palace Liquor"
+      ],
+      "includes_label": "The details",
+      "image": "images/bourbon-1792-single-barrel-store-pick.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "1792 Single Barrel bourbon, an exclusive Palace Liquor store pick"
+    },
+    {
+      "category": "Bourbon",
       "name": "Eagle Rare 10 Year",
       "tagline": "Kentucky straight bourbon whiskey, aged 10 years",
       "size": "750 mL",

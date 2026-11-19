@@ -28,6 +28,8 @@ type Item = {
   category: string;
   name: string;
   tagline?: string | null;
+  /** Optional longer note shown on the card (e.g. a store-pick blurb). */
+  description?: string | null;
   size?: string | null;
   abv?: string | null;
   price?: string | null;
@@ -54,7 +56,7 @@ const sections = data.categories
 
 // Text the search box matches against (accents stripped, so "patron" finds "Patrón").
 const searchText = (i: Item) =>
-  [i.name, i.tagline, i.category, i.size, ...(i.badges ?? []), ...(i.includes ?? [])]
+  [i.name, i.tagline, i.description, i.category, i.size, ...(i.badges ?? []), ...(i.includes ?? [])]
     .filter(Boolean)
     .join(' ')
     .toLowerCase()
@@ -186,6 +188,7 @@ const searchText = (i: Item) =>
                       {[item.size, item.abv && `${item.abv} ABV`].filter(Boolean).join(' · ')}
                     </p>
                   )}
+                  {item.description && <p class="mt-3 border-l-2 border-gold pl-3 text-[0.95rem] leading-relaxed text-ink/80">{item.description}</p>}
                   {item.includes && item.includes.length > 0 && (
                     <div class="mt-4">
                       <p class="text-sm font-semibold uppercase tracking-wider text-brass">{item.includes_label || "What's included"}</p>
