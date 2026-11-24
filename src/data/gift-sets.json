@@ -1115,6 +1115,50 @@
     },
     {
       "category": "Beer",
+      "name": "Goose Island Bourbon County 2026 Variants",
+      "tagline": "This year's bourbon barrel-aged stout variants, priced per bottle",
+      "size": null,
+      "abv": null,
+      "price": "$24.99 + deposit",
+      "price_number": "24.99",
+      "badges": [
+        "New 2026 release",
+        "Available Fri, Nov 27"
+      ],
+      "includes": [
+        "Tiramisu Cask Finish Stout",
+        "Apple Crisp Stout"
+      ],
+      "includes_label": "Choose your variant",
+      "image": "images/beer-bourbon-county-2026-variants.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Goose Island Bourbon County 2026 variants: Tiramisu Cask Finish Stout and Apple Crisp Stout"
+    },
+    {
+      "category": "Beer",
+      "name": "Goose Island Bourbon County Brand Stout 4-Pack",
+      "tagline": "The Original: the first-ever bourbon barrel-aged imperial stout",
+      "size": "4 × 12 fl oz bottles",
+      "abv": null,
+      "price": "$25.99 + deposit",
+      "price_number": "25.99",
+      "badges": [
+        "New 2026 release",
+        "Available Fri, Nov 27"
+      ],
+      "includes": [
+        "4 bottles of 2026 Bourbon County Brand Stout, 12 fl oz each",
+        "Made in Chicago since '92"
+      ],
+      "includes_label": "What's included",
+      "image": "images/beer-bourbon-county-2026-original-4-pack.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Goose Island Bourbon County Brand Stout 2026 four-pack of 12 oz bottles"
+    },
+    {
+      "category": "Beer",
       "name": "12 Days of Milkshake Stout 2026",
       "tagline": "Rochester Mills Beer Co. seasonal sampler pack",
       "size": "Sampler pack",
