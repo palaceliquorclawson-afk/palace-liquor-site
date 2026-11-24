@@ -5,6 +5,7 @@
     "Irish Whiskey",
     "Scotch",
     "Whiskey",
+    "Cognac",
     "Gin",
     "Vodka",
     "Soju",
@@ -177,7 +178,7 @@
       "size": "750 mL",
       "abv": "49.3%",
       "price": "$44.99",
-      "price_number": 44.99,
+      "price_number": "44.99",
       "badges": [
         "Store pick",
         "Exclusive",
@@ -679,6 +680,29 @@
       "alt": "Fireball holiday wreath gift box with 14 mini bottles",
       "image_width": 960,
       "image_height": 1200
+    },
+    {
+      "category": "Cognac",
+      "name": "Hennessy Very Special",
+      "tagline": "Cognac gift set with an exclusive Hennessy jigger",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [
+        "Holiday gift set",
+        "Exclusive jigger"
+      ],
+      "includes": [
+        "Hennessy Very Special Cognac, 750 mL",
+        "Exclusive Hennessy stainless steel jigger",
+        "Illustrated holiday gift box"
+      ],
+      "includes_label": "What's included",
+      "image": "images/cognac-hennessy-vs-jigger.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Hennessy Very Special Cognac holiday gift box with an exclusive Hennessy jigger"
     },
     {
       "category": "Gin",
