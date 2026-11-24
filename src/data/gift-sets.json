@@ -5,6 +5,7 @@
     "Irish Whiskey",
     "Scotch",
     "Whiskey",
+    "Cognac",
     "Gin",
     "Vodka",
     "Soju",
@@ -177,7 +178,7 @@
       "size": "750 mL",
       "abv": "49.3%",
       "price": "$44.99",
-      "price_number": 44.99,
+      "price_number": "44.99",
       "badges": [
         "Store pick",
         "Exclusive",
@@ -681,6 +682,52 @@
       "image_height": 1200
     },
     {
+      "category": "Cognac",
+      "name": "Hennessy Very Special",
+      "tagline": "Cognac gift set with an exclusive Hennessy jigger",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$39.99",
+      "price_number": "39.99",
+      "badges": [
+        "Holiday gift set",
+        "Exclusive jigger"
+      ],
+      "includes": [
+        "Hennessy Very Special Cognac, 750 mL",
+        "Exclusive Hennessy stainless steel jigger",
+        "Illustrated holiday gift box"
+      ],
+      "includes_label": "What's included",
+      "image": "images/cognac-hennessy-vs-jigger.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Hennessy Very Special Cognac holiday gift box with an exclusive Hennessy jigger"
+    },
+    {
+      "category": "Cognac",
+      "name": "Hennessy V.S.O.P",
+      "tagline": "Very Superior Old Pale cognac gift set with an exclusive Hennessy jigger",
+      "size": "750 mL",
+      "abv": "40%",
+      "price": "$59.99",
+      "price_number": "59.99",
+      "badges": [
+        "Holiday gift set",
+        "Exclusive jigger"
+      ],
+      "includes": [
+        "Hennessy V.S.O.P Cognac, 750 mL",
+        "Exclusive Hennessy stainless steel jigger",
+        "Illustrated holiday gift box"
+      ],
+      "includes_label": "What's included",
+      "image": "images/cognac-hennessy-vsop-jigger.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Hennessy V.S.O.P Cognac red holiday gift box with an exclusive Hennessy jigger"
+    },
+    {
       "category": "Gin",
       "name": "Hendrick's Gin",
       "tagline": "Rose and cucumber holiday box",
@@ -755,6 +802,30 @@
       "image_width": 960,
       "image_height": 1200,
       "alt": "Soonhari Variety 6-Pack gift set"
+    },
+    {
+      "category": "Wine",
+      "name": "Build Your Own Wine 4-Pack",
+      "tagline": "Pick any 4 bottles, save 10% on each",
+      "description": "Choose any 4 bottles of wine and we'll pack them in our custom Palace Liquor carrier, with 10% off each bottle. Perfect for holiday gifting, gatherings, or stocking up on your favorites.",
+      "size": "Any 4 bottles",
+      "abv": null,
+      "price": "10% off",
+      "price_number": null,
+      "badges": [
+        "Mix & match",
+        "Great for gifting"
+      ],
+      "includes": [
+        "Any 4 bottles of wine, your choice",
+        "10% off each bottle",
+        "Custom Palace Liquor 4-pack carrier"
+      ],
+      "includes_label": "How it works",
+      "image": "images/wine-build-your-own-4-pack.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Palace Liquor custom black wine 4-pack carrier with gold-capped bottles"
     },
     {
       "category": "Wine",
