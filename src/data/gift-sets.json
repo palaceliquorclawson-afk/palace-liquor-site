@@ -805,6 +805,30 @@
     },
     {
       "category": "Wine",
+      "name": "Build Your Own Wine 4-Pack",
+      "tagline": "Pick any 4 bottles, save 10% on each",
+      "description": "Choose any 4 bottles of wine and we'll pack them in our custom Palace Liquor carrier, with 10% off each bottle. Perfect for holiday gifting, gatherings, or stocking up on your favorites.",
+      "size": "Any 4 bottles",
+      "abv": null,
+      "price": "10% off",
+      "price_number": null,
+      "badges": [
+        "Mix & match",
+        "Great for gifting"
+      ],
+      "includes": [
+        "Any 4 bottles of wine, your choice",
+        "10% off each bottle",
+        "Custom Palace Liquor 4-pack carrier"
+      ],
+      "includes_label": "How it works",
+      "image": "images/wine-build-your-own-4-pack.jpg",
+      "image_width": 960,
+      "image_height": 1200,
+      "alt": "Palace Liquor custom black wine 4-pack carrier with gold-capped bottles"
+    },
+    {
+      "category": "Wine",
       "name": "Seaglass Wine Company",
       "tagline": "Central Coast wines, certified sustainable",
       "size": "750 mL",
